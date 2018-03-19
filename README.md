@@ -22,7 +22,7 @@ User-friendly Cash Journal for private Persons.
 <p>
 <b>Developed with:</b>
 <ul>
-<li>Java 8</li>
+<li>Java 9</li>
 <li>JavaFX</li>
 </ul>
 <p>
