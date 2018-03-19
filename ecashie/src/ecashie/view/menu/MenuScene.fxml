@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.menu.MenuSceneController">
+	<stylesheets>
+		<URL value="@/ecashie/resources/css/general.css" />
+		<URL value="@/ecashie/resources/css/menu.css" />
+	</stylesheets>
+	<children>
+		<GridPane layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="ALWAYS" minWidth="300.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints vgrow="ALWAYS" />
+				<RowConstraints vgrow="ALWAYS" />
+			</rowConstraints>
+			<children>
+				<ToggleButton id="menuToggleButton" fx:id="overviewToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionOverviewToggleButton" prefHeight="50.0">
+					<graphic>
+						<GridPane>
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+								<ColumnConstraints hgrow="ALWAYS" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<ImageView fitWidth="42.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+									<image>
+										<Image url="@../../resources/images/home_72x72.png" />
+									</image>
+								</ImageView>
+								<Label styleClass="menuLabel" text="%overview" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="20.0" />
+									</GridPane.margin>
+								</Label>
+							</children>
+							<padding>
+								<Insets left="-5.0" />
+							</padding>
+						</GridPane>
+					</graphic>
+				</ToggleButton>
+				<ToggleButton id="menuToggleButton" fx:id="transactionsToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onAction="#onActionTransactionsToggleButton" prefHeight="50.0" GridPane.rowIndex="1">
+					<graphic>
+						<GridPane>
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+								<ColumnConstraints hgrow="ALWAYS" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<ImageView fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+									<image>
+										<Image url="@../../resources/images/transactions_48x48.png" />
+									</image>
+								</ImageView>
+								<Label styleClass="menuLabel" text="%transactions" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="20.0" />
+									</GridPane.margin>
+								</Label>
+							</children>
+							<padding>
+								<Insets left="-5.0" />
+							</padding>
+						</GridPane>
+					</graphic>
+				</ToggleButton>
+				<ToggleButton id="menuToggleButton" fx:id="statisticsToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onAction="#onActionStatisticsToggleButton" prefHeight="50.0" selected="true" GridPane.rowIndex="2">
+					<graphic>
+						<GridPane>
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+								<ColumnConstraints hgrow="ALWAYS" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+									<image>
+										<Image url="@../../resources/images/statistics_64x64.png" />
+									</image>
+								</ImageView>
+								<Label styleClass="menuLabel" text="%statistics" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="20.0" />
+									</GridPane.margin>
+								</Label>
+							</children>
+							<padding>
+								<Insets left="-5.0" />
+							</padding>
+						</GridPane>
+					</graphic>
+				</ToggleButton>
+				<ToggleButton id="menuToggleButton" fx:id="budgetplanToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onAction="#onActionBudgetplanToggleButton" prefHeight="50.0" GridPane.rowIndex="3">
+					<graphic>
+						<GridPane>
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+								<ColumnConstraints hgrow="ALWAYS" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+									<image>
+										<Image url="@../../resources/images/budgetplan_48x48.png" />
+									</image>
+								</ImageView>
+								<Label styleClass="menuLabel" text="%budgetplan" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="20.0" />
+									</GridPane.margin>
+								</Label>
+							</children>
+							<padding>
+								<Insets left="-5.0" />
+							</padding>
+						</GridPane>
+					</graphic>
+				</ToggleButton>
+				<TitledPane fx:id="helpTitledPane" contentDisplay="RIGHT" expanded="false" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedHelpTitledPane" styleClass="subMenuTitledPane" GridPane.rowIndex="4">
+					<content>
+						<AnchorPane>
+							<children>
+								<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+									<columnConstraints>
+										<ColumnConstraints hgrow="SOMETIMES" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints vgrow="SOMETIMES" />
+										<RowConstraints vgrow="SOMETIMES" />
+										<RowConstraints vgrow="SOMETIMES" />
+										<RowConstraints vgrow="SOMETIMES" />
+										<RowConstraints vgrow="SOMETIMES" />
+									</rowConstraints>
+									<children>
+										<Button fx:id="manualButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionManualButton" prefHeight="50.0" GridPane.halignment="LEFT">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="24.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/manual_34x42.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%manual" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</Button>
+										<Button fx:id="reportBugButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionReportBugButton" prefHeight="50.0" GridPane.rowIndex="1">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/bugs_32x32.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%reportBug" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</Button>
+										<Button fx:id="suggestFeatureButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionSuggestFeatureButton" prefHeight="50.0" GridPane.rowIndex="2">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/suggestions_32x32.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%suggestFeature" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</Button>
+										<Button fx:id="participateButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionParticipateButton" prefHeight="50.0" GridPane.rowIndex="3">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/participate_32x32.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%participate" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</Button>
+										<ToggleButton id="subMenuToggleButton" fx:id="aboutToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionAboutToggleButton" prefHeight="50.0" GridPane.rowIndex="4">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/logo_48x48.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%about" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</ToggleButton>
+									</children>
+									<padding>
+										<Insets left="-6.0" />
+									</padding>
+								</GridPane>
+							</children>
+						</AnchorPane>
+					</content>
+					<effect>
+						<Blend />
+					</effect>
+					<graphic>
+						<GridPane prefWidth="267.0">
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+								<ColumnConstraints hgrow="ALWAYS" />
+								<ColumnConstraints />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+									<image>
+										<Image url="@../../resources/images/help_48x48.png" />
+									</image>
+								</ImageView>
+								<Label styleClass="menuTitledPaneLabel" text="%help" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="20.0" />
+									</GridPane.margin>
+								</Label>
+								<ImageView id="subMenuArrow" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+									<GridPane.margin>
+										<Insets right="15.0" />
+									</GridPane.margin>
+								</ImageView>
+							</children>
+							<padding>
+								<Insets left="-5.0" />
+							</padding>
+						</GridPane>
+					</graphic>
+				</TitledPane>
+				<TitledPane fx:id="settingsTitledPane" contentDisplay="RIGHT" expanded="false" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedSettingsTitledPane" styleClass="subMenuTitledPane" GridPane.rowIndex="5">
+					<effect>
+						<Blend />
+					</effect>
+					<content>
+						<AnchorPane prefHeight="200.0" prefWidth="200.0">
+							<children>
+								<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+									<columnConstraints>
+										<ColumnConstraints hgrow="SOMETIMES" />
+									</columnConstraints>
+									<rowConstraints>
+										<RowConstraints vgrow="SOMETIMES" />
+										<RowConstraints vgrow="SOMETIMES" />
+										<RowConstraints vgrow="SOMETIMES" />
+									</rowConstraints>
+									<children>
+										<ToggleButton id="subMenuToggleButton" fx:id="generalSettingsToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onAction="#onActionGeneralSettingsToggleButton" prefHeight="50.0">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/settings_48x48.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%general" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</ToggleButton>
+										<ToggleButton id="subMenuToggleButton" fx:id="bankaccountsSettingsToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onAction="#onActionBankaccountsSettingsToggleButton" prefHeight="50.0" GridPane.rowIndex="1">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/settings_48x48.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%bankaccounts" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</ToggleButton>
+										<ToggleButton id="subMenuToggleButton" fx:id="categoriesSettingsToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onAction="#onActionCategoriesSettingsToggleButton" prefHeight="50.0" GridPane.rowIndex="2">
+											<graphic>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+															<image>
+																<Image url="@../../resources/images/settings_48x48.png" />
+															</image>
+														</ImageView>
+														<Label styleClass="menuLabel" text="%categories" GridPane.columnIndex="1">
+															<GridPane.margin>
+																<Insets left="20.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+												</GridPane>
+											</graphic>
+										</ToggleButton>
+									</children>
+                           <padding>
+                              <Insets left="-6.0" />
+                           </padding>
+								</GridPane>
+							</children>
+						</AnchorPane>
+					</content>
+					<graphic>
+						<GridPane prefWidth="267.0">
+							<columnConstraints>
+								<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="45.0" />
+								<ColumnConstraints hgrow="ALWAYS" />
+								<ColumnConstraints />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints vgrow="SOMETIMES" />
+							</rowConstraints>
+							<children>
+								<ImageView fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+									<image>
+										<Image url="@../../resources/images/settings_48x48.png" />
+									</image>
+								</ImageView>
+								<Label styleClass="menuTitledPaneLabel" text="%settings" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="20.0" />
+									</GridPane.margin>
+								</Label>
+								<ImageView id="subMenuArrow" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+									<GridPane.margin>
+										<Insets right="15.0" />
+									</GridPane.margin>
+								</ImageView>
+							</children>
+							<padding>
+								<Insets left="-5.0" />
+							</padding>
+						</GridPane>
+					</graphic>
+				</TitledPane>
+			</children>
+		</GridPane>
+	</children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+.pane
+{
+	-fx-border-color: darkgray;
+	-fx-background-color: white;
+}
+
+#info
+{
+	-fx-image: url("/ecashie/resources/images/info_32x32.png");
+}
+
+#warning
+{
+	-fx-image: url("/ecashie/resources/images/warning_32x32.png");
+}
+
+#error
+{
+	-fx-image: url("/ecashie/resources/images/error_32x32.png");
+}
+
+#closeButton
+{
+	-fx-background-color: white;
+	-fx-border-width: 0.0 0.0 1.0 1.0;
+	-fx-border-color: darkgray;
+}
+
+#closeButton:hover
+{
+	-fx-background-color: lightgray;
+}

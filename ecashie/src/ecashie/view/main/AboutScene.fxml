@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.main.AboutSceneController">
+	<children>
+		<GridPane layoutX="10.0" layoutY="6.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints vgrow="NEVER" />
+				<RowConstraints vgrow="NEVER" />
+				<RowConstraints minHeight="5.0" vgrow="NEVER" />
+				<RowConstraints vgrow="ALWAYS" />
+			</rowConstraints>
+			<children>
+				<Separator prefHeight="0.0" prefWidth="684.0" GridPane.rowIndex="1" />
+				<GridPane>
+					<columnConstraints>
+						<ColumnConstraints hgrow="NEVER" minWidth="140.0" />
+						<ColumnConstraints hgrow="NEVER" minWidth="95.0" />
+						<ColumnConstraints hgrow="NEVER" />
+						<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="400.0" prefWidth="400.0" />
+						<ColumnConstraints hgrow="ALWAYS" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="32.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="32.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="32.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<children>
+						<Label text="%versionNumber">
+							<font>
+								<Font name="Open Sans Bold" size="14.0" />
+							</font>
+						</Label>
+						<Label text="%licenseTerms" GridPane.columnIndex="3">
+							<font>
+								<Font name="Open Sans Bold" size="14.0" />
+							</font>
+						</Label>
+						<Label text="%versionReleaseDate" GridPane.rowIndex="1">
+							<font>
+								<Font name="Open Sans Bold" size="14.0" />
+							</font>
+						</Label>
+						<Label fx:id="versionNumberLabel" GridPane.columnIndex="1">
+							<font>
+								<Font name="Open Sans" size="14.0" />
+							</font>
+						</Label>
+						<Label fx:id="releaseDateLabel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+							<font>
+								<Font name="Open Sans" size="14.0" />
+							</font>
+						</Label>
+						<Label text="%licenseTermsText" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="TOP">
+							<font>
+								<Font name="Open Sans" size="14.0" />
+							</font>
+							<padding>
+								<Insets top="-3.0" />
+							</padding>
+						</Label>
+						<Separator orientation="VERTICAL" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowSpan="3">
+							<GridPane.margin>
+								<Insets right="5.0" />
+							</GridPane.margin>
+						</Separator>
+						<Label text="%lastRelease" GridPane.rowIndex="2">
+							<font>
+								<Font name="Open Sans Bold" size="14.0" />
+							</font>
+						</Label>
+						<Hyperlink fx:id="lastReleaseHyperlink" onAction="#onActionLastReleaseHyperlink" prefWidth="310.0" text="https://github.com/Nighty42/eCashie/releases" GridPane.columnIndex="1" GridPane.rowIndex="2">
+							<font>
+								<Font name="Open Sans" size="14.0" />
+							</font>
+							<padding>
+								<Insets left="-1.0" />
+							</padding>
+						</Hyperlink>
+					</children>
+				</GridPane>
+				<TabPane id="aboutTabPane" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="3">
+					<tabs>
+						<Tab id="licenseTab" closable="false" text="%license">
+							<content>
+								<AnchorPane>
+									<padding>
+										<Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+									</padding>
+									<children>
+										<GridPane AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+											<columnConstraints>
+												<ColumnConstraints hgrow="SOMETIMES" />
+												<ColumnConstraints hgrow="ALWAYS" />
+											</columnConstraints>
+											<rowConstraints>
+												<RowConstraints vgrow="SOMETIMES" />
+												<RowConstraints vgrow="ALWAYS" />
+											</rowConstraints>
+											<children>
+												<Label fx:id="copyrightTextLabel" minWidth="300.0">
+													<font>
+														<Font name="Open Sans Italic" size="14.0" />
+													</font>
+													<GridPane.margin>
+														<Insets bottom="25.0" />
+													</GridPane.margin>
+												</Label>
+												<ScrollPane fitToWidth="true" GridPane.columnSpan="2" GridPane.rowIndex="1">
+													<content>
+														<Label id="lineSpacing" alignment="TOP_LEFT" text="%licenseText" textAlignment="JUSTIFY" wrapText="true">
+															<font>
+																<Font name="Open Sans" size="14.0" />
+															</font>
+														</Label>
+													</content>
+												</ScrollPane>
+											</children>
+										</GridPane>
+									</children>
+								</AnchorPane>
+							</content>
+						</Tab>
+						<Tab id="contributorTab" closable="false" text="%contributor">
+							<content>
+								<AnchorPane>
+									<children>
+										<TableView fx:id="contributorTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<columns>
+												<TableColumn fx:id="contributorNameTableColumn" editable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" resizable="false" text="%contributor" />
+												<TableColumn fx:id="contributorRolesTableColumn" editable="false" maxWidth="1.7976931348623157E308" text="%roles" />
+											</columns>
+											<columnResizePolicy>
+												<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+											</columnResizePolicy>
+										</TableView>
+									</children>
+									<padding>
+										<Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+									</padding>
+								</AnchorPane>
+							</content>
+						</Tab>
+						<Tab id="graphicDesignTab" closable="false" text="%graphicalDesign">
+							<content>
+								<AnchorPane>
+									<children>
+										<TableView fx:id="imageSourcesTableView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+											<columns>
+												<TableColumn fx:id="imageSourcesIdentifierTableColumn" editable="false" maxWidth="39.0" minWidth="39.0" prefWidth="39.0" resizable="false" sortable="false" />
+												<TableColumn fx:id="imageSourcesDesignerTableColumn" editable="false" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" resizable="false" text="%designer" />
+												<TableColumn fx:id="imageSourcesLicenseTableColumn" editable="false" text="%license" />
+												<TableColumn fx:id="imageSourcesCommentTableColumn" editable="false" text="%comment" />
+												<TableColumn fx:id="imageSourcesHomepageTableColumn" editable="false" text="%homepage" />
+												<TableColumn fx:id="imageSourcesSourceTableColumn" editable="false" text="%source" />
+											</columns>
+											<columnResizePolicy>
+												<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+											</columnResizePolicy>
+										</TableView>
+									</children>
+									<padding>
+										<Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+									</padding>
+								</AnchorPane>
+							</content>
+						</Tab>
+						<Tab id="versionNotesTab" closable="false" text="%versionNotes">
+							<content>
+								<AnchorPane>
+									<children>
+										<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+											<columnConstraints>
+												<ColumnConstraints hgrow="ALWAYS" />
+											</columnConstraints>
+											<rowConstraints>
+												<RowConstraints minHeight="34.0" vgrow="NEVER" />
+												<RowConstraints minHeight="10.0" vgrow="NEVER" />
+												<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
+											</rowConstraints>
+											<children>
+												<GridPane>
+													<columnConstraints>
+														<ColumnConstraints hgrow="SOMETIMES" />
+														<ColumnConstraints hgrow="ALWAYS" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<ComboBox fx:id="versionNumberComboBox" minWidth="120.0" GridPane.columnIndex="1" />
+														<Label text="%versionNumber">
+															<font>
+																<Font name="Open Sans Bold" size="16.0" />
+															</font>
+															<GridPane.margin>
+																<Insets right="14.0" />
+															</GridPane.margin>
+														</Label>
+													</children>
+													<GridPane.margin>
+														<Insets left="4.0" />
+													</GridPane.margin>
+												</GridPane>
+												<GridPane gridLinesVisible="true" GridPane.rowIndex="2">
+													<columnConstraints>
+														<ColumnConstraints hgrow="NEVER" percentWidth="33.0" />
+														<ColumnConstraints hgrow="NEVER" percentWidth="34.0" />
+														<ColumnConstraints hgrow="NEVER" percentWidth="33.0" />
+													</columnConstraints>
+													<rowConstraints>
+														<RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="NEVER" />
+														<RowConstraints vgrow="SOMETIMES" />
+													</rowConstraints>
+													<children>
+														<StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+															<children>
+																<Label text="%newFunctions" StackPane.alignment="CENTER_LEFT">
+																	<font>
+																		<Font name="Open Sans Bold" size="16.0" />
+																	</font>
+																	<padding>
+																		<Insets left="12.0" />
+																	</padding>
+																</Label>
+															</children>
+															<GridPane.margin>
+																<Insets />
+															</GridPane.margin>
+														</StackPane>
+														<ScrollPane fitToWidth="true" GridPane.rowIndex="1">
+															<content>
+																<GridPane fx:id="newFunctionsGridPane" alignment="CENTER" vgap="10.0">
+																	<columnConstraints>
+																		<ColumnConstraints hgrow="NEVER" minWidth="20.0" />
+																		<ColumnConstraints hgrow="ALWAYS" />
+																	</columnConstraints>
+																	<rowConstraints>
+																		<RowConstraints vgrow="ALWAYS" />
+																	</rowConstraints>
+																</GridPane>
+															</content>
+                                             <GridPane.margin>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </GridPane.margin>
+														</ScrollPane>
+														<StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+															<children>
+																<Label text="%importantChanges" StackPane.alignment="CENTER_LEFT">
+																	<font>
+																		<Font name="Open Sans Bold" size="16.0" />
+																	</font>
+																	<padding>
+																		<Insets left="12.0" />
+																	</padding>
+																</Label>
+															</children>
+															<opaqueInsets>
+																<Insets />
+															</opaqueInsets>
+															<padding>
+																<Insets bottom="6.0" top="6.0" />
+															</padding>
+														</StackPane>
+														<ScrollPane fitToWidth="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+															<content>
+																<GridPane fx:id="importantChangesGridPane" alignment="CENTER" vgap="10.0">
+																	<columnConstraints>
+																		<ColumnConstraints hgrow="NEVER" minWidth="20.0" />
+																		<ColumnConstraints hgrow="ALWAYS" />
+																	</columnConstraints>
+																	<rowConstraints>
+																		<RowConstraints vgrow="ALWAYS" />
+																	</rowConstraints>
+																</GridPane>
+															</content>
+                                             <GridPane.margin>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </GridPane.margin>
+														</ScrollPane>
+														<StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
+															<children>
+																<Label text="%bugFixes" StackPane.alignment="CENTER_LEFT">
+																	<font>
+																		<Font name="Open Sans Bold" size="16.0" />
+																	</font>
+																	<StackPane.margin>
+																		<Insets />
+																	</StackPane.margin>
+																	<padding>
+																		<Insets left="12.0" />
+																	</padding>
+																</Label>
+															</children>
+														</StackPane>
+														<ScrollPane fitToWidth="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+															<content>
+																<GridPane fx:id="bugFixesGridPane" alignment="CENTER" vgap="10.0">
+																	<columnConstraints>
+																		<ColumnConstraints hgrow="NEVER" minWidth="20.0" />
+																		<ColumnConstraints hgrow="ALWAYS" />
+																	</columnConstraints>
+																	<rowConstraints>
+																		<RowConstraints vgrow="ALWAYS" />
+																	</rowConstraints>
+																</GridPane>
+															</content>
+                                             <GridPane.margin>
+                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                             </GridPane.margin>
+														</ScrollPane>
+													</children>
+												</GridPane>
+											</children>
+										</GridPane>
+									</children>
+									<padding>
+										<Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+									</padding>
+								</AnchorPane>
+							</content>
+						</Tab>
+					</tabs>
+					<opaqueInsets>
+						<Insets />
+					</opaqueInsets>
+				</TabPane>
+			</children>
+		</GridPane>
+	</children>
+	<stylesheets>
+		<URL value="@/ecashie/resources/css/about.css" />
+		<URL value="@/ecashie/resources/css/general.css" />
+	</stylesheets>
+</AnchorPane>

@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="708.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.main.settings.GeneralSettingsSceneController">
+   <children>
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS" prefWidth="35.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints maxHeight="-Infinity" vgrow="ALWAYS" />
+          <RowConstraints />
+          <RowConstraints vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <AnchorPane style="-fx-border-color: darkgray;">
+               <children>
+                  <Label layoutX="16.0" styleClass="borderedPaneTitle" text="%cashjournal" AnchorPane.leftAnchor="10.0">
+                     <padding>
+                        <Insets left="6.0" right="6.0" top="-10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Open Sans Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="35.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                        <ColumnConstraints />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="8.0" vgrow="NEVER" />
+                        <RowConstraints />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane id="successGridPane" fx:id="fileNameGridPane" GridPane.columnSpan="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                              <ColumnConstraints hgrow="ALWAYS" prefWidth="418.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label text="%label">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="fileNameTextField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label id="statusLabel" fx:id="fileNameStatusLabel" textFill="RED" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane id="successGridPane" fx:id="passwordGridPane" minHeight="-Infinity" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                              <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="375.0" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints />
+                              <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="ALWAYS" />
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label text="%password">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <PasswordField fx:id="passwordPasswordField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Open Sans" size="16.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </PasswordField>
+                              <TextField fx:id="passwordTextField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" visible="false" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionChangePasswordVisibility" prefHeight="34.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                 <graphic>
+                                    <ImageView id="passwordIsHidden" fx:id="passwordVisibilityImageView" fitWidth="24" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                                 <padding>
+                                    <Insets left="7.0" right="7.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <tooltip>
+                                    <Tooltip text="%showHidePassword" />
+                                 </tooltip>
+                              </Button>
+                              <Label id="statusLabel" fx:id="passwordStatusLabel" textFill="RED" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <GridPane hgap="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="35.0" vgrow="NEVER" />
+                           </rowConstraints>
+                           <children>
+                              <Spinner fx:id="passwordLengthSpinner" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="80.0" />
+                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionMinimumPasswordLength" GridPane.columnIndex="1">
+                                 <tooltip>
+                                    <Tooltip text="%minValue" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../resources/images/min_48x48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionMaximumPasswordLength" GridPane.columnIndex="2">
+                                 <tooltip>
+                                    <Tooltip text="%maxValue" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../resources/images/max_48x48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionGeneratePassword" GridPane.columnIndex="3">
+                                 <tooltip>
+                                    <Tooltip text="%generatePassword" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../resources/images/green_tick_32x32.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-1.0" top="-1.0" />
+                                 </padding>
+                              </Button>
+                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionCopyPassword" GridPane.columnIndex="4">
+                                 <tooltip>
+                                    <Tooltip text="%copyPassword" />
+                                 </tooltip>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../resources/images/copy_32x32.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-1.0" top="-1.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets top="8.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <Button fx:id="saveButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onActionSaveButton" prefHeight="34.0" prefWidth="120.0" text="%save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Open Sans Bold" size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="%save" />
+                           </tooltip>
+                        </Button>
+                        <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="12.0" />
+                           </GridPane.margin>
+                        </Separator>
+                        <Button fx:id="resetButton" disable="true" mnemonicParsing="false" onAction="#onActionResetButton" prefHeight="35.0" prefWidth="120.0" text="%reset" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Open Sans Bold" size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="%reset" />
+                           </tooltip>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </AnchorPane>
+            <AnchorPane style="-fx-border-color: darkgray;" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <children>
+                  <Label styleClass="borderedPaneTitle" text="%language_1" AnchorPane.leftAnchor="10.0">
+                     <padding>
+                        <Insets left="6.0" right="6.0" top="-10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Open Sans Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <GridPane AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" prefWidth="130.0" />
+                        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="332.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="NEVER" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="%language_2">
+                           <font>
+                              <Font name="Open Sans" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="15.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <ComboBox fx:id="languageComboBox" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="34.0" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane style="-fx-border-color: darkgray;" GridPane.columnIndex="3" GridPane.rowSpan="3">
+               <children>
+                  <Label styleClass="borderedPaneTitle" text="%currency" AnchorPane.leftAnchor="10.0">
+                     <padding>
+                        <Insets left="6.0" right="6.0" top="-10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Open Sans Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="35.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+                      <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="320.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                        <RowConstraints />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="10.0" vgrow="NEVER" />
+                      <RowConstraints />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                      <RowConstraints />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                        <RowConstraints />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints />
+                        <RowConstraints vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="%baseCurrency" wrapText="true">
+                           <font>
+                              <Font name="Open Sans" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <ComboBox fx:id="currencyComboBox" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="34.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+                        <GridPane id="successGridPane" fx:id="currencySymbolGridPane" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints hgrow="NEVER" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                              <RowConstraints />
+                              <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="%currencySymbol" wrapText="true">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="currencySymbolTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="90.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets right="30.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Open Sans" size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Label id="statusLabel" fx:id="currencySymbolStatusLabel" textFill="RED" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <RadioButton fx:id="currencySymbolAsSuffixRadioButton" mnemonicParsing="false" onAction="#onActionCurrencySymbolAsSuffixRadioButton" text="%suffix" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="currencySymbolPositionChoices" />
+                                 </toggleGroup>
+                                 <padding>
+                                    <Insets top="6.0" />
+                                 </padding>
+                              </RadioButton>
+                              <RadioButton fx:id="currencySymbolAsPrefixRadioButton" mnemonicParsing="false" onAction="#onActionCurrencySymbolAsPrefixRadioButton" text="%prefix" toggleGroup="$currencySymbolPositionChoices" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="30.0" />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets top="6.0" />
+                                 </padding>
+                              </RadioButton>
+                           </children>
+                        </GridPane>
+                        <GridPane id="successGridPane" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="%thousandsSeparator" wrapText="true">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <RadioButton fx:id="thousandsSeparatorAsCommaRadioButton" mnemonicParsing="false" onAction="#onActionThousandsSeparatorAsCommaRadioButton" text="%comma" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="30.0" />
+                                 </GridPane.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="thousandsSeparatorChoices" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="thousandsSeparatorAsSpaceRadioButton" mnemonicParsing="false" onAction="#onActionThousandsSeparatorAsSpaceRadioButton" text="%space" toggleGroup="$thousandsSeparatorChoices" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="30.0" />
+                                 </GridPane.margin>
+                              </RadioButton>
+                              <RadioButton fx:id="thousandsSeparatorAsDotRadioButton" mnemonicParsing="false" onAction="#onActionThousandsSeparatorAsDotRadioButton" text="%dot" toggleGroup="$thousandsSeparatorChoices" GridPane.columnIndex="4">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </GridPane>
+                        <GridPane id="successGridPane" GridPane.columnSpan="3" GridPane.rowIndex="6">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="NEVER" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="%decimalMark" wrapText="true">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <RadioButton fx:id="decimalMarkAsCommaRadioButton" mnemonicParsing="false" onAction="#onActionDecimalMarkAsCommaRadioButton" text="%comma" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="30.0" />
+                                 </GridPane.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="decimalMarkChoices" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="decimalMarkAsDotRadioButton" mnemonicParsing="false" onAction="#onActionDecimalMarkAsDotRadioButton" text="%dot" toggleGroup="$decimalMarkChoices" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </GridPane>
+                        <GridPane id="successGridPane" GridPane.columnSpan="3" GridPane.rowIndex="8">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" />
+                              <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="20.0" />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="418.0" />
+                              <ColumnConstraints hgrow="NEVER" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="NEVER" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="%numberOfDecimalPlaces" wrapText="true">
+                                 <font>
+                                    <Font name="Open Sans" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Spinner fx:id="numberOfDecimalPlacesSpinner" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                              </Spinner>
+                              <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onActionMinimumNumberOfDecimalPlaces" prefHeight="34.0" prefWidth="50.0" GridPane.columnIndex="3" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets right="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Open Sans" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../resources/images/min_48x48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="%minValue" />
+                                 </tooltip>
+                              </Button>
+                              <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onActionMaximumNumberOfDecimalPlaces" prefHeight="34.0" prefWidth="50.0" GridPane.columnIndex="4" GridPane.valignment="BOTTOM">
+                                 <font>
+                                    <Font name="Open Sans" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../resources/images/max_48x48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="%maxValue" />
+                                 </tooltip>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <GridPane style="-fx-border-width: 1 1 1 1; -fx-border-color: grey;" GridPane.columnSpan="3" GridPane.rowIndex="11">
+                          <columnConstraints>
+                            <ColumnConstraints />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="%preview" wrapText="true">
+                                 <font>
+                                    <Font name="Open Sans Bold" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="previewCurrencySettingsLabel" text="123.456,78 €" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Open Sans" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <stylesheets>
+      <URL value="@../../../resources/css/general.css" />
+      <URL value="@../../../resources/css/validation.css" />
+   </stylesheets>
+</AnchorPane>

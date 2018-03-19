@@ -1,0 +1,54 @@
+#failureGridPane .label
+{
+	-fx-text-fill: red;
+	-fx-wrap-text: true;
+}
+
+#failureGridPane .text-field
+{
+    -fx-border-color: #FF0000FF;
+    -fx-border-radius: 3.0;
+    -fx-padding: 4.3px 8.3px 4.3px 8.3px;
+}
+
+#failureGridPane .text-field:focused
+{
+	-fx-focus-color: #FF0000FF;
+	-fx-faint-focus-color: #FF000022;
+}
+
+#failureGridPane #statusImageView
+{
+	-fx-image: url("/ecashie/resources/images/failure_28x29.png");
+}
+
+#successGridPane #statusImageView
+{
+	-fx-image: url("/ecashie/resources/images/success_28x29.png");
+}
+
+#successGridPane #statusLabel
+{
+	-fx-min-height: 0.0;
+	-fx-pref-height: 0.0;
+	-fx-max-height: 0.0;
+}
+
+/*================================================================================*/
+/* Overwrite self-defined label color for context menu
+/*================================================================================*/
+
+#failureGridPane .context-menu .label
+{
+	-fx-text-fill: black;
+}
+
+#failureGridPane .context-menu .menu-item:hover .label
+{
+	-fx-text-fill: white;
+}
+
+#failureGridPane .context-menu .menu-item:focused .label
+{
+	-fx-text-fill: white;
+}
