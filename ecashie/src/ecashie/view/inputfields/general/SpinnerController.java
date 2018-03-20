@@ -1,6 +1,5 @@
 package ecashie.view.inputfields.general;
 
-import ecashie.controller.gui.SpinnerIncrementHandler;
 import ecashie.controller.validation.Validation;
 import ecashie.view.inputfields.InputField;
 import javafx.event.EventHandler;

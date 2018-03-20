@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.StreamHandler;
 
-import ecashie.controller.errorhandling.LoggingNotAvailableException;
+import ecashie.controller.exception.LoggingNotAvailableException;
 
 public class ApplicationLogger
 {

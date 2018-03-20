@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import org.hsqldb.HsqlException;
 
-import ecashie.controller.errorhandling.DatabaseBuildException;
+import ecashie.controller.exception.DatabaseBuildException;
 
 public class DatabaseBuilder
 {

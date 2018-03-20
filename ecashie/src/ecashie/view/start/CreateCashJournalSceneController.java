@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 import ecashie.controller.database.DatabaseAccess;
-import ecashie.controller.errorhandling.DatabasePasswordInvalidException;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.DatabasePasswordInvalidException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.gui.Navigation;
 import ecashie.model.settings.UserData;

@@ -3,9 +3,9 @@ package ecashie.controller.gui;
 import java.io.IOException;
 import java.net.URL;
 
+import ecashie.ExitApp;
 import ecashie.MainApp;
-import ecashie.MainAppController;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.model.settings.UserData;
 import ecashie.view.root.RootLayout;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +29,7 @@ public class GuiBuilder
 		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/images/logo_48x48.png")));
 
 		primaryStage.setOnCloseRequest((WindowEvent we) -> {
-			MainAppController.exitApplication();
+			ExitApp.exit();
 		});
 	}
 
@@ -158,7 +158,7 @@ public class GuiBuilder
 
 		FXMLLoader fxmlLoader = new FXMLLoader();
 		fxmlLoader.setLocation(urlScene);
-		fxmlLoader.setResources(MainAppController.ResourceBundle);
+		fxmlLoader.setResources(MainApp.ResourceBundle);
 
 		AnchorPane sceneContentPane = (AnchorPane) fxmlLoader.load();
 

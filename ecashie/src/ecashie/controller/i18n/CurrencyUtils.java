@@ -1,4 +1,4 @@
-package ecashie.controller.internationalization;
+package ecashie.controller.i18n;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

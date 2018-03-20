@@ -1,4 +1,4 @@
-package ecashie.controller.encryption;
+package ecashie.controller.crypto;
 
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;

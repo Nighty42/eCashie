@@ -15,7 +15,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.model.settings.UserData;
 
 public class ZipOperations

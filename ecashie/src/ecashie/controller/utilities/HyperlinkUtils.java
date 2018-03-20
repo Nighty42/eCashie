@@ -6,7 +6,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 
 public class HyperlinkUtils
 {

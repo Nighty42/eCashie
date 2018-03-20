@@ -12,10 +12,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ecashie.MainApp;
-import ecashie.MainAppController;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.internationalization.ResourceBundleString;
+import ecashie.controller.i18n.ResourceBundleString;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -104,7 +103,7 @@ public class Notification
 		{
 			FXMLLoader fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(urlScene);
-			fxmlLoader.setResources(MainAppController.ResourceBundle);
+			fxmlLoader.setResources(MainApp.ResourceBundle);
 			AnchorPane sceneContentPane = (AnchorPane) fxmlLoader.load();
 
 			notificationStage = new Popup();

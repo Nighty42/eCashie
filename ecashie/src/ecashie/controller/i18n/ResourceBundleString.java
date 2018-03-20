@@ -1,11 +1,11 @@
-package ecashie.controller.internationalization;
+package ecashie.controller.i18n;
 
 import java.text.MessageFormat;
 import java.util.MissingResourceException;
 
-import ecashie.MainAppController;
-import ecashie.controller.errorhandling.ResourceBundleException;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.MainApp;
+import ecashie.controller.exception.ResourceBundleException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 
 public class ResourceBundleString
 {
@@ -58,7 +58,7 @@ public class ResourceBundleString
 
 		try
 		{
-			localeString = MainAppController.ResourceBundle.getString(messageKey);
+			localeString = MainApp.ResourceBundle.getString(messageKey);
 
 			if (messageArgs != null)
 			{

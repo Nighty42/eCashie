@@ -8,12 +8,12 @@ import java.util.Locale;
 import java.util.Optional;
 
 import ecashie.controller.database.DatabaseAccess;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.Navigation;
-import ecashie.controller.internationalization.CurrencyUtils;
-import ecashie.controller.internationalization.LanguageUtils;
-import ecashie.controller.internationalization.SupportedCurrency;
-import ecashie.controller.internationalization.SupportedLanguage;
+import ecashie.controller.i18n.CurrencyUtils;
+import ecashie.controller.i18n.LanguageUtils;
+import ecashie.controller.i18n.SupportedCurrency;
+import ecashie.controller.i18n.SupportedLanguage;
 import ecashie.controller.validation.Validation;
 import ecashie.model.settings.AppSettings;
 import ecashie.model.settings.UserData;

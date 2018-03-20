@@ -1,8 +1,8 @@
-package ecashie.controller.errorhandling;
+package ecashie.controller.exception;
 
 import java.io.IOException;
 
-import ecashie.MainAppController;
+import ecashie.ExitApp;
 import ecashie.controller.utilities.FileOperations;
 import ecashie.model.settings.UserData;
 
@@ -26,6 +26,6 @@ public class DatabaseBuildException extends Exception
 			new UnexpectedBehaviourException();
 		}
 		
-		MainAppController.exitApplication();
+		ExitApp.exit();
 	}
 }

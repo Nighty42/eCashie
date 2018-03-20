@@ -1,4 +1,4 @@
-package ecashie.controller.errorhandling;
+package ecashie.controller.exception;
 
 public class DatabaseAccessException extends UnexpectedBehaviourException
 {

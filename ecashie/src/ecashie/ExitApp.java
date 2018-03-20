@@ -4,106 +4,30 @@ import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.Security;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.xml.sax.SAXException;
-
 import ecashie.controller.database.DatabaseAccess;
-import ecashie.controller.errorhandling.ExitApplicationFailedException;
-import ecashie.controller.errorhandling.GeneralExceptionHandler;
-import ecashie.controller.errorhandling.LoggingNotAvailableException;
-import ecashie.controller.errorhandling.ResourceBundleException;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.ExitApplicationFailedException;
+import ecashie.controller.exception.GeneralExceptionHandler;
+import ecashie.controller.exception.ResourceBundleException;
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.internationalization.LanguageUtils;
-import ecashie.controller.internationalization.ResourceBundleString;
+import ecashie.controller.i18n.ResourceBundleString;
 import ecashie.controller.logging.ApplicationLogger;
 import ecashie.controller.utilities.FileOperations;
-import ecashie.model.appdetails.AppDetails;
+import ecashie.controller.utilities.SocketListener;
 import ecashie.model.settings.AppSettings;
 import ecashie.model.settings.UserData;
 import ecashie.model.settings.UserSettings;
-import javafx.stage.Stage;
 
-public class MainAppController
+public class ExitApp
 {
-	public static ResourceBundle ResourceBundle;
-
-	public static void initialize(Stage primaryStage)
-	{
-		initializeLogging();
-		
-		try
-		{
-			readAppDetails();
-
-			readAppSettings();
-
-			initializeSecurityProvider();
-
-			initializeApplicationLanguage();
-
-			initializePrimaryStage(primaryStage);
-		}
-		catch (NullPointerException | SecurityException | IOException | IllegalArgumentException
-				| ParserConfigurationException | SAXException | XMLStreamException e)
-		{
-			new UnexpectedBehaviourException();
-		}
-	}
-
-	private static void initializePrimaryStage(Stage primaryStage)
-	{
-		GuiBuilder.primaryStage = primaryStage;
-
-		GuiBuilder.initializePrimaryStage();
-	}
-
-	private static void initializeLogging()
-	{
-		try
-		{
-			ApplicationLogger.setup();
-		}
-		catch (IOException e)
-		{
-			new LoggingNotAvailableException();
-		}
-	}
-
-	private static void initializeSecurityProvider() throws NullPointerException, SecurityException
-	{
-		Security.addProvider(new BouncyCastleProvider());
-	}
-
-	private static void initializeApplicationLanguage() throws IOException
-	{
-		LanguageUtils.changeLanguage(AppSettings.language);
-	}
-
-	private static void readAppDetails()
-			throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException, XMLStreamException
-	{
-		AppDetails.read();
-	}
-
-	private static void readAppSettings()
-			throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException
-	{
-		AppSettings.read();
-	}
-
-	public static void exitApplication()
+	public static void exit()
 	{
 		closePrimaryStage();
 
@@ -226,7 +150,7 @@ public class MainAppController
 		{
 			try
 			{
-				MainApp.closeServerSocket();
+				SocketListener.closeServerSocket();
 			}
 			catch (IOException e)
 			{

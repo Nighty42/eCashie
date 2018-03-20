@@ -1,6 +1,6 @@
-package ecashie.controller.errorhandling;
+package ecashie.controller.exception;
 
-import ecashie.MainAppController;
+import ecashie.ExitApp;
 
 public class UnexpectedBehaviourException extends Exception
 {
@@ -12,6 +12,6 @@ public class UnexpectedBehaviourException extends Exception
 		
 		GeneralExceptionHandler.logException(this, messageKey);
 		
-		MainAppController.exitApplication();
+		ExitApp.exit();
 	}
 }

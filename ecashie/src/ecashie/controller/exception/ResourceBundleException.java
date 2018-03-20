@@ -1,6 +1,6 @@
-package ecashie.controller.errorhandling;
+package ecashie.controller.exception;
 
-import ecashie.MainAppController;
+import ecashie.ExitApp;
 
 public class ResourceBundleException extends Exception
 {
@@ -15,6 +15,6 @@ public class ResourceBundleException extends Exception
 
 		GeneralExceptionHandler.logException(this, messageKey);
 
-		MainAppController.exitApplication();
+		ExitApp.exit();
 	}
 }

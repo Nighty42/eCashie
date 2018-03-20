@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.utilities.AlertMessage;
 import ecashie.controller.utilities.FileOperations;

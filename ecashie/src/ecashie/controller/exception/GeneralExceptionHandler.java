@@ -1,4 +1,4 @@
-package ecashie.controller.errorhandling;
+package ecashie.controller.exception;
 
 import java.util.Optional;
 import java.util.logging.Level;

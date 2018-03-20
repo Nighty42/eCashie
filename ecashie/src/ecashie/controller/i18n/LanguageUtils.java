@@ -1,4 +1,4 @@
-package ecashie.controller.internationalization;
+package ecashie.controller.i18n;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,8 +7,7 @@ import java.util.PropertyResourceBundle;
 import java.util.StringTokenizer;
 
 import ecashie.MainApp;
-import ecashie.MainAppController;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.model.settings.AppSettings;
 
 public class LanguageUtils
@@ -43,7 +42,7 @@ public class LanguageUtils
 			InputStream inputStream = MainApp.class.getResourceAsStream(
 					"/ecashie/resources/languages/" + AppSettings.language.getLocale().toString() + ".properties");
 
-			MainAppController.ResourceBundle = new PropertyResourceBundle(inputStream);
+			MainApp.ResourceBundle = new PropertyResourceBundle(inputStream);
 		}
 		catch (IOException e)
 		{

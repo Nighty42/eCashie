@@ -3,7 +3,7 @@ package ecashie.controller.utilities;
 import java.util.Optional;
 
 import ecashie.MainApp;
-import ecashie.controller.internationalization.ResourceBundleString;
+import ecashie.controller.i18n.ResourceBundleString;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;

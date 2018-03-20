@@ -1,4 +1,4 @@
-package ecashie.controller.gui;
+package ecashie.view.inputfields.general;
 
 import javafx.animation.AnimationTimer;
 import javafx.css.PseudoClass;

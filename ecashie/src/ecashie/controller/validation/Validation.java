@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.view.inputfields.InputField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

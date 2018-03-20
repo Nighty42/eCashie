@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import ecashie.controller.encryption.CryptoEngine;
+import ecashie.controller.crypto.CryptoEngine;
 import ecashie.controller.utilities.FileOperations;
 
 public class UserSettings

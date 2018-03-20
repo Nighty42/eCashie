@@ -1,4 +1,4 @@
-package ecashie.controller.encryption;
+package ecashie.controller.crypto;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -19,7 +19,7 @@ import javax.crypto.NoSuchPaddingException;
 
 import org.bouncycastle.util.Arrays;
 
-import ecashie.controller.errorhandling.DatabasePasswordInvalidException;
+import ecashie.controller.exception.DatabasePasswordInvalidException;
 import ecashie.controller.utilities.FileOperations;
 import ecashie.model.settings.UserData;
 

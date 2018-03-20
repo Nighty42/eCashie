@@ -3,7 +3,7 @@ package ecashie.view.main;
 import java.io.IOException;
 
 import ecashie.MainApp;
-import ecashie.controller.internationalization.ResourceBundleString;
+import ecashie.controller.i18n.ResourceBundleString;
 import ecashie.controller.utilities.GeneralOperations;
 import ecashie.controller.utilities.HyperlinkUtils;
 import ecashie.model.appdetails.AppDetails;

@@ -18,10 +18,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import ecashie.controller.internationalization.CurrencyUtils;
-import ecashie.controller.internationalization.LanguageUtils;
-import ecashie.controller.internationalization.SupportedCurrency;
-import ecashie.controller.internationalization.SupportedLanguage;
+import ecashie.controller.i18n.CurrencyUtils;
+import ecashie.controller.i18n.LanguageUtils;
+import ecashie.controller.i18n.SupportedCurrency;
+import ecashie.controller.i18n.SupportedLanguage;
 import ecashie.controller.utilities.FileOperations;
 
 public class AppSettings

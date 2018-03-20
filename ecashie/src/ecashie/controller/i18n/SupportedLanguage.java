@@ -1,4 +1,4 @@
-package ecashie.controller.internationalization;
+package ecashie.controller.i18n;
 
 import java.util.Locale;
 

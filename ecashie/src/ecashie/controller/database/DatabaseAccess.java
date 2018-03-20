@@ -16,11 +16,11 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import ecashie.controller.encryption.CryptoBytes;
-import ecashie.controller.encryption.CryptoEngine;
-import ecashie.controller.errorhandling.DatabaseAccessException;
-import ecashie.controller.errorhandling.DatabasePasswordInvalidException;
-import ecashie.controller.errorhandling.UnexpectedBehaviourException;
+import ecashie.controller.crypto.CryptoBytes;
+import ecashie.controller.crypto.CryptoEngine;
+import ecashie.controller.exception.DatabaseAccessException;
+import ecashie.controller.exception.DatabasePasswordInvalidException;
+import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.utilities.ZipOperations;
 import ecashie.model.settings.UserData;
 import ecashie.model.settings.UserSettings;
