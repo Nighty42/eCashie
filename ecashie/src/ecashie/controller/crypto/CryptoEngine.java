@@ -1,6 +1,5 @@
 package ecashie.controller.crypto;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -16,12 +15,13 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-
-import org.bouncycastle.util.Arrays;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 import ecashie.controller.exception.DatabasePasswordInvalidException;
+import ecashie.controller.settings.UserData;
 import ecashie.controller.utilities.FileOperations;
-import ecashie.model.settings.UserData;
 
 public class CryptoEngine
 {
@@ -48,7 +48,13 @@ public class CryptoEngine
 
 	// Verification Key: 128 Bit
 	public static byte[] VK = new byte[16];
-
+	
+	public static final String AES = "AES";
+	public static final String Serpent = "Serpent";
+	public static final String Threefish = "Threefish";
+	
+	public static String CipherMode = AES;
+	
 	// ================================================================================
 	// ENCRYPTION
 	// ================================================================================
@@ -99,7 +105,7 @@ public class CryptoEngine
 
 	private static void generateDEK() throws NoSuchAlgorithmException
 	{
-		List<byte[]> result = CryptoUtils.generateAESKey(16);
+		List<byte[]> result = CryptoUtils.generateSerpentKey(16);
 
 		DEK = result.get(0);
 	}
@@ -117,7 +123,7 @@ public class CryptoEngine
 	private static void encryptData() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
 			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
 	{
-		List<byte[]> result = CryptoUtils.AESCrypto(Cipher.ENCRYPT_MODE, DEK, null, DecryptedBytes);
+		List<byte[]> result = useCipher(Cipher.ENCRYPT_MODE, DEK, null, DecryptedBytes);
 
 		EncryptedBytes = result.get(0);
 	}
@@ -126,7 +132,8 @@ public class CryptoEngine
 	private static void encryptDEK() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
 			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
 	{
-		List<byte[]> result = CryptoUtils.AESCrypto(Cipher.ENCRYPT_MODE, KEK, IV, DEK);
+		List<byte[]> result = useCipher(Cipher.ENCRYPT_MODE, KEK, IV, DEK);
+		
 		DEK_Enc = result.get(0);
 	}
 
@@ -164,7 +171,7 @@ public class CryptoEngine
 
 		byte[] vk_pwd = result.get(1);
 
-		if (Arrays.areEqual(VK, vk_pwd))
+		if (org.bouncycastle.util.Arrays.areEqual(VK, vk_pwd))
 		{
 			KEK = result.get(0);
 			return true;
@@ -180,7 +187,7 @@ public class CryptoEngine
 	private static void decryptDEK() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
 			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
 	{
-		List<byte[]> result = CryptoUtils.AESCrypto(Cipher.DECRYPT_MODE, KEK, IV, DEK_Enc);
+		List<byte[]> result = useCipher(Cipher.DECRYPT_MODE, KEK, IV, DEK_Enc);
 
 		DEK = result.get(0);
 	}
@@ -189,7 +196,7 @@ public class CryptoEngine
 	private static void decryptData() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
 			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
 	{
-		List<byte[]> result = CryptoUtils.AESCrypto(Cipher.DECRYPT_MODE, DEK, null, EncryptedBytes);
+		List<byte[]> result = useCipher(Cipher.DECRYPT_MODE, DEK, null, EncryptedBytes);
 
 		DecryptedBytes = result.get(0);
 	}
@@ -228,13 +235,30 @@ public class CryptoEngine
 			}
 		}
 	}
-
+	
 	// ================================================================================
-	// UTILITIES
+	// Algorithms for En-/Decryption
 	// ================================================================================
-
-	public static String getAsString(byte[] input) throws UnsupportedEncodingException
+	
+	public static List<byte[]> useCipher(int encryptMode, byte[] key, byte[] iv, byte[] inputBytes)
+			throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
+			BadPaddingException, InvalidAlgorithmParameterException
 	{
-		return new String(input, "UTF-8");
+		SecretKey secretKey = new SecretKeySpec(key, 0, key.length, CipherMode);
+		Cipher cipher = Cipher.getInstance(CipherMode);
+
+		if (iv != null)
+		{
+			IvParameterSpec ivSpec = new IvParameterSpec(iv);
+			cipher.init(encryptMode, secretKey, ivSpec);
+		}
+		else
+		{
+			cipher.init(encryptMode, secretKey);
+		}
+
+		byte[] outputBytes = cipher.doFinal(inputBytes);
+
+		return java.util.Arrays.asList(outputBytes);
 	}
 }

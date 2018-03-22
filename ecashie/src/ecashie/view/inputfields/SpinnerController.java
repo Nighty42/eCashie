@@ -1,7 +1,6 @@
-package ecashie.view.inputfields.general;
+package ecashie.view.inputfields;
 
 import ecashie.controller.validation.Validation;
-import ecashie.view.inputfields.InputField;
 import javafx.event.EventHandler;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;

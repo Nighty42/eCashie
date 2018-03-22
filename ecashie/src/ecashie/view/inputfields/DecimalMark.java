@@ -1,6 +1,6 @@
-package ecashie.view.choices;
+package ecashie.view.inputfields;
 
-public class DecimalMarkChoices
+public class DecimalMark
 {
 	public static final int none = -1;
 	public static final int comma = 0;

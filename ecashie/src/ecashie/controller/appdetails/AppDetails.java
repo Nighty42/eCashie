@@ -1,4 +1,4 @@
-package ecashie.model.appdetails;
+package ecashie.controller.appdetails;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,12 +12,17 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ecashie.model.appdetails.AppVersion;
+import ecashie.model.appdetails.Contributor;
+import ecashie.model.appdetails.ImageDesigner;
+import ecashie.model.appdetails.ImageLicense;
+import ecashie.model.appdetails.ImageSource;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class AppDetails
 {
-	private static InputStream AppDetailsXML = AppDetails.class.getResourceAsStream("AppDetails.xml");
+	private static InputStream AppDetailsXML = AppDetails.class.getResourceAsStream("/ecashie/resources/xml/AppDetails.xml");
 
 	public static String DevelopmentBegin = "2017";
 	public static String VersionNumber = "";

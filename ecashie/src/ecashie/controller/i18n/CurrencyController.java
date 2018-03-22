@@ -6,8 +6,9 @@ import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
 
-import ecashie.model.settings.AppSettings;
-import ecashie.view.choices.CurrencySymbolPositionChoices;
+import ecashie.controller.settings.AppSettings;
+import ecashie.model.i18n.SupportedCurrency;
+import ecashie.view.inputfields.CurrencySymbolPosition;
 
 public class CurrencyController
 {
@@ -77,10 +78,10 @@ public class CurrencyController
 
 		switch (AppSettings.BaseCurrency.getCurrencySymbolPosition())
 		{
-			case CurrencySymbolPositionChoices.prefix:
+			case CurrencySymbolPosition.prefix:
 				returnString = AppSettings.BaseCurrency.getCurrencySymbol() + " " + valueAsString;
 				break;
-			case CurrencySymbolPositionChoices.suffix:
+			case CurrencySymbolPosition.suffix:
 				returnString = valueAsString + " " + AppSettings.BaseCurrency.getCurrencySymbol();
 				break;
 		}

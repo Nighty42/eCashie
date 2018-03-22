@@ -2,9 +2,9 @@ package ecashie.controller.exception;
 
 import java.io.IOException;
 
-import ecashie.ExitApp;
+import ecashie.controller.settings.UserData;
 import ecashie.controller.utilities.FileOperations;
-import ecashie.model.settings.UserData;
+import main.ExitApp;
 
 public class DatabaseBuildException extends Exception
 {

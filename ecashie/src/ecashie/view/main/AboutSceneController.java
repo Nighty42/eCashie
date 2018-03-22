@@ -2,14 +2,13 @@ package ecashie.view.main;
 
 import java.io.IOException;
 
-import ecashie.MainApp;
-import ecashie.controller.i18n.ResourceBundleString;
+import ecashie.controller.appdetails.AppDetails;
 import ecashie.controller.utilities.GeneralOperations;
 import ecashie.controller.utilities.HyperlinkUtils;
-import ecashie.model.appdetails.AppDetails;
 import ecashie.model.appdetails.AppVersion;
 import ecashie.model.appdetails.Contributor;
 import ecashie.model.appdetails.ImageSource;
+import ecashie.model.i18n.ResourceBundleString;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -30,6 +29,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.util.Callback;
+import main.MainApp;
 
 public class AboutSceneController
 {

@@ -1,4 +1,4 @@
-package ecashie.controller.i18n;
+package ecashie.model.i18n;
 
 import java.util.Currency;
 import java.util.HashSet;
@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Set;
 
-import ecashie.view.choices.CurrencySymbolPositionChoices;
-import ecashie.view.choices.DecimalMarkChoices;
-import ecashie.view.choices.ThousandsSeparatorChoices;
+import ecashie.view.inputfields.CurrencySymbolPosition;
+import ecashie.view.inputfields.DecimalMark;
+import ecashie.view.inputfields.ThousandsSeparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -38,7 +38,7 @@ public class SupportedCurrency
 		this.currencySymbol = currenySymbol;
 	}
 
-	private int currencySymbolPosition = CurrencySymbolPositionChoices.suffix;
+	private int currencySymbolPosition = CurrencySymbolPosition.suffix;
 
 	public int getCurrencySymbolPosition()
 	{
@@ -55,7 +55,7 @@ public class SupportedCurrency
 		this.currencySymbolPosition = currencySymbolPosition;
 	}
 	
-	private int thousandsSeparator = ThousandsSeparatorChoices.dot;
+	private int thousandsSeparator = ThousandsSeparator.dot;
 
 	public int getThousandsSeparator()
 	{
@@ -69,7 +69,7 @@ public class SupportedCurrency
 	
 	public char getThousandsSeparatorAsSymbol()
 	{
-		return ThousandsSeparatorChoices.getSymbolById(thousandsSeparator);
+		return ThousandsSeparator.getSymbolById(thousandsSeparator);
 	}
 	
 	public void setThousandsSeparator(int thousandsSeparator)
@@ -77,7 +77,7 @@ public class SupportedCurrency
 		this.thousandsSeparator = thousandsSeparator;
 	}
 	
-	private int decimalMark = DecimalMarkChoices.comma;
+	private int decimalMark = DecimalMark.comma;
 
 	public int getDecimalMark()
 	{
@@ -91,7 +91,7 @@ public class SupportedCurrency
 	
 	public char getDecimalMarkAsSymbol()
 	{
-		return DecimalMarkChoices.getSymbolById(decimalMark);
+		return DecimalMark.getSymbolById(decimalMark);
 	}
 	
 	public void setDecimalMark(int decimalMark)
@@ -120,9 +120,9 @@ public class SupportedCurrency
 	{
 		this.currency = currency;
 		this.currencySymbol = currency.getSymbol();
-		this.currencySymbolPosition = CurrencySymbolPositionChoices.suffix;
-		this.thousandsSeparator = ThousandsSeparatorChoices.dot;
-		this.decimalMark = DecimalMarkChoices.comma;
+		this.currencySymbolPosition = CurrencySymbolPosition.suffix;
+		this.thousandsSeparator = ThousandsSeparator.dot;
+		this.decimalMark = DecimalMark.comma;
 		this.numberOfDecimalPlaces = 2;
 	}
 

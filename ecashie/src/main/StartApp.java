@@ -1,4 +1,4 @@
-package ecashie;
+package main;
 
 import java.io.IOException;
 import java.net.BindException;
@@ -10,13 +10,13 @@ import javax.xml.stream.XMLStreamException;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.xml.sax.SAXException;
 
+import ecashie.controller.appdetails.AppDetails;
 import ecashie.controller.exception.LoggingNotAvailableException;
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.logging.ApplicationLogger;
+import ecashie.controller.settings.AppSettings;
 import ecashie.controller.utilities.SocketListener;
-import ecashie.model.appdetails.AppDetails;
-import ecashie.model.settings.AppSettings;
 import javafx.stage.Stage;
 
 public class StartApp

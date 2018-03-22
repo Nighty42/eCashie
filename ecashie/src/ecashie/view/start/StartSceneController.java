@@ -6,14 +6,14 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import ecashie.ExitApp;
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.model.settings.AppSettings;
+import ecashie.controller.settings.AppSettings;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import main.ExitApp;
 
 public class StartSceneController
 {

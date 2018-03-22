@@ -1,4 +1,4 @@
-package ecashie;
+package main;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -17,13 +17,13 @@ import ecashie.controller.exception.ExitApplicationFailedException;
 import ecashie.controller.exception.GeneralExceptionHandler;
 import ecashie.controller.exception.ResourceBundleException;
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.i18n.ResourceBundleString;
 import ecashie.controller.logging.ApplicationLogger;
+import ecashie.controller.settings.AppSettings;
+import ecashie.controller.settings.UserData;
+import ecashie.controller.settings.UserSettings;
 import ecashie.controller.utilities.FileOperations;
 import ecashie.controller.utilities.SocketListener;
-import ecashie.model.settings.AppSettings;
-import ecashie.model.settings.UserData;
-import ecashie.model.settings.UserSettings;
+import ecashie.model.i18n.ResourceBundleString;
 
 public class ExitApp
 {

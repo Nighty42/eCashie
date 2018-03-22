@@ -21,9 +21,9 @@ import ecashie.controller.crypto.CryptoEngine;
 import ecashie.controller.exception.DatabaseAccessException;
 import ecashie.controller.exception.DatabasePasswordInvalidException;
 import ecashie.controller.exception.UnexpectedBehaviourException;
+import ecashie.controller.settings.UserData;
+import ecashie.controller.settings.UserSettings;
 import ecashie.controller.utilities.ZipOperations;
-import ecashie.model.settings.UserData;
-import ecashie.model.settings.UserSettings;
 
 public class DatabaseAccess
 {
@@ -160,6 +160,7 @@ public class DatabaseAccess
 
 	public static void setPassword()
 	{
+		// TODO: Possible SQL Injection
 		String sql = "ALTER USER SA SET PASSWORD '" + UserData.getPassword() + "';";
 
 		try

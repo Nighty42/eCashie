@@ -2,14 +2,14 @@ package ecashie.controller.utilities;
 
 import java.util.Optional;
 
-import ecashie.MainApp;
-import ecashie.controller.i18n.ResourceBundleString;
+import ecashie.model.i18n.ResourceBundleString;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.MainApp;
 
 public class AlertMessage
 {	

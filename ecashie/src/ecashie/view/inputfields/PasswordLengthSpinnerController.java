@@ -1,4 +1,4 @@
-package ecashie.view.inputfields.login;
+package ecashie.view.inputfields;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -6,8 +6,6 @@ import java.security.SecureRandom;
 import ecashie.controller.utilities.GeneralOperations;
 import ecashie.controller.utilities.Notification;
 import ecashie.controller.validation.Validation;
-import ecashie.view.inputfields.InputField;
-import ecashie.view.inputfields.general.SpinnerIncrementHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Spinner;

@@ -1,4 +1,4 @@
-package ecashie;
+package main;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -25,19 +25,6 @@ public class MainApp extends Application
 	@Override
 	public void start(Stage primaryStage)
 	{
-		// DEBUG: Create/Open Database
-		// MainAppController.initialize(primaryStage);
-		//
-		// UserDataController.CashJournalFile = new File(System.getProperty("user.dir")
-		// + "\\MyCashJournal.ecdb");
-		// UserDataController.Password = "1234";
-		//
-		// DatabaseAccess.openDatabase();
-		//
-		// TestDatabaseInterface.doTests();
-		//
-		// MainAppController.exitApplication();
-
 		try
 		{
 			StartApp.start(primaryStage);

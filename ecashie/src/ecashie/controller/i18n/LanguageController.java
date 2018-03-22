@@ -6,9 +6,10 @@ import java.util.Locale;
 import java.util.PropertyResourceBundle;
 import java.util.StringTokenizer;
 
-import ecashie.MainApp;
 import ecashie.controller.exception.UnexpectedBehaviourException;
-import ecashie.model.settings.AppSettings;
+import ecashie.controller.settings.AppSettings;
+import ecashie.model.i18n.SupportedLanguage;
+import main.MainApp;
 
 public class LanguageController
 {	

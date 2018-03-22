@@ -1,4 +1,4 @@
-package ecashie.view.main.settings;
+package ecashie.view.settings;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,19 +12,19 @@ import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.Navigation;
 import ecashie.controller.i18n.CurrencyController;
 import ecashie.controller.i18n.LanguageController;
-import ecashie.controller.i18n.SupportedCurrency;
-import ecashie.controller.i18n.SupportedLanguage;
+import ecashie.controller.settings.AppSettings;
+import ecashie.controller.settings.UserData;
 import ecashie.controller.validation.Validation;
-import ecashie.model.settings.AppSettings;
-import ecashie.model.settings.UserData;
-import ecashie.view.choices.CurrencySymbolPositionChoices;
-import ecashie.view.choices.DecimalMarkChoices;
-import ecashie.view.choices.ThousandsSeparatorChoices;
+import ecashie.model.i18n.SupportedCurrency;
+import ecashie.model.i18n.SupportedLanguage;
+import ecashie.view.inputfields.CurrencySymbolPosition;
+import ecashie.view.inputfields.DecimalMark;
 import ecashie.view.inputfields.InputField;
-import ecashie.view.inputfields.general.SpinnerController;
-import ecashie.view.inputfields.general.TextFieldController;
-import ecashie.view.inputfields.login.PasswordFieldController;
-import ecashie.view.inputfields.login.PasswordLengthSpinnerController;
+import ecashie.view.inputfields.PasswordFieldController;
+import ecashie.view.inputfields.PasswordLengthSpinnerController;
+import ecashie.view.inputfields.SpinnerController;
+import ecashie.view.inputfields.TextFieldController;
+import ecashie.view.inputfields.ThousandsSeparator;
 import ecashie.view.menu.MenuSceneController;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -365,33 +365,33 @@ public class GeneralSettingsSceneController
 
 		switch (AppSettings.BaseCurrency.getCurrencySymbolPosition())
 		{
-		case CurrencySymbolPositionChoices.prefix:
+		case CurrencySymbolPosition.prefix:
 			currencySymbolPositionChoices.selectToggle(currencySymbolAsPrefixRadioButton);
 			break;
-		case CurrencySymbolPositionChoices.suffix:
+		case CurrencySymbolPosition.suffix:
 			currencySymbolPositionChoices.selectToggle(currencySymbolAsSuffixRadioButton);
 			break;
 		}
 
 		switch (AppSettings.BaseCurrency.getThousandsSeparator())
 		{
-		case ThousandsSeparatorChoices.comma:
+		case ThousandsSeparator.comma:
 			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsCommaRadioButton);
 			break;
-		case ThousandsSeparatorChoices.space:
+		case ThousandsSeparator.space:
 			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsSpaceRadioButton);
 			break;
-		case ThousandsSeparatorChoices.dot:
+		case ThousandsSeparator.dot:
 			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsDotRadioButton);
 			break;
 		}
 
 		switch (AppSettings.BaseCurrency.getDecimalMark())
 		{
-		case DecimalMarkChoices.comma:
+		case DecimalMark.comma:
 			decimalMarkChoices.selectToggle(decimalMarkAsCommaRadioButton);
 			break;
-		case DecimalMarkChoices.dot:
+		case DecimalMark.dot:
 			decimalMarkChoices.selectToggle(decimalMarkAsDotRadioButton);
 			break;
 		}
@@ -431,7 +431,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionCurrencySymbolAsPrefixRadioButton()
 	{
-		AppSettings.BaseCurrency.setCurrencySymbolPosition(CurrencySymbolPositionChoices.prefix);
+		AppSettings.BaseCurrency.setCurrencySymbolPosition(CurrencySymbolPosition.prefix);
 
 		updatePreview();
 	}
@@ -439,7 +439,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionCurrencySymbolAsSuffixRadioButton()
 	{
-		AppSettings.BaseCurrency.setCurrencySymbolPosition(CurrencySymbolPositionChoices.suffix);
+		AppSettings.BaseCurrency.setCurrencySymbolPosition(CurrencySymbolPosition.suffix);
 
 		updatePreview();
 	}
@@ -447,7 +447,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionThousandsSeparatorAsCommaRadioButton()
 	{
-		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.comma);
+		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparator.comma);
 
 		updatePreview();
 	}
@@ -455,7 +455,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionThousandsSeparatorAsSpaceRadioButton()
 	{
-		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.space);
+		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparator.space);
 
 		updatePreview();
 	}
@@ -463,7 +463,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionThousandsSeparatorAsDotRadioButton()
 	{
-		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.dot);
+		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparator.dot);
 
 		updatePreview();
 	}
@@ -471,7 +471,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionDecimalMarkAsCommaRadioButton()
 	{
-		AppSettings.BaseCurrency.setDecimalMark(DecimalMarkChoices.comma);
+		AppSettings.BaseCurrency.setDecimalMark(DecimalMark.comma);
 
 		updatePreview();
 	}
@@ -479,7 +479,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionDecimalMarkAsDotRadioButton()
 	{
-		AppSettings.BaseCurrency.setDecimalMark(DecimalMarkChoices.dot);
+		AppSettings.BaseCurrency.setDecimalMark(DecimalMark.dot);
 
 		updatePreview();
 	}

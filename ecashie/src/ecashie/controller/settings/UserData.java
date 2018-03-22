@@ -1,4 +1,4 @@
-package ecashie.model.settings;
+package ecashie.controller.settings;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.utilities.AlertMessage;
 import ecashie.controller.utilities.FileOperations;
-import ecashie.view.inputfields.general.TextFieldController;
+import ecashie.view.inputfields.TextFieldController;
 import javafx.scene.control.ButtonType;
 
 public class UserData

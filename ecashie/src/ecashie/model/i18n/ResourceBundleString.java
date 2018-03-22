@@ -1,11 +1,11 @@
-package ecashie.controller.i18n;
+package ecashie.model.i18n;
 
 import java.text.MessageFormat;
 import java.util.MissingResourceException;
 
-import ecashie.MainApp;
 import ecashie.controller.exception.ResourceBundleException;
 import ecashie.controller.exception.UnexpectedBehaviourException;
+import main.MainApp;
 
 public class ResourceBundleString
 {

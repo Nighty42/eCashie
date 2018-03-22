@@ -3,10 +3,8 @@ package ecashie.controller.gui;
 import java.io.IOException;
 import java.net.URL;
 
-import ecashie.ExitApp;
-import ecashie.MainApp;
 import ecashie.controller.exception.UnexpectedBehaviourException;
-import ecashie.model.settings.UserData;
+import ecashie.controller.settings.UserData;
 import ecashie.view.root.RootLayout;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import main.ExitApp;
+import main.MainApp;
 
 public class GuiBuilder
 {
@@ -25,8 +25,8 @@ public class GuiBuilder
 	{
 		primaryStage.setTitle("eCashie");
 
-		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_32x32.png")));
-		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_48x48.png")));
+		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
+		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_48x48.png")));
 
 		primaryStage.setOnCloseRequest((WindowEvent we) -> {
 			ExitApp.exit();

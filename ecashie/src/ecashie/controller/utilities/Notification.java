@@ -11,10 +11,9 @@ import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ecashie.MainApp;
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.i18n.ResourceBundleString;
+import ecashie.model.i18n.ResourceBundleString;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -23,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.util.Duration;
+import main.MainApp;
 
 public class Notification
 {

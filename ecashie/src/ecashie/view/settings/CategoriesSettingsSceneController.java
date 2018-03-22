@@ -1,4 +1,4 @@
-package ecashie.view.main.settings;
+package ecashie.view.settings;
 
 public class CategoriesSettingsSceneController
 {

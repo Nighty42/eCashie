@@ -1,6 +1,6 @@
-package ecashie.view.choices;
+package ecashie.view.inputfields;
 
-public class ThousandsSeparatorChoices
+public class ThousandsSeparator
 {
 	public static final int comma = 0;
 	public static final int space = 1;

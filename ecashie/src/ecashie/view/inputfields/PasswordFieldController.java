@@ -1,7 +1,6 @@
-package ecashie.view.inputfields.login;
+package ecashie.view.inputfields;
 
 import ecashie.controller.validation.Validation;
-import ecashie.view.inputfields.InputField;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ObservableObjectValue;
 import javafx.beans.value.ObservableStringValue;

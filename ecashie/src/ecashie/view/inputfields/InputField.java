@@ -3,10 +3,10 @@ package ecashie.view.inputfields;
 import java.util.Optional;
 
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.i18n.ResourceBundleString;
 import ecashie.controller.validation.ComparationObject;
 import ecashie.controller.validation.Solutions;
 import ecashie.controller.validation.Validation;
+import ecashie.model.i18n.ResourceBundleString;
 import ecashie.view.root.RootLayout;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;

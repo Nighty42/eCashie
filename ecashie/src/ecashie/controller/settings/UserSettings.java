@@ -1,4 +1,4 @@
-package ecashie.model.settings;
+package ecashie.controller.settings;
 
 import java.io.File;
 import java.io.IOException;

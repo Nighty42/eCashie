@@ -1,4 +1,4 @@
-package ecashie.model.settings;
+package ecashie.controller.settings;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,9 +20,9 @@ import org.xml.sax.SAXException;
 
 import ecashie.controller.i18n.CurrencyController;
 import ecashie.controller.i18n.LanguageController;
-import ecashie.controller.i18n.SupportedCurrency;
-import ecashie.controller.i18n.SupportedLanguage;
 import ecashie.controller.utilities.FileOperations;
+import ecashie.model.i18n.SupportedCurrency;
+import ecashie.model.i18n.SupportedLanguage;
 
 public class AppSettings
 {
