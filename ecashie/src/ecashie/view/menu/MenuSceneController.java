@@ -1,6 +1,6 @@
 package ecashie.view.menu;
 
-import ecashie.controller.utilities.HyperlinkUtils;
+import ecashie.controller.gui.HyperlinkUtils;
 import ecashie.view.main.MainSceneController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

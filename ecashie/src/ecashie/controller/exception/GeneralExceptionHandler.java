@@ -3,8 +3,9 @@ package ecashie.controller.exception;
 import java.util.Optional;
 import java.util.logging.Level;
 
+import ecashie.controller.gui.HyperlinkUtils;
 import ecashie.controller.logging.ApplicationLogger;
-import ecashie.controller.utilities.HyperlinkUtils;
+import ecashie.main.MainApp;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -15,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
-import main.MainApp;
 
 public class GeneralExceptionHandler
 {

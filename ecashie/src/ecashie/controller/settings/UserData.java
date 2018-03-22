@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
+import ecashie.controller.gui.AlertMessage;
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.utilities.AlertMessage;
 import ecashie.controller.utilities.FileOperations;
 import ecashie.view.inputfields.TextFieldController;
 import javafx.scene.control.ButtonType;

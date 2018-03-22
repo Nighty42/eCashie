@@ -9,11 +9,11 @@ import javax.xml.transform.TransformerException;
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.settings.AppSettings;
+import ecashie.main.ExitApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import main.ExitApp;
 
 public class StartSceneController
 {

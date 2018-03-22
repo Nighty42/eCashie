@@ -1,7 +1,8 @@
-package ecashie.controller.utilities;
+package ecashie.controller.gui;
 
 import java.util.Optional;
 
+import ecashie.main.MainApp;
 import ecashie.model.i18n.ResourceBundleString;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -9,7 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import main.MainApp;
 
 public class AlertMessage
 {	
@@ -51,7 +51,7 @@ public class AlertMessage
 	private static void initializeAlertIcon(Alert alert)
 	{
 		Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
-		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_32x32.png")));
+		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
 	}
 	
 	private static void initializeAlertStyle(Alert alert)

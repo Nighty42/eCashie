@@ -5,7 +5,7 @@ import java.util.MissingResourceException;
 
 import ecashie.controller.exception.ResourceBundleException;
 import ecashie.controller.exception.UnexpectedBehaviourException;
-import main.MainApp;
+import ecashie.main.MainApp;
 
 public class ResourceBundleString
 {

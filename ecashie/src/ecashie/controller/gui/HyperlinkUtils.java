@@ -1,4 +1,4 @@
-package ecashie.controller.utilities;
+package ecashie.controller.gui;
 
 import java.awt.Desktop;
 import java.io.IOException;
@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
+import ecashie.controller.utilities.GeneralOperations;
 
 public class HyperlinkUtils
 {

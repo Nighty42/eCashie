@@ -3,8 +3,8 @@ package ecashie.view.inputfields;
 import java.io.IOException;
 import java.security.SecureRandom;
 
+import ecashie.controller.gui.Notification;
 import ecashie.controller.utilities.GeneralOperations;
-import ecashie.controller.utilities.Notification;
 import ecashie.controller.validation.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

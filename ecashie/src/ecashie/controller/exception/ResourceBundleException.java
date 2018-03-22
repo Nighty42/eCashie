@@ -1,6 +1,6 @@
 package ecashie.controller.exception;
 
-import main.ExitApp;
+import ecashie.main.ExitApp;
 
 public class ResourceBundleException extends Exception
 {

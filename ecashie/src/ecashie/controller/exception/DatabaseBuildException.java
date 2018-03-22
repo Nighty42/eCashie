@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import ecashie.controller.settings.UserData;
 import ecashie.controller.utilities.FileOperations;
-import main.ExitApp;
+import ecashie.main.ExitApp;
 
 public class DatabaseBuildException extends Exception
 {

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import ecashie.controller.gui.GuiBuilder;
-import ecashie.controller.utilities.HyperlinkUtils;
+import ecashie.controller.gui.HyperlinkUtils;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

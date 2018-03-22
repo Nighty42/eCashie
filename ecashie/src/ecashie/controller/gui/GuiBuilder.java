@@ -5,6 +5,8 @@ import java.net.URL;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.settings.UserData;
+import ecashie.main.ExitApp;
+import ecashie.main.MainApp;
 import ecashie.view.root.RootLayout;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,8 +15,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import main.ExitApp;
-import main.MainApp;
 
 public class GuiBuilder
 {

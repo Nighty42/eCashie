@@ -8,8 +8,8 @@ import java.util.StringTokenizer;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.settings.AppSettings;
+import ecashie.main.MainApp;
 import ecashie.model.i18n.SupportedLanguage;
-import main.MainApp;
 
 public class LanguageController
 {	

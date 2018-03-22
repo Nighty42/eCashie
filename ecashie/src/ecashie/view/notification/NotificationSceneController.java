@@ -1,6 +1,6 @@
 package ecashie.view.notification;
 
-import ecashie.controller.utilities.Notification;
+import ecashie.controller.gui.Notification;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

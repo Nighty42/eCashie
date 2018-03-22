@@ -3,8 +3,9 @@ package ecashie.view.main;
 import java.io.IOException;
 
 import ecashie.controller.appdetails.AppDetails;
+import ecashie.controller.gui.HyperlinkUtils;
 import ecashie.controller.utilities.GeneralOperations;
-import ecashie.controller.utilities.HyperlinkUtils;
+import ecashie.main.MainApp;
 import ecashie.model.appdetails.AppVersion;
 import ecashie.model.appdetails.Contributor;
 import ecashie.model.appdetails.ImageSource;
@@ -29,7 +30,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.util.Callback;
-import main.MainApp;
 
 public class AboutSceneController
 {

@@ -1,4 +1,4 @@
-package ecashie.controller.utilities;
+package ecashie.controller.gui;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
-import ecashie.controller.gui.GuiBuilder;
+import ecashie.main.MainApp;
 import ecashie.model.i18n.ResourceBundleString;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,14 +22,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-import main.MainApp;
 
 public class Notification
 {
 	public static String text = "No text was specified for notification.";
 	public static String type = "error";
 	
-	private static final URL urlScene = MainApp.class.getResource("view/notification/NotificationScene.fxml");
+	private static final URL urlScene = MainApp.class.getResource("/ecashie/view/notification/NotificationScene.fxml");
 	
 	private static Popup notificationStage;
 	private static Timeline timeline;
