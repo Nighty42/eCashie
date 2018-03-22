@@ -68,6 +68,9 @@ public class SocketListener
 
 	public static void closeServerSocket() throws IOException
 	{
-		serverSocket.close();
+		if (serverSocket != null)
+		{
+			serverSocket.close();
+		}
 	}
 }

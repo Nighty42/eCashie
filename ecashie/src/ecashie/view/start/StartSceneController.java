@@ -93,7 +93,7 @@ public class StartSceneController
 	{
 		try
 		{
-			AppSettings.recentUsedDatabase = userDataFile.getAbsolutePath();
+			AppSettings.RecentUsedDatabase = userDataFile.getAbsolutePath();
 			
 			AppSettings.write();
 		}

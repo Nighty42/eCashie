@@ -18,8 +18,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import ecashie.controller.i18n.CurrencyUtils;
-import ecashie.controller.i18n.LanguageUtils;
+import ecashie.controller.i18n.CurrencyController;
+import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.i18n.SupportedCurrency;
 import ecashie.controller.i18n.SupportedLanguage;
 import ecashie.controller.utilities.FileOperations;
@@ -27,10 +27,17 @@ import ecashie.controller.utilities.FileOperations;
 public class AppSettings
 {
 	public static File AppSettingsXML = new File(System.getProperty("user.dir") + "\\AppSettings.xml");
+	public static String RecentUsedDatabase = "";
+	public static SupportedLanguage Language = null;
+	public static SupportedCurrency BaseCurrency = null;
 
-	public static String recentUsedDatabase = "";
-	public static SupportedLanguage language = SupportedLanguage.en_GB;
-	public static SupportedCurrency baseCurrency = new SupportedCurrency(Currency.getInstance(AppSettings.language.getLocale()));
+	public static void init()
+	{
+		Language = SupportedLanguage.en_GB;
+		BaseCurrency = new SupportedCurrency(Currency.getInstance(AppSettings.Language.getLocale()));
+		
+		LanguageController.changeLanguage(Language);
+	}
 
 	public static void read() throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException
 	{
@@ -38,11 +45,11 @@ public class AppSettings
 		{
 			Document document = prepareReading();
 
-			readOutRecentUsedDatabase(document);
+			readRecentUsedDatabase(document);
 
-			readOutLanguage(document);
+			readLanguage(document);
 
-			readOutCurrency(document);
+			readCurrency(document);
 		}
 
 		validateLanguage();
@@ -58,41 +65,41 @@ public class AppSettings
 		return document;
 	}
 
-	private static void readOutRecentUsedDatabase(Document document)
+	private static void readRecentUsedDatabase(Document document)
 	{
 		NodeList recentUsedDatabaseNodeList = document.getElementsByTagName("RecentUsedDatabase");
 		Element contributorElement = (Element) recentUsedDatabaseNodeList.item(0);
-		recentUsedDatabase = contributorElement.getAttribute("value");
+		RecentUsedDatabase = contributorElement.getAttribute("value");
 	}
 
-	private static void readOutLanguage(Document document)
+	private static void readLanguage(Document document)
 	{
 		NodeList languageNodeList = document.getElementsByTagName("Language");
 		Element languageElement = (Element) languageNodeList.item(0);
-		language = new SupportedLanguage(LanguageUtils.stringToLocale(languageElement.getAttribute("code")));
+		Language = new SupportedLanguage(LanguageController.stringToLocale(languageElement.getAttribute("code")));
 	}
 
-	private static void readOutCurrency(Document document)
+	private static void readCurrency(Document document)
 	{
 		NodeList currencyNodeList = document.getElementsByTagName("Currency");
 		Element currencyElement = (Element) currencyNodeList.item(0);
 
-		Currency currency = CurrencyUtils.stringToCurrency(currencyElement.getAttribute("code"));
+		Currency currency = CurrencyController.stringToCurrency(currencyElement.getAttribute("code"));
 		String currencySymbol = currencyElement.getAttribute("symbol");
 		int currencySymbolPosition = Integer.parseInt(currencyElement.getAttribute("symbolPosition"));
 		int thousandsSeparator = Integer.parseInt(currencyElement.getAttribute("thousandsSeparator"));
 		int decimalMark = Integer.parseInt(currencyElement.getAttribute("decimalMark"));
 		int numberOfDecimalPlaces = Integer.parseInt(currencyElement.getAttribute("numberOfDecimalPlaces"));
 
-		baseCurrency = new SupportedCurrency(currency, currencySymbol, currencySymbolPosition, thousandsSeparator,
+		BaseCurrency = new SupportedCurrency(currency, currencySymbol, currencySymbolPosition, thousandsSeparator,
 				decimalMark, numberOfDecimalPlaces);
 	}
 
 	private static void validateLanguage()
 	{
-		if (!LanguageUtils.validateLanguage(language.getLocale()))
+		if (!LanguageController.validateLanguage(Language.getLocale()))
 		{
-			language = SupportedLanguage.en_GB;
+			Language = SupportedLanguage.en_GB;
 		}
 	}
 
@@ -134,7 +141,7 @@ public class AppSettings
 		Element recentUsedDatabaseElement = document.createElement("RecentUsedDatabase");
 		rootElement.appendChild(recentUsedDatabaseElement);
 
-		recentUsedDatabaseElement.setAttribute("value", recentUsedDatabase);
+		recentUsedDatabaseElement.setAttribute("value", RecentUsedDatabase);
 	}
 
 	private static void createLanguageElement(Document document, Element rootElement)
@@ -142,7 +149,7 @@ public class AppSettings
 		Element languageElement = document.createElement("Language");
 		rootElement.appendChild(languageElement);
 
-		languageElement.setAttribute("code", language.getLocale().toString());
+		languageElement.setAttribute("code", Language.getLocale().toString());
 	}
 
 	private static void createCurrencyElement(Document document, Element rootElement)
@@ -150,12 +157,12 @@ public class AppSettings
 		Element currencyElement = document.createElement("Currency");
 		rootElement.appendChild(currencyElement);
 
-		currencyElement.setAttribute("code", baseCurrency.getCurrency().getCurrencyCode());
-		currencyElement.setAttribute("symbol", baseCurrency.getCurrencySymbol());
-		currencyElement.setAttribute("symbolPosition", baseCurrency.getCurrencySymbolPositionAsString());
-		currencyElement.setAttribute("thousandsSeparator", baseCurrency.getThousandsSeparatorAsString());
-		currencyElement.setAttribute("decimalMark", baseCurrency.getDecimalMarkAsString());
-		currencyElement.setAttribute("numberOfDecimalPlaces", baseCurrency.getNumberOfDecimalPlacesAsString());
+		currencyElement.setAttribute("code", BaseCurrency.getCurrency().getCurrencyCode());
+		currencyElement.setAttribute("symbol", BaseCurrency.getCurrencySymbol());
+		currencyElement.setAttribute("symbolPosition", BaseCurrency.getCurrencySymbolPositionAsString());
+		currencyElement.setAttribute("thousandsSeparator", BaseCurrency.getThousandsSeparatorAsString());
+		currencyElement.setAttribute("decimalMark", BaseCurrency.getDecimalMarkAsString());
+		currencyElement.setAttribute("numberOfDecimalPlaces", BaseCurrency.getNumberOfDecimalPlacesAsString());
 	}
 
 	private static void writeXML(Document document) throws TransformerException

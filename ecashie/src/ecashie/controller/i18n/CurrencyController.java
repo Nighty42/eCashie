@@ -9,7 +9,7 @@ import java.util.Locale;
 import ecashie.model.settings.AppSettings;
 import ecashie.view.choices.CurrencySymbolPositionChoices;
 
-public class CurrencyUtils
+public class CurrencyController
 {
 	public static Currency stringToCurrency(String currencyID)
 	{
@@ -33,7 +33,7 @@ public class CurrencyUtils
 
 	public static String format(double valueAsDouble)
 	{
-		SupportedCurrency currency = AppSettings.baseCurrency;
+		SupportedCurrency currency = AppSettings.BaseCurrency;
 
 		String decimalFormatString = defineDecimalFormatString(currency);
 
@@ -75,13 +75,13 @@ public class CurrencyUtils
 		String returnString = "";
 		String valueAsString = decimalFormatter.format(valueAsDouble);
 
-		switch (AppSettings.baseCurrency.getCurrencySymbolPosition())
+		switch (AppSettings.BaseCurrency.getCurrencySymbolPosition())
 		{
 			case CurrencySymbolPositionChoices.prefix:
-				returnString = AppSettings.baseCurrency.getCurrencySymbol() + " " + valueAsString;
+				returnString = AppSettings.BaseCurrency.getCurrencySymbol() + " " + valueAsString;
 				break;
 			case CurrencySymbolPositionChoices.suffix:
-				returnString = valueAsString + " " + AppSettings.baseCurrency.getCurrencySymbol();
+				returnString = valueAsString + " " + AppSettings.BaseCurrency.getCurrencySymbol();
 				break;
 		}
 		

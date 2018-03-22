@@ -19,12 +19,12 @@
 
 #failureGridPane #statusImageView
 {
-	-fx-image: url("/ecashie/resources/images/failure_28x29.png");
+	-fx-image: url("/ecashie/resources/img/failure_28x29.png");
 }
 
 #successGridPane #statusImageView
 {
-	-fx-image: url("/ecashie/resources/images/success_28x29.png");
+	-fx-image: url("/ecashie/resources/img/success_28x29.png");
 }
 
 #successGridPane #statusLabel

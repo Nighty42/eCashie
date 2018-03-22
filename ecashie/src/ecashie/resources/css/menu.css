@@ -132,14 +132,14 @@
 
 .titled-pane #subMenuArrow
 {	
-	-fx-image: url("/ecashie/resources/images/arrow_white_20x12.png");
+	-fx-image: url("/ecashie/resources/img/arrow_white_20x12.png");
 	
 	-fx-rotate: -90.0;
 }
 
 .titled-pane:expanded #subMenuArrow
 {	
-	-fx-image: url("/ecashie/resources/images/arrow_grey_20x12.png");
+	-fx-image: url("/ecashie/resources/img/arrow_grey_20x12.png");
 	
 	-fx-rotate: 0.0;
 }

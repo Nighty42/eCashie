@@ -51,7 +51,7 @@ public class AlertMessage
 	private static void initializeAlertIcon(Alert alert)
 	{
 		Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
-		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/images/logo_32x32.png")));
+		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_32x32.png")));
 	}
 	
 	private static void initializeAlertStyle(Alert alert)

@@ -25,8 +25,8 @@ public class GuiBuilder
 	{
 		primaryStage.setTitle("eCashie");
 
-		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/images/logo_32x32.png")));
-		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/images/logo_48x48.png")));
+		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_32x32.png")));
+		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_48x48.png")));
 
 		primaryStage.setOnCloseRequest((WindowEvent we) -> {
 			ExitApp.exit();

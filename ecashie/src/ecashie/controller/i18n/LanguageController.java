@@ -10,7 +10,7 @@ import ecashie.MainApp;
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.model.settings.AppSettings;
 
-public class LanguageUtils
+public class LanguageController
 {	
 	public static Locale stringToLocale(String localeID)
 	{
@@ -35,12 +35,12 @@ public class LanguageUtils
 	{
 		try
 		{
-			AppSettings.language = newLanguage;
+			AppSettings.Language = newLanguage;
 
-			Locale.setDefault(AppSettings.language.getLocale());
+			Locale.setDefault(AppSettings.Language.getLocale());
 
 			InputStream inputStream = MainApp.class.getResourceAsStream(
-					"/ecashie/resources/languages/" + AppSettings.language.getLocale().toString() + ".properties");
+					"/ecashie/resources/i18n/" + AppSettings.Language.getLocale().toString() + ".properties");
 
 			MainApp.ResourceBundle = new PropertyResourceBundle(inputStream);
 		}

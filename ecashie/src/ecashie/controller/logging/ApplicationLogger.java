@@ -26,19 +26,26 @@ public class ApplicationLogger
 
 	public static void setup() throws IOException
 	{
-		initializeLogger();
+		try
+		{
+			initLogger();
 
-		// TODO: [1.0] Suppress write Logging Output to Console
-		// suppressLoggingOutputToConsole();
+			// TODO: [1.0] Suppress write Logging Output to Console
+			// suppressLoggingOutputToConsole();
 
-		extractOldLogFileContent();
+			extractOldLogFileContent();
 
-		addLogStreamHandler();
+			addLogStreamHandler();
 
-		addLogFileHandler();
+			addLogFileHandler();
+		}
+		catch (IOException e)
+		{
+			new LoggingNotAvailableException();
+		}
 	}
 
-	private static void initializeLogger()
+	private static void initLogger()
 	{
 		logger.setLevel(Level.ALL);
 	}
@@ -55,58 +62,37 @@ public class ApplicationLogger
 		}
 	}
 
-	private static void extractOldLogFileContent()
+	private static void extractOldLogFileContent() throws IOException
 	{
 		if (logFile.exists())
 		{
-			try
-			{
-				String oldContent = new String(Files.readAllBytes(logFile.toPath()));
+			String oldContent = new String(Files.readAllBytes(logFile.toPath()));
 
-				int startIndex = oldContent.indexOf("<h1>");
-				int endIndex = oldContent.indexOf("</body>");
+			int startIndex = oldContent.indexOf("<h1>");
+			int endIndex = oldContent.indexOf("</body>");
 
-				if (startIndex > -1 && endIndex > -1)
-				{
-					oldLogFileContent = oldContent.substring(startIndex, endIndex);
-				}
-			}
-			catch (IOException e)
+			if (startIndex > -1 && endIndex > -1)
 			{
-				new LoggingNotAvailableException();
+				oldLogFileContent = oldContent.substring(startIndex, endIndex);
 			}
 		}
 	}
 
-	private static void addLogStreamHandler()
+	private static void addLogStreamHandler() throws SecurityException
 	{
-		try
-		{
-			Handler[] handlers = logger.getParent().getHandlers();
-			streamHandler = new StreamHandler(logStream, handlers[0].getFormatter());
+		Handler[] handlers = logger.getParent().getHandlers();
+		streamHandler = new StreamHandler(logStream, handlers[0].getFormatter());
 
-			logger.addHandler(streamHandler);
-		}
-		catch (SecurityException e)
-		{
-			new LoggingNotAvailableException();
-		}
+		logger.addHandler(streamHandler);
 	}
 
-	private static void addLogFileHandler() throws IOException
+	private static void addLogFileHandler() throws IOException, SecurityException
 	{
-		try
-		{
-			FileHandler fileHTML = new FileHandler(logFile.getName(), false);
-			Formatter formatterHTML = new HtmlLogFormatter();
-			fileHTML.setFormatter(formatterHTML);
+		FileHandler fileHTML = new FileHandler(logFile.getName(), false);
+		Formatter formatterHTML = new HtmlLogFormatter();
+		fileHTML.setFormatter(formatterHTML);
 
-			logger.addHandler(fileHTML);
-		}
-		catch (IOException | SecurityException e)
-		{
-			new LoggingNotAvailableException();
-		}
+		logger.addHandler(fileHTML);
 	}
 
 	public static void closeLogger() throws SecurityException

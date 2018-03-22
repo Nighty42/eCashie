@@ -39,12 +39,12 @@
 
 .menuBarToggleButton > .image-view
 {
-	-fx-image: url("/ecashie/resources/images/menu_white_32x32.png");
+	-fx-image: url("/ecashie/resources/img/menu_white_32x32.png");
 }
 
 .menuBarToggleButton:selected > .image-view
 {
-	-fx-image: url("/ecashie/resources/images/menu_grey_32x32.png");
+	-fx-image: url("/ecashie/resources/img/menu_grey_32x32.png");
 }
 
 /*================================================================================*/

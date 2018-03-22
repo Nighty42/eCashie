@@ -60,16 +60,16 @@ public class OpenCashJournalSceneController
 	{
 		instance = this;
 
-		initializeFolderPathChange();
+		initFolderPathChange();
 
-		initializePasswordChange();
+		initPasswordChange();
 
-		initializeRecentUsedDatabase();
+		initRecentUsedDatabase();
 
 		requestFocus();
 	}
 
-	private void initializeFolderPathChange()
+	private void initFolderPathChange()
 	{
 		InputField inputField = new InputField(filePathTextField, true, Optional.of(3), Optional.of(200),
 				Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
@@ -80,7 +80,7 @@ public class OpenCashJournalSceneController
 				filePathStatusLabel);
 	}
 
-	private void initializePasswordChange()
+	private void initPasswordChange()
 	{
 		InputField inputField = new InputField(passwordPasswordField, false, Optional.of(8), Optional.of(200),
 				Optional.of("PASSWORD"), Optional.empty(), Optional.empty(), Optional.empty());
@@ -89,9 +89,9 @@ public class OpenCashJournalSceneController
 				passwordTextField, passwordVisibilityImageView, passwordStatusLabel);
 	}
 
-	private void initializeRecentUsedDatabase()
+	private void initRecentUsedDatabase()
 	{
-		filePathFieldController.getInputField().setText(AppSettings.recentUsedDatabase);
+		filePathFieldController.getInputField().setText(AppSettings.RecentUsedDatabase);
 	}
 
 	// ================================================================================

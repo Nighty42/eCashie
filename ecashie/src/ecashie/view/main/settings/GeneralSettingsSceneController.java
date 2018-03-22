@@ -10,8 +10,8 @@ import java.util.Optional;
 import ecashie.controller.database.DatabaseAccess;
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.Navigation;
-import ecashie.controller.i18n.CurrencyUtils;
-import ecashie.controller.i18n.LanguageUtils;
+import ecashie.controller.i18n.CurrencyController;
+import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.i18n.SupportedCurrency;
 import ecashie.controller.i18n.SupportedLanguage;
 import ecashie.controller.validation.Validation;
@@ -305,7 +305,7 @@ public class GeneralSettingsSceneController
 		languageComboBox.setItems(SupportedLanguage.getList());
 
 		languageComboBox.getSelectionModel().select(SupportedLanguage.getList()
-				.filtered(x -> x.getLocale().toString().equals(AppSettings.language.getLocale().toString())).get(0));
+				.filtered(x -> x.getLocale().toString().equals(AppSettings.Language.getLocale().toString())).get(0));
 
 		languageComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			onSelectionChangedLanguageComboBox(observable, oldValue, newValue);
@@ -317,7 +317,7 @@ public class GeneralSettingsSceneController
 		currencyComboBox.setItems(SupportedCurrency.getList());
 
 		currencyComboBox.getSelectionModel().select(SupportedCurrency.getList().filtered(
-				x -> x.getCurrency().getCurrencyCode().equals(AppSettings.baseCurrency.getCurrency().getCurrencyCode()))
+				x -> x.getCurrency().getCurrencyCode().equals(AppSettings.BaseCurrency.getCurrency().getCurrencyCode()))
 				.get(0));
 
 		currencyComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -361,9 +361,9 @@ public class GeneralSettingsSceneController
 
 	private void initializeFieldValues()
 	{
-		currencySymbolFieldController.getInputField().setText(AppSettings.baseCurrency.getCurrencySymbol());
+		currencySymbolFieldController.getInputField().setText(AppSettings.BaseCurrency.getCurrencySymbol());
 
-		switch (AppSettings.baseCurrency.getCurrencySymbolPosition())
+		switch (AppSettings.BaseCurrency.getCurrencySymbolPosition())
 		{
 		case CurrencySymbolPositionChoices.prefix:
 			currencySymbolPositionChoices.selectToggle(currencySymbolAsPrefixRadioButton);
@@ -373,7 +373,7 @@ public class GeneralSettingsSceneController
 			break;
 		}
 
-		switch (AppSettings.baseCurrency.getThousandsSeparator())
+		switch (AppSettings.BaseCurrency.getThousandsSeparator())
 		{
 		case ThousandsSeparatorChoices.comma:
 			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsCommaRadioButton);
@@ -386,7 +386,7 @@ public class GeneralSettingsSceneController
 			break;
 		}
 
-		switch (AppSettings.baseCurrency.getDecimalMark())
+		switch (AppSettings.BaseCurrency.getDecimalMark())
 		{
 		case DecimalMarkChoices.comma:
 			decimalMarkChoices.selectToggle(decimalMarkAsCommaRadioButton);
@@ -397,13 +397,13 @@ public class GeneralSettingsSceneController
 		}
 
 		numberOfDecimalPlacesFieldController.getInputField()
-				.setText(AppSettings.baseCurrency.getNumberOfDecimalPlacesAsString());
+				.setText(AppSettings.BaseCurrency.getNumberOfDecimalPlacesAsString());
 	}
 
 	private void onTextChangeCurrencySymbolTextField(ObservableValue<? extends String> observable, String oldValue,
 			String newValue)
 	{
-		AppSettings.baseCurrency.setCurrenySymbol(newValue);
+		AppSettings.BaseCurrency.setCurrenySymbol(newValue);
 
 		updatePreview();
 	}
@@ -411,7 +411,7 @@ public class GeneralSettingsSceneController
 	private void onSelectionChangedLanguageComboBox(ObservableValue<? extends SupportedLanguage> observable,
 			SupportedLanguage oldValue, SupportedLanguage newValue)
 	{
-		LanguageUtils.changeLanguage(newValue);
+		LanguageController.changeLanguage(newValue);
 
 		updateMainScene();
 	}
@@ -419,9 +419,9 @@ public class GeneralSettingsSceneController
 	private void onSelectionChangedCurrencyComboBox(ObservableValue<? extends SupportedCurrency> observable,
 			SupportedCurrency oldValue, SupportedCurrency newValue)
 	{
-		AppSettings.baseCurrency = newValue;
+		AppSettings.BaseCurrency = newValue;
 
-		Locale locale = CurrencyUtils.getLocaleByCurrencyCode(newValue.getCurrency().getCurrencyCode());
+		Locale locale = CurrencyController.getLocaleByCurrencyCode(newValue.getCurrency().getCurrencyCode());
 		Currency currency = Currency.getInstance(locale);
 		String symbol = currency.getSymbol(locale);
 
@@ -431,7 +431,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionCurrencySymbolAsPrefixRadioButton()
 	{
-		AppSettings.baseCurrency.setCurrencySymbolPosition(CurrencySymbolPositionChoices.prefix);
+		AppSettings.BaseCurrency.setCurrencySymbolPosition(CurrencySymbolPositionChoices.prefix);
 
 		updatePreview();
 	}
@@ -439,7 +439,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionCurrencySymbolAsSuffixRadioButton()
 	{
-		AppSettings.baseCurrency.setCurrencySymbolPosition(CurrencySymbolPositionChoices.suffix);
+		AppSettings.BaseCurrency.setCurrencySymbolPosition(CurrencySymbolPositionChoices.suffix);
 
 		updatePreview();
 	}
@@ -447,7 +447,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionThousandsSeparatorAsCommaRadioButton()
 	{
-		AppSettings.baseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.comma);
+		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.comma);
 
 		updatePreview();
 	}
@@ -455,7 +455,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionThousandsSeparatorAsSpaceRadioButton()
 	{
-		AppSettings.baseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.space);
+		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.space);
 
 		updatePreview();
 	}
@@ -463,7 +463,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionThousandsSeparatorAsDotRadioButton()
 	{
-		AppSettings.baseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.dot);
+		AppSettings.BaseCurrency.setThousandsSeparator(ThousandsSeparatorChoices.dot);
 
 		updatePreview();
 	}
@@ -471,7 +471,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionDecimalMarkAsCommaRadioButton()
 	{
-		AppSettings.baseCurrency.setDecimalMark(DecimalMarkChoices.comma);
+		AppSettings.BaseCurrency.setDecimalMark(DecimalMarkChoices.comma);
 
 		updatePreview();
 	}
@@ -479,7 +479,7 @@ public class GeneralSettingsSceneController
 	@FXML
 	private void onActionDecimalMarkAsDotRadioButton()
 	{
-		AppSettings.baseCurrency.setDecimalMark(DecimalMarkChoices.dot);
+		AppSettings.BaseCurrency.setDecimalMark(DecimalMarkChoices.dot);
 
 		updatePreview();
 	}
@@ -504,7 +504,7 @@ public class GeneralSettingsSceneController
 	{
 		if (numberOfDecimalPlacesFieldController.getInputField().isValid())
 		{
-			AppSettings.baseCurrency
+			AppSettings.BaseCurrency
 					.setNumberOfDecimalPlaces(Integer.parseInt(numberOfDecimalPlacesSpinner.getEditor().getText()));
 
 			updatePreview();
@@ -514,7 +514,7 @@ public class GeneralSettingsSceneController
 	private void updatePreview()
 	{
 		double previewAsDouble = 123456.7890123456;
-		String previewAsString = CurrencyUtils.format(previewAsDouble);
+		String previewAsString = CurrencyController.format(previewAsDouble);
 
 		previewCurrencySettingsLabel.setText(previewAsString);
 	}

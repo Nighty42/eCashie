@@ -46,12 +46,12 @@
 
 #passwordIsVisible
 {
-	-fx-image: url("/ecashie/resources/images/hidden_24x24.png");
+	-fx-image: url("/ecashie/resources/img/hidden_24x24.png");
 }
 
 #passwordIsHidden
 {
-	-fx-image: url("/ecashie/resources/images/visible_24x24.png");
+	-fx-image: url("/ecashie/resources/img/visible_24x24.png");
 }
 
 .notification-bar > .pane
@@ -63,5 +63,5 @@
 
 .notification-bar > .pane > .graphic
 {
-	-fx-image: url("/ecashie/resources/images/logo_32x32.png");
+	-fx-image: url("/ecashie/resources/img/logo_32x32.png");
 }

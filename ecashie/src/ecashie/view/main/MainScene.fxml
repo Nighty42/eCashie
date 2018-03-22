@@ -31,7 +31,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@/ecashie/resources/images/menu_grey_32x32.png" />
+                        <Image url="@/ecashie/resources/img/menu_grey_32x32.png" />
                      </image>
                   </ImageView>
                </graphic>

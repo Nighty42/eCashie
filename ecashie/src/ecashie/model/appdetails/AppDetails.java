@@ -1,4 +1,4 @@
-package org.ecashie.model.appdetails;
+package ecashie.model.appdetails;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,7 +7,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.ecashie.MainApp;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -18,7 +17,7 @@ import javafx.collections.ObservableList;
 
 public class AppDetails
 {
-	private static InputStream AppDetailsXML = MainApp.class.getResourceAsStream("AppDetails.xml");
+	private static InputStream AppDetailsXML = AppDetails.class.getResourceAsStream("AppDetails.xml");
 
 	public static String DevelopmentBegin = "2017";
 	public static String VersionNumber = "";
@@ -28,18 +27,17 @@ public class AppDetails
 	{
 		Document document = prepareDocument();
 		
-		readOutContributors(document);
+		readContributors(document);
 
-		readOutAppVersions(document);
+		readAppVersions(document);
 
-		initializeGeneralAppDetails();
+		initGeneralAppDetails();
 
-		readOutImageLicenses(document);
+		readImageLicenses(document);
 
-		readOutImageDesigner(document);
+		readImageDesigner(document);
 
-		readOutImageSources(document);
-
+		readImageSources(document);
 	}
 
 	private static Document prepareDocument() throws ParserConfigurationException, SAXException, IOException
@@ -52,7 +50,7 @@ public class AppDetails
 		return document;
 	}
 
-	private static void readOutContributors(Document document)
+	private static void readContributors(Document document)
 	{
 		NodeList contributorNodeList = document.getElementsByTagName("Contributor");
 
@@ -72,7 +70,7 @@ public class AppDetails
 		new Contributor(name, roles);
 	}
 
-	private static void readOutAppVersions(Document document)
+	private static void readAppVersions(Document document)
 	{
 		NodeList appVersionNodeList = document.getElementsByTagName("AppVersion");
 
@@ -88,7 +86,7 @@ public class AppDetails
 		}
 	}
 
-	private static void initializeGeneralAppDetails()
+	private static void initGeneralAppDetails()
 	{
 		AppVersion latestAppVersion = AppVersion.AppVersionList.get(AppVersion.AppVersionList.size() - 1);
 
@@ -165,7 +163,7 @@ public class AppDetails
 		new AppVersion(versionNumber, versionReleaseDate, newFunctionsList, importantChangesList, bugFixesList);
 	}
 
-	private static void readOutImageLicenses(Document document)
+	private static void readImageLicenses(Document document)
 	{
 		NodeList imageLicenseNodeList = document.getElementsByTagName("ImageLicense");
 
@@ -186,7 +184,7 @@ public class AppDetails
 		new ImageLicense(identifier, text, source);
 	}
 
-	private static void readOutImageDesigner(Document document)
+	private static void readImageDesigner(Document document)
 	{
 		NodeList imageDesignerNodeList = document.getElementsByTagName("ImageDesigner");
 
@@ -207,7 +205,7 @@ public class AppDetails
 		new ImageDesigner(identifier, designer, homepage);
 	}
 
-	private static void readOutImageSources(Document document)
+	private static void readImageSources(Document document)
 	{
 		NodeList imageSourceNodeList = document.getElementsByTagName("ImageSource");
 

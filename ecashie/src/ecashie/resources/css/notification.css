@@ -6,17 +6,17 @@
 
 #info
 {
-	-fx-image: url("/ecashie/resources/images/info_32x32.png");
+	-fx-image: url("/ecashie/resources/img/info_32x32.png");
 }
 
 #warning
 {
-	-fx-image: url("/ecashie/resources/images/warning_32x32.png");
+	-fx-image: url("/ecashie/resources/img/warning_32x32.png");
 }
 
 #error
 {
-	-fx-image: url("/ecashie/resources/images/error_32x32.png");
+	-fx-image: url("/ecashie/resources/img/error_32x32.png");
 }
 
 #closeButton

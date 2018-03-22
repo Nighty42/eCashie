@@ -39,7 +39,7 @@
       							<graphic>
       								<ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/ecashie/resources/images/report_key_24x24.png" />
+                              <Image url="@/ecashie/resources/img/report_key_24x24.png" />
                            </image></ImageView>
       							</graphic>
                      <tooltip>
@@ -56,7 +56,7 @@
       							<graphic>
       								<ImageView pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/ecashie/resources/images/report_add_24x24.png" />
+                              <Image url="@/ecashie/resources/img/report_add_24x24.png" />
                            </image></ImageView>
       							</graphic>
                      <tooltip>

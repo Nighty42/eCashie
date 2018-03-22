@@ -1,7 +1,6 @@
 package ecashie;
 
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -24,7 +23,7 @@ public class MainApp extends Application
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws UnknownHostException, IOException
+	public void start(Stage primaryStage)
 	{
 		// DEBUG: Create/Open Database
 		// MainAppController.initialize(primaryStage);
@@ -54,7 +53,7 @@ public class MainApp extends Application
 			Navigation.goForward();
 		}
 		catch (NullPointerException | SecurityException | IllegalArgumentException | ParserConfigurationException
-				| SAXException | XMLStreamException e)
+				| SAXException | XMLStreamException | IOException e)
 		{
 			new UnexpectedBehaviourException();
 		}

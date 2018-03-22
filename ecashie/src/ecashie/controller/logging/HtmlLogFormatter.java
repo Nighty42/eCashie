@@ -120,6 +120,8 @@ public class HtmlLogFormatter extends Formatter
 
 		stringBuffer.append("</tr>\n");
 
+		stringBuffer.append("</table>\n");
+		
 		return stringBuffer.toString();
 	}
 
@@ -155,6 +157,6 @@ public class HtmlLogFormatter extends Formatter
 	@Override
 	public String getTail(Handler h)
 	{
-		return "</table>\n</body>\n</html>";
+		return "</body>\n</html>";
 	}
 }

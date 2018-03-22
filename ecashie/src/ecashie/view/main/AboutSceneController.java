@@ -216,7 +216,7 @@ public class AboutSceneController
 						if (item != null)
 						{
 							imageView
-									.setImage(new Image(MainApp.class.getResourceAsStream("resources/images/" + item)));
+									.setImage(new Image(MainApp.class.getResourceAsStream("resources/img/" + item)));
 						}
 					}
 				};
