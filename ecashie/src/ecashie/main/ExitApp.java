@@ -84,7 +84,7 @@ public class ExitApp
 				DatabaseAccess.packEncryptAppendWriteDatabase();
 			}
 			catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
-					| BadPaddingException | InvalidAlgorithmParameterException | IOException e)
+					| BadPaddingException | InvalidAlgorithmParameterException | IOException | NullPointerException e)
 			{
 				ExitApplicationFailedException.PackEncryptAppendWriteFailed = true;
 

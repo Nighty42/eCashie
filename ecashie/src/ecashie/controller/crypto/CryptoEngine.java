@@ -61,7 +61,7 @@ public class CryptoEngine
 
 	public static byte[] encrypt(byte[] decryptedBytes, String password)
 			throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException,
-			BadPaddingException, InvalidAlgorithmParameterException
+			BadPaddingException, InvalidAlgorithmParameterException, NullPointerException
 	{
 		DecryptedBytes = decryptedBytes;
 
@@ -110,7 +110,7 @@ public class CryptoEngine
 		DEK = result.get(0);
 	}
 
-	private static void generateKEK_VK()
+	private static void generateKEK_VK() throws NullPointerException
 	{
 		List<byte[]> result = CryptoUtils
 				.generatePBKDF2Key(UserData.getPassword().getBytes(StandardCharsets.UTF_8), Salt, 32);

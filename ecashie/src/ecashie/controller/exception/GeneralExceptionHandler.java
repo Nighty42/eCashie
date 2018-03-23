@@ -53,10 +53,10 @@ public class GeneralExceptionHandler
 		alert.getDialogPane().setExpandableContent(expandableContentGrid);		
 		
 		Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
-		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/img/logo_32x32.png")));
+		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
 		
 		DialogPane dialogPane = alert.getDialogPane();
-		dialogPane.getStylesheets().add(MainApp.class.getResource("resources/css/general.css").toExternalForm());
+		dialogPane.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/general.css").toExternalForm());
 		
 		return alert;
 	}

@@ -1,16 +1,12 @@
 package ecashie.view.start;
 
 import java.io.File;
-import java.io.IOException;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
-import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.settings.AppSettings;
 import ecashie.main.ExitApp;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -29,7 +25,7 @@ public class StartSceneController
 	private ToggleButton openToggleButton;
 	@FXML
 	private ToggleButton createToggleButton;
-	
+
 	@FXML
 	private void initialize()
 	{
@@ -89,17 +85,15 @@ public class StartSceneController
 		}
 	}
 
-	public static void saveHistory(File userDataFile)
+	public static void saveHistory(CheckBox saveHistoryCheckBox, File userDataFile)
 	{
-		try
+		if (saveHistoryCheckBox.isSelected())
 		{
 			AppSettings.RecentUsedDatabase = userDataFile.getAbsolutePath();
-			
-			AppSettings.write();
 		}
-		catch (ParserConfigurationException | TransformerException | IOException e)
+		else
 		{
-			new UnexpectedBehaviourException();
+			AppSettings.RecentUsedDatabase = "";
 		}
 	}
 }

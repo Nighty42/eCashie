@@ -116,7 +116,7 @@ public class MenuSceneController
 	@FXML
 	private void onActionManualButton()
 	{
-		// TODO: Create Manual
+		// TODO: Link Manual
 	}
 
 	@FXML

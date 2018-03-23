@@ -75,18 +75,18 @@ public class CreateCashJournalSceneController
 	{
 		instance = this;
 
-		initializeFileNameChange();
+		initFileNameChange();
 
-		initializeFolderPathChange();
+		initFolderPathChange();
 
-		initializePasswordField();
+		initPasswordField();
 
-		initializePasswordLengthField();
+		initPasswordLengthField();
 
 		requestFocus();
 	}
 
-	private void initializeFileNameChange()
+	private void initFileNameChange()
 	{
 		InputField inputField = new InputField(fileNameTextField, true, Optional.of(1), Optional.of(50),
 				Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
@@ -95,7 +95,7 @@ public class CreateCashJournalSceneController
 				fileNameStatusLabel);
 	}
 
-	private void initializeFolderPathChange()
+	private void initFolderPathChange()
 	{
 		InputField inputField = new InputField(folderPathTextField, true, Optional.of(3), Optional.of(200),
 				Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
@@ -104,7 +104,7 @@ public class CreateCashJournalSceneController
 				folderPathTextField, folderPathStatusLabel);
 	}
 
-	private void initializePasswordField()
+	private void initPasswordField()
 	{
 		InputField inputField = new InputField(passwordPasswordField, false, Optional.of(8), Optional.of(200),
 				Optional.of("PASSWORD"), Optional.empty(), Optional.empty(), Optional.empty());
@@ -113,7 +113,7 @@ public class CreateCashJournalSceneController
 				passwordTextField, passwordVisibilityImageView, passwordStatusLabel);
 	}
 
-	private void initializePasswordLengthField()
+	private void initPasswordLengthField()
 	{
 		InputField inputField = new InputField(passwordLengthSpinner, false, Optional.empty(), Optional.empty(),
 				Optional.of("ONLY_NUMBERS"), Optional.of(8), Optional.of(200), Optional.empty());
@@ -263,10 +263,7 @@ public class CreateCashJournalSceneController
 
 	private void saveHistory(File userDataFile)
 	{
-		if (saveHistoryCheckBox.isSelected())
-		{
-			StartSceneController.saveHistory(userDataFile);
-		}
+		StartSceneController.saveHistory(saveHistoryCheckBox, userDataFile);
 	}
 
 	private void openMainScene()

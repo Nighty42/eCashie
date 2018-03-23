@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.menu.MenuSceneController">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.menu.MenuSceneController">
 	<stylesheets>
 		<URL value="@/ecashie/resources/css/general.css" />
 		<URL value="@/ecashie/resources/css/menu.css" />
@@ -145,7 +144,7 @@
 						</GridPane>
 					</graphic>
 				</ToggleButton>
-				<TitledPane fx:id="helpTitledPane" contentDisplay="RIGHT" expanded="false" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedHelpTitledPane" styleClass="subMenuTitledPane" GridPane.rowIndex="4">
+				<TitledPane fx:id="helpTitledPane" animated="false" contentDisplay="RIGHT" expanded="false" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedHelpTitledPane" styleClass="subMenuTitledPane" GridPane.rowIndex="4">
 					<content>
 						<AnchorPane>
 							<children>
@@ -294,9 +293,6 @@
 							</children>
 						</AnchorPane>
 					</content>
-					<effect>
-						<Blend />
-					</effect>
 					<graphic>
 						<GridPane prefWidth="267.0">
 							<columnConstraints>
@@ -330,10 +326,7 @@
 						</GridPane>
 					</graphic>
 				</TitledPane>
-				<TitledPane fx:id="settingsTitledPane" contentDisplay="RIGHT" expanded="false" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedSettingsTitledPane" styleClass="subMenuTitledPane" GridPane.rowIndex="5">
-					<effect>
-						<Blend />
-					</effect>
+				<TitledPane fx:id="settingsTitledPane" animated="false" contentDisplay="RIGHT" expanded="false" maxWidth="1.7976931348623157E308" onMouseClicked="#onMouseClickedSettingsTitledPane" styleClass="subMenuTitledPane" GridPane.rowIndex="5">
 					<content>
 						<AnchorPane prefHeight="200.0" prefWidth="200.0">
 							<children>

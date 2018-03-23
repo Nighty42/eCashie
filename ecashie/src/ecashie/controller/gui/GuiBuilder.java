@@ -131,14 +131,14 @@ public class GuiBuilder
 
 	private static AnchorPane createSceneContentPane(String sceneName) throws IOException
 	{
-		String scenePath = "/ecashie/view/" + sceneName + ".fxml";
+		String scenePath = "";
 
 		switch (Navigation.Current)
 		{
 		case "MainScene":
 			if (sceneName.contains("Settings"))
 			{
-				scenePath = "/ecashie/view/main/settings/" + sceneName + ".fxml";
+				scenePath = "/ecashie/view/settings/" + sceneName + ".fxml";
 			}
 			else if (sceneName.contains("Menu"))
 			{

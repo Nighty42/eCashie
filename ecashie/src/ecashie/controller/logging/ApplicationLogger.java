@@ -30,14 +30,14 @@ public class ApplicationLogger
 		{
 			initLogger();
 
-			// TODO: [1.0] Suppress write Logging Output to Console
-			// suppressLoggingOutputToConsole();
-
 			extractOldLogFileContent();
 
 			addLogStreamHandler();
 
 			addLogFileHandler();
+			
+			// TODO: [1.0] Suppress write Logging Output to Console
+			suppressLoggingOutputToConsole();
 		}
 		catch (IOException e)
 		{
@@ -50,7 +50,6 @@ public class ApplicationLogger
 		logger.setLevel(Level.ALL);
 	}
 
-	@SuppressWarnings("unused")
 	private static void suppressLoggingOutputToConsole()
 	{
 		Logger rootLogger = Logger.getLogger("");

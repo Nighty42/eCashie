@@ -97,7 +97,7 @@ public class DatabaseAccess
 		// Note: For more information about the encryption HSQLDB uses visit
 		// this link: https://bz.apache.org/ooo/show_bug.cgi?id=115454
 		String url = "jdbc:hsqldb:File:" + UserData.getDatabaseFile() + ";shutdown=true;crypt_key=" + CryptoEngine.CryptKey
-				+ ";crypt_type=aes;crypt_lobs=true;";
+				+ ";crypt_type=aes;crypt_lobs=true;reconfig_logging=false";
 
 		try
 		{
@@ -144,7 +144,7 @@ public class DatabaseAccess
 
 	public static void packEncryptAppendWriteDatabase()
 			throws IOException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
-			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
+			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NullPointerException
 	{
 		if (DatabaseAccess.Connection != null)
 		{
