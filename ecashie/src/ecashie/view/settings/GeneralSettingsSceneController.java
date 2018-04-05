@@ -25,7 +25,7 @@ import ecashie.view.inputfields.PasswordLengthSpinnerController;
 import ecashie.view.inputfields.SpinnerController;
 import ecashie.view.inputfields.TextFieldController;
 import ecashie.view.inputfields.ThousandsSeparator;
-import ecashie.view.menu.MenuSceneController;
+import ecashie.view.main.MainSceneController;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -411,9 +411,16 @@ public class GeneralSettingsSceneController
 	private void onSelectionChangedLanguageComboBox(ObservableValue<? extends SupportedLanguage> observable,
 			SupportedLanguage oldValue, SupportedLanguage newValue)
 	{
-		LanguageController.changeLanguage(newValue);
-
-		updateMainScene();
+		try
+		{
+			LanguageController.changeLanguage(newValue);
+			
+			updateMainScene();
+		}
+		catch (IOException e)
+		{
+			new UnexpectedBehaviourException();
+		}
 	}
 
 	private void onSelectionChangedCurrencyComboBox(ObservableValue<? extends SupportedCurrency> observable,
@@ -521,8 +528,8 @@ public class GeneralSettingsSceneController
 
 	private void updateMainScene()
 	{
-		MenuSceneController.showSettingsScene = true;
+		MainSceneController.showSettingsScene = true;
 
-		Navigation.goForward();
+		Navigation.goForward(false);
 	}
 }

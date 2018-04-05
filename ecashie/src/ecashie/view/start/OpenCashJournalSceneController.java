@@ -9,9 +9,14 @@ import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.gui.Navigation;
 import ecashie.controller.settings.AppSettings;
 import ecashie.controller.settings.UserData;
+import ecashie.main.AppPreloader;
 import ecashie.view.inputfields.FileFolderPathFieldController;
 import ecashie.view.inputfields.InputField;
 import ecashie.view.inputfields.PasswordFieldController;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -94,7 +99,7 @@ public class OpenCashJournalSceneController
 		if (!AppSettings.RecentUsedDatabase.isEmpty())
 		{
 			filePathFieldController.getInputField().setText(AppSettings.RecentUsedDatabase);
-			
+
 			saveHistoryCheckBox.setSelected(true);
 		}
 	}
@@ -156,7 +161,7 @@ public class OpenCashJournalSceneController
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ECDB Files (*.ecdb)", "*.ecdb");
 		fileChooser.getExtensionFilters().add(extFilter);
 
-		File file = fileChooser.showOpenDialog(GuiBuilder.primaryStage);
+		File file = fileChooser.showOpenDialog(GuiBuilder.PrimaryStage);
 
 		if (file != null)
 		{
@@ -201,21 +206,47 @@ public class OpenCashJournalSceneController
 
 	private void doLogin(File userDataFile)
 	{
-		try
+		GuiBuilder.PrimaryStage.hide();
+
+		Task<Void> loginTask = new Task<Void>()
 		{
-			openDatabase();
+			@Override
+			protected Void call()
+			{
+				try
+				{
+					openDatabase();
 
-			saveHistory(userDataFile);
+					saveHistory(userDataFile);
 
-			openMainScene();
-		}
-		catch (DatabasePasswordInvalidException e)
+					openMainScene();
+				}
+				catch (DatabasePasswordInvalidException e)
+				{
+					passwordFieldController.getInputField().setError("invalidPassword");
+					passwordFieldController.getInputField().visualizeStatus(passwordGridPane, passwordStatusLabel);
+
+					passwordFieldController.getInputField().requestFocus();
+				}
+
+				return null;
+			}
+		};
+
+		loginTask.setOnSucceeded(new EventHandler<WorkerStateEvent>()
 		{
-			passwordFieldController.getInputField().setError("invalidPassword");
-			passwordFieldController.getInputField().visualizeStatus(passwordGridPane, passwordStatusLabel);
+			@Override
+			public void handle(WorkerStateEvent t)
+			{
+				AppPreloader.PreloaderStage.hide();
+				GuiBuilder.PrimaryStage.show();
+			}
+		});
 
-			passwordFieldController.getInputField().requestFocus();
-		}
+		AppPreloader.notifyPreloader(0, "Initialize Preloader");
+		AppPreloader.PreloaderStage.show();
+
+		new Thread(loginTask).start();
 	}
 
 	private void openDatabase() throws DatabasePasswordInvalidException
@@ -233,8 +264,15 @@ public class OpenCashJournalSceneController
 
 	private void openMainScene()
 	{
-		Navigation.Next = "MainScene";
-		Navigation.goForward();
+		Platform.runLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				Navigation.Next = "MainScene";
+				Navigation.goForward(true);
+			}
+		});
 	}
 
 	// ================================================================================

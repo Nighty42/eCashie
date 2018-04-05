@@ -3,10 +3,10 @@ package ecashie.view.inputfields;
 import java.util.Optional;
 
 import ecashie.controller.gui.GuiBuilder;
+import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.validation.ComparationObject;
 import ecashie.controller.validation.Solutions;
 import ecashie.controller.validation.Validation;
-import ecashie.model.i18n.ResourceBundleString;
 import ecashie.view.root.RootLayout;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
@@ -426,14 +426,14 @@ public class InputField
 			String[] arguments = getPossibleMessageArguments();
 			String messageKey = "validation." + getError();
 
-			String errorText = ResourceBundleString.getLocaleString(messageKey, arguments);
+			String errorText = LanguageController.getLocaleString(messageKey, arguments);
 
 			statusLabel.setText(errorText);
 		}
 
 		if (GuiBuilder.currentRootScene == RootLayout.nonFullScreen)
 		{
-			GuiBuilder.primaryStage.sizeToScene();
+			GuiBuilder.PrimaryStage.sizeToScene();
 		}
 	}
 }

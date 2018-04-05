@@ -4,12 +4,12 @@ import java.io.IOException;
 
 import ecashie.controller.appdetails.AppDetails;
 import ecashie.controller.gui.HyperlinkUtils;
+import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.utilities.GeneralOperations;
 import ecashie.main.MainApp;
 import ecashie.model.appdetails.AppVersion;
 import ecashie.model.appdetails.Contributor;
 import ecashie.model.appdetails.ImageSource;
-import ecashie.model.i18n.ResourceBundleString;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -114,7 +114,7 @@ public class AboutSceneController
 	{
 		String copyrightText = "";
 		String currentYear = GeneralOperations.currentYear();
-		String contributor = ResourceBundleString.getLocaleString("contributor", null);
+		String contributor = LanguageController.getLocaleString("contributor", null);
 
 		if (currentYear.equals(AppDetails.DevelopmentBegin))
 		{

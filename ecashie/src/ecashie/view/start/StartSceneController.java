@@ -49,7 +49,7 @@ public class StartSceneController
 		openCashJournalScenePane.setVisible(true);
 		createCashJournalScenePane.setVisible(false);
 
-		GuiBuilder.primaryStage.sizeToScene();
+		GuiBuilder.PrimaryStage.sizeToScene();
 	}
 
 	@FXML
@@ -63,7 +63,7 @@ public class StartSceneController
 		openCashJournalScenePane.setVisible(false);
 		createCashJournalScenePane.setVisible(true);
 
-		GuiBuilder.primaryStage.sizeToScene();
+		GuiBuilder.PrimaryStage.sizeToScene();
 	}
 
 	@FXML

@@ -1,24 +1,33 @@
 /*================================================================================*/
+/* MenuBarHBox
+/*================================================================================*/
+
+#menuBarHBox 
+{
+	-fx-border-color: white;
+	-fx-border-width: 1.0 1.0 1.0 1.0;
+	
+	-fx-background-color: #3f4c4e;
+}
+
+/*================================================================================*/
 /* MenuBarToggleButton
 /*================================================================================*/
 
-.menuBarToggleButton
+.menuBarToggleButton, .menuBarMenuButton
 {
-	-fx-pref-width: 70.0px;
 	-fx-pref-height: 60.0px;
-	-fx-padding: 0.0 0.0 0.0 0.0;
 	
 	-fx-background-color: #3f4c4e;
 	-fx-background-insets: 0.0 0.0 0.0 0.0;
 	-fx-background-radius: 0.0 0.0 0.0 0.0;
 	
-	-fx-border-color: white;
-	-fx-border-width: 0.0 1.0 0.0 0.0;
+	-fx-border-width: 0.0 0.0 0.0 0.0;
 	-fx-border-insets: 0.0 0.0 0.0 0.0;
 	-fx-border-radius: 0.0 0.0 0.0 0.0;
 }
 
-.menuBarToggleButton:selected
+.menuBarToggleButton:selected, .menuBarMenuButton:showing
 {
 	-fx-background-color: white;
 	
@@ -37,14 +46,87 @@
 	-fx-text-fill: #3f4c4e;
 }
 
-.menuBarToggleButton > .image-view
+.menuBarToggleButton > .arrow-button .arrow
+{
+	-fx-padding: 0.0 0.0 0.0 0.0;
+	-fx-background-color: transparent;
+	-fx-focus-color: transparent;
+	-fx-background-insets: 0.0 0.0 0.0 0.0, 0.0;
+}
+
+/*================================================================================*/
+/* MenuButton
+/*================================================================================*/
+
+.menu-button
+{
+	-fx-pref-width: 70.0px;
+	
+	-fx-border-color: white;
+	-fx-border-width: 1.0 1.0 1.0 0.0;
+}
+
+.menu-button .context-menu
+{
+    -fx-effect: null;
+    
+	-fx-background-insets: -1, 0, 0, 0;
+}
+
+.menu-button > .arrow-button
+{
+    -fx-padding: 0.0;
+}
+
+.menu-button > .arrow-button > .arrow
+{
+    -fx-padding: 0.0;
+}
+
+/*================================================================================*/
+/* MenuBarMenuButton
+/*================================================================================*/
+
+.menuBarMenuButton #subMenuArrow
+{	
+	-fx-image: url("/ecashie/resources/img/arrow_white_20x12.png");
+}
+
+.menuBarMenuButton:showing #subMenuArrow
+{	
+	-fx-image: url("/ecashie/resources/img/arrow_grey_20x12.png");
+}
+
+/*================================================================================*/
+/* MenuToggleButton
+/*================================================================================*/
+
+#menuToggleButton
+{
+	-fx-border-color: white;
+	-fx-border-width: 1.0 0.0 1.0 1.0;
+	
+	-fx-padding: 20.0 20.0 20.0 20.0; /* top left bottom right */
+}
+
+#menuImageView
 {
 	-fx-image: url("/ecashie/resources/img/menu_white_32x32.png");
 }
 
-.menuBarToggleButton:selected > .image-view
+#menuToggleButton:selected #menuImageView
 {
 	-fx-image: url("/ecashie/resources/img/menu_grey_32x32.png");
+}
+
+/*================================================================================*/
+/* SettingsToggleButton
+/*================================================================================*/
+
+#settingsToggleButton
+{
+	-fx-border-color: white;
+	-fx-border-width: 1.0 1.0 1.0 0.0;
 }
 
 /*================================================================================*/
@@ -54,4 +136,38 @@
 .menuBarPane
 {
 	-fx-background-color: lightgrey;
+}
+
+/*================================================================================*/
+/* ToggleButton
+/*================================================================================*/
+
+.toggle-button
+{
+	-fx-pref-height: 60.0px;
+	
+	-fx-background-color: #3f4c4e;
+	-fx-background-insets: 0.0 0.0 0.0 0.0;
+	-fx-background-radius: 0.0 0.0 0.0 0.0;
+}
+
+.toggle-button:selected
+{
+	-fx-background-color: white;
+}
+
+/*================================================================================*/
+/* MenuLabel
+/*================================================================================*/
+
+.menuLabel
+{
+	-fx-text-fill: white;
+	-fx-font-size: 18.0px;
+	-fx-font-weight: bold;
+}
+
+.toggle-button:selected .menuLabel
+{	
+	-fx-text-fill: #3f4c4e;
 }

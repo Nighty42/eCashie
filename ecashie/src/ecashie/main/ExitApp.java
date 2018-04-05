@@ -17,6 +17,7 @@ import ecashie.controller.exception.ExitApplicationFailedException;
 import ecashie.controller.exception.GeneralExceptionHandler;
 import ecashie.controller.exception.ResourceBundleException;
 import ecashie.controller.gui.GuiBuilder;
+import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.logging.ApplicationLogger;
 import ecashie.controller.settings.AppSettings;
 import ecashie.controller.settings.UserData;
@@ -24,6 +25,7 @@ import ecashie.controller.settings.UserSettings;
 import ecashie.controller.utilities.FileOperations;
 import ecashie.controller.utilities.SocketListener;
 import ecashie.model.i18n.ResourceBundleString;
+import javafx.application.Platform;
 
 public class ExitApp
 {
@@ -47,14 +49,15 @@ public class ExitApp
 
 		closeLogger();
 
+		Platform.exit();
 		System.exit(0);
 	}
 
 	private static void closePrimaryStage()
 	{
-		if (GuiBuilder.primaryStage != null)
+		if (GuiBuilder.PrimaryStage != null)
 		{
-			GuiBuilder.primaryStage.close();
+			GuiBuilder.PrimaryStage.close();
 		}
 	}
 
@@ -191,7 +194,7 @@ public class ExitApp
 			}
 			else
 			{
-				resourceBundleString = ResourceBundleString.getLocaleMessage("exception.foundBug", null);
+				resourceBundleString = LanguageController.getLocaleMessage("exception.foundBug", null);
 			}
 
 			GeneralExceptionHandler.generateAlert(resourceBundleString.getMessageHeader(),

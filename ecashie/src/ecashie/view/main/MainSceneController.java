@@ -1,25 +1,31 @@
 package ecashie.view.main;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.gui.HyperlinkUtils;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import ecashie.controller.i18n.LanguageController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
-import javafx.util.Duration;
 
 public class MainSceneController
 {
 	@FXML
-	private Label timeLabel;
+	private ToggleButton overviewToggleButton;
+	@FXML
+	private ToggleButton transactionsToggleButton;
+	@FXML
+	private ToggleButton statisticsToggleButton;
+	@FXML
+	private ToggleButton budgetplanToggleButton;
+
+	@FXML
+	private ToggleButton settingsToggleButton;
+
+	@FXML
+	private Label titleLabel;
 
 	@FXML
 	private AnchorPane menuScenePane;
@@ -32,59 +38,19 @@ public class MainSceneController
 	@FXML
 	private AnchorPane budgetplanScenePane;
 	@FXML
+	private AnchorPane manualScenePane;
+	@FXML
 	private AnchorPane aboutScenePane;
 	@FXML
-	private AnchorPane generalSettingsScenePane;
-	@FXML
-	private AnchorPane bankaccountsSettingsScenePane;
-	@FXML
-	private AnchorPane categoriesSettingsScenePane;
+	private AnchorPane settingsScenePane;
+
+	public static boolean showSettingsScene = false;
 
 	private static MainSceneController instance = null;
 
 	public static MainSceneController getInstance()
 	{
 		return instance;
-	}
-
-	public AnchorPane getOverviewScenePane()
-	{
-		return overviewScenePane;
-	}
-
-	public AnchorPane getTransactionsScenePane()
-	{
-		return transactionsScenePane;
-	}
-
-	public AnchorPane getStatisticsScenePane()
-	{
-		return statisticsScenePane;
-	}
-
-	public AnchorPane getBudgetplanScenePane()
-	{
-		return budgetplanScenePane;
-	}
-
-	public AnchorPane getAboutScenePane()
-	{
-		return aboutScenePane;
-	}
-
-	public AnchorPane getGeneralSettingsScenePane()
-	{
-		return generalSettingsScenePane;
-	}
-
-	public AnchorPane getBankaccountsSettingsScenePane()
-	{
-		return bankaccountsSettingsScenePane;
-	}
-
-	public AnchorPane getCategoriesSettingsScenePane()
-	{
-		return categoriesSettingsScenePane;
 	}
 
 	@FXML
@@ -98,41 +64,22 @@ public class MainSceneController
 	{
 		instance = this;
 
-		GuiBuilder.embedPaneIntoScene(menuScenePane, "MenuScene");
 		GuiBuilder.embedPaneIntoScene(overviewScenePane, "OverviewScene");
 		GuiBuilder.embedPaneIntoScene(transactionsScenePane, "TransactionsScene");
 		GuiBuilder.embedPaneIntoScene(statisticsScenePane, "StatisticsScene");
 		GuiBuilder.embedPaneIntoScene(budgetplanScenePane, "BudgetplanScene");
+		GuiBuilder.embedPaneIntoScene(manualScenePane, "ManualScene");
 		GuiBuilder.embedPaneIntoScene(aboutScenePane, "AboutScene");
-		GuiBuilder.embedPaneIntoScene(generalSettingsScenePane, "GeneralSettingsScene");
-		GuiBuilder.embedPaneIntoScene(bankaccountsSettingsScenePane, "BankaccountsSettingsScene");
-		GuiBuilder.embedPaneIntoScene(categoriesSettingsScenePane, "CategoriesSettingsScene");
+		GuiBuilder.embedPaneIntoScene(settingsScenePane, "SettingsScene");
 
 		menuToggleButton.fire();
+		overviewToggleButton.fire();
 
 		sceneGridPane.getColumnConstraints().get(0).setMinWidth(Region.USE_COMPUTED_SIZE);
 		sceneGridPane.getColumnConstraints().get(0).setPrefWidth(Region.USE_COMPUTED_SIZE);
 		sceneGridPane.getColumnConstraints().get(0).setMaxWidth(Region.USE_COMPUTED_SIZE);
 
 		menuScenePane.setVisible(true);
-	}
-
-	@SuppressWarnings("unused")
-	private void showTime()
-	{
-		final Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
-
-			SimpleDateFormat sdf = new SimpleDateFormat("EEEE - dd. MMMM yyyy HH:mm:ss");
-			Date now = new Date();
-			String strDate = sdf.format(now);
-
-			timeLabel.setText(strDate);
-
-		}));
-
-		timeline.setCycleCount(Animation.INDEFINITE);
-
-		timeline.play();
 	}
 
 	// ================================================================================
@@ -161,6 +108,80 @@ public class MainSceneController
 	}
 
 	@FXML
+	private void onActionOverviewToggleButton()
+	{
+		selectionChangedScene("overview");
+	}
+
+	private void selectionChangedScene(String sceneName)
+	{
+		clearToggleButtonSelection();
+		clearContentPaneVisibility();
+
+		titleLabel.setText(LanguageController.getLocaleString(sceneName, null));
+
+		switch (sceneName)
+		{
+			case "overview":
+				overviewToggleButton.setSelected(true);
+				overviewScenePane.setVisible(true);
+				break;
+			case "transactions":
+				transactionsToggleButton.setSelected(true);
+				transactionsScenePane.setVisible(true);
+				break;
+			case "statistics":
+				statisticsToggleButton.setSelected(true);
+				statisticsScenePane.setVisible(true);
+				break;
+			case "budgetplan":
+				budgetplanToggleButton.setSelected(true);
+				budgetplanScenePane.setVisible(true);
+				break;
+			case "settings":
+				settingsToggleButton.setSelected(true);
+				settingsScenePane.setVisible(true);
+				break;
+			case "manual":
+				manualScenePane.setVisible(true);
+				break;
+			case "about":
+				aboutScenePane.setVisible(true);
+				break;
+		}
+	}
+
+	@FXML
+	private void onActionTransactionsToggleButton()
+	{
+		selectionChangedScene("transactions");
+	}
+
+	@FXML
+	private void onActionStatisticsToggleButton()
+	{
+		selectionChangedScene("statistics");
+	}
+
+	@FXML
+	private void onActionBudgetplanToggleButton()
+	{
+		selectionChangedScene("budgetplan");
+	}
+
+	@FXML
+	private void onActionSettingsToggleButton()
+	{
+		selectionChangedScene("settings");
+	}
+
+	@FXML
+	private void onActionManualMenuItem()
+	{
+		selectionChangedScene("manual");
+	}
+
+	@FXML
 	private void onActionReportBugMenuItem()
 	{
 		HyperlinkUtils.openHyperlink("https://sourceforge.net/p/ecashie/tickets/new/");
@@ -176,5 +197,34 @@ public class MainSceneController
 	private void onActionParticipateMenuItem()
 	{
 		HyperlinkUtils.openHyperlink("https://github.com/Nighty42/eCashie");
+	}
+
+	@FXML
+	private void onActionAboutMenuItem()
+	{
+		selectionChangedScene("about");
+	}
+
+	private void clearToggleButtonSelection()
+	{
+		overviewToggleButton.setSelected(false);
+		transactionsToggleButton.setSelected(false);
+		statisticsToggleButton.setSelected(false);
+		budgetplanToggleButton.setSelected(false);
+
+		settingsToggleButton.setSelected(false);
+	}
+
+	private void clearContentPaneVisibility()
+	{
+		overviewScenePane.setVisible(false);
+		transactionsScenePane.setVisible(false);
+		statisticsScenePane.setVisible(false);
+		budgetplanScenePane.setVisible(false);
+
+		manualScenePane.setVisible(false);
+		aboutScenePane.setVisible(false);
+
+		settingsScenePane.setVisible(false);
 	}
 }

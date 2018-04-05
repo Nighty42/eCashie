@@ -2,17 +2,21 @@ package ecashie.controller.i18n;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.MessageFormat;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.StringTokenizer;
 
+import ecashie.controller.exception.ResourceBundleException;
 import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.settings.AppSettings;
 import ecashie.main.MainApp;
+import ecashie.model.i18n.ResourceBundleString;
 import ecashie.model.i18n.SupportedLanguage;
 
 public class LanguageController
-{	
+{
 	public static Locale stringToLocale(String localeID)
 	{
 		StringTokenizer stringTokenizer = new StringTokenizer(localeID, "_");
@@ -32,23 +36,16 @@ public class LanguageController
 		return new Locale(language, country);
 	}
 
-	public static void changeLanguage(SupportedLanguage newLanguage)
+	public static void changeLanguage(SupportedLanguage newLanguage) throws IOException
 	{
-		try
-		{
-			AppSettings.Language = newLanguage;
+		AppSettings.Language = newLanguage;
 
-			Locale.setDefault(AppSettings.Language.getLocale());
+		Locale.setDefault(AppSettings.Language.getLocale());
 
-			InputStream inputStream = MainApp.class.getResourceAsStream(
-					"/ecashie/resources/i18n/" + AppSettings.Language.getLocale().toString() + ".properties");
+		InputStream inputStream = MainApp.class.getResourceAsStream(
+				"/ecashie/resources/i18n/" + AppSettings.Language.getLocale().toString() + ".properties");
 
-			MainApp.ResourceBundle = new PropertyResourceBundle(inputStream);
-		}
-		catch (IOException e)
-		{
-			new UnexpectedBehaviourException();
-		}
+		MainApp.ResourceBundle = new PropertyResourceBundle(inputStream);
 	}
 
 	public static boolean validateLanguage(Locale locale_A)
@@ -68,5 +65,52 @@ public class LanguageController
 		}
 
 		return valid;
+	}
+
+	private static String formatMessageString(String localeString, String[] messageArgs)
+	{
+		try
+		{
+			MessageFormat messageFormat = new MessageFormat("");
+			messageFormat.applyPattern(localeString);
+			localeString = messageFormat.format(messageArgs);
+		}
+		catch (IllegalArgumentException e)
+		{
+			new UnexpectedBehaviourException();
+		}
+
+		return localeString;
+	}
+
+	public static ResourceBundleString getLocaleMessage(String messageKey, String[] messageArgs)
+	{
+		String messageHeader = getLocaleString(messageKey + ".header", null);
+		String messageContent = getLocaleString(messageKey + ".content", null);
+
+		ResourceBundleString resourceBundleString = new ResourceBundleString(messageKey, messageHeader, messageContent);
+
+		return resourceBundleString;
+	}
+	
+	public static String getLocaleString(String messageKey, String[] messageArgs)
+	{
+		String localeString = "";
+
+		try
+		{
+			localeString = MainApp.ResourceBundle.getString(messageKey);
+
+			if (messageArgs != null)
+			{
+				localeString = formatMessageString(localeString, messageArgs);
+			}
+		}
+		catch (NullPointerException | MissingResourceException e)
+		{
+			new ResourceBundleException();
+		}
+
+		return localeString;
 	}
 }

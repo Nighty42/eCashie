@@ -12,8 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.StreamHandler;
 
-import ecashie.controller.exception.LoggingNotAvailableException;
-
 public class ApplicationLogger
 {
 	public static final File logFile = new File("log.html");
@@ -26,23 +24,15 @@ public class ApplicationLogger
 
 	public static void setup() throws IOException
 	{
-		try
-		{
-			initLogger();
+		initLogger();
 
-			extractOldLogFileContent();
+		extractOldLogFileContent();
 
-			addLogStreamHandler();
+		addLogStreamHandler();
 
-			addLogFileHandler();
-			
-			// TODO: [1.0] Suppress write Logging Output to Console
-			suppressLoggingOutputToConsole();
-		}
-		catch (IOException e)
-		{
-			new LoggingNotAvailableException();
-		}
+		addLogFileHandler();
+
+		suppressLoggingOutputToConsole();
 	}
 
 	private static void initLogger()

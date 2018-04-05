@@ -8,6 +8,7 @@ import ecashie.controller.settings.UserData;
 import ecashie.main.ExitApp;
 import ecashie.main.MainApp;
 import ecashie.view.root.RootLayout;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -18,22 +19,26 @@ import javafx.stage.WindowEvent;
 
 public class GuiBuilder
 {
-	public static Stage primaryStage;
+	public static Stage PrimaryStage;
 	public static RootLayout currentRootScene;
 
-	public static void initializePrimaryStage()
+	public static void initPrimaryStage(Stage primaryStage)
 	{
-		primaryStage.setTitle("eCashie");
+		PrimaryStage = primaryStage;
 
-		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
-		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_48x48.png")));
+		PrimaryStage.setTitle("eCashie");
 
-		primaryStage.setOnCloseRequest((WindowEvent we) -> {
+		PrimaryStage.getIcons()
+				.add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
+		PrimaryStage.getIcons()
+				.add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_48x48.png")));
+
+		PrimaryStage.setOnCloseRequest((WindowEvent we) -> {
 			ExitApp.exit();
 		});
 	}
 
-	public static void changeScene()
+	public static void changeScene(boolean wait)
 	{
 		try
 		{
@@ -48,7 +53,10 @@ public class GuiBuilder
 			new UnexpectedBehaviourException();
 		}
 
-		primaryStage.show();
+		if (!wait)
+		{
+			PrimaryStage.show();
+		}
 	}
 
 	private static void determineRootScene()
@@ -68,7 +76,7 @@ public class GuiBuilder
 	{
 		if (Navigation.Next.equals("StartScene") || Navigation.getBefore().equals("StartScene"))
 		{
-			primaryStage.hide();
+			PrimaryStage.hide();
 
 			initRootLayout();
 
@@ -104,22 +112,22 @@ public class GuiBuilder
 			scene.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/main.css").toExternalForm());
 		}
 
-		primaryStage.setScene(scene);
+		PrimaryStage.setScene(scene);
 	}
 
 	private static void setContentToWindowSize()
 	{
 		if (currentRootScene.equals(RootLayout.nonFullScreen))
 		{
-			primaryStage.sizeToScene();
+			PrimaryStage.sizeToScene();
 		}
 	}
 
 	private static void setWindowBehaviour()
 	{
-		primaryStage.centerOnScreen();
-		primaryStage.setMaximized(currentRootScene.getMaximized());
-		primaryStage.setResizable(currentRootScene.getResizable());
+		PrimaryStage.centerOnScreen();
+		PrimaryStage.setMaximized(currentRootScene.getMaximized());
+		PrimaryStage.setResizable(currentRootScene.getResizable());
 	}
 
 	private static void setContentRootScene() throws IOException
@@ -139,10 +147,6 @@ public class GuiBuilder
 			if (sceneName.contains("Settings"))
 			{
 				scenePath = "/ecashie/view/settings/" + sceneName + ".fxml";
-			}
-			else if (sceneName.contains("Menu"))
-			{
-				scenePath = "/ecashie/view/menu/" + sceneName + ".fxml";
 			}
 			else
 			{
@@ -206,9 +210,16 @@ public class GuiBuilder
 
 	public static void updateWindowTitle()
 	{
-		if (GuiBuilder.primaryStage != null)
+		if (PrimaryStage != null)
 		{
-			GuiBuilder.primaryStage.setTitle("eCashie - " + UserData.getCashJournalName());
+			Platform.runLater(new Runnable()
+			{
+				@Override
+				public void run()
+				{
+					PrimaryStage.setTitle("eCashie - " + UserData.getCashJournalName());
+				}
+			});
 		}
 	}
 }

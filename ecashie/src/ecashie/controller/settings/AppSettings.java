@@ -31,7 +31,7 @@ public class AppSettings
 	public static SupportedLanguage Language = null;
 	public static SupportedCurrency BaseCurrency = null;
 
-	public static void init()
+	public static void init() throws IOException
 	{
 		Language = SupportedLanguage.en_GB;
 		BaseCurrency = new SupportedCurrency(Currency.getInstance(AppSettings.Language.getLocale()));

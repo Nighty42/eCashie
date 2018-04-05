@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.start.LoadingSceneController">
+   <children>
+      <GridPane alignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="ALWAYS" />
+          <RowConstraints />
+        </rowConstraints>
+         <children>
+            <Label fx:id="currentTaskLabel" text="Initializing Loading" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Open Sans" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="4.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="progressLabel" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" text="00 % " textAlignment="RIGHT" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Open Sans Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <ProgressBar fx:id="progressBar" maxWidth="1.7976931348623157E308" prefHeight="22.0" progress="0.0">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </ProgressBar>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

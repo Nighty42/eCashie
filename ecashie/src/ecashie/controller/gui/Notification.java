@@ -12,8 +12,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
+import ecashie.controller.i18n.LanguageController;
 import ecashie.main.MainApp;
-import ecashie.model.i18n.ResourceBundleString;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -36,44 +36,44 @@ public class Notification
 
 	public static void info(String messageKey)
 	{
-		initializeNotification(messageKey, "info");
+		initNotification(messageKey, "info");
 	}
 
 	public static void warning(String messageKey)
 	{
-		initializeNotification(messageKey, "warning");
+		initNotification(messageKey, "warning");
 	}
 
 	public static void error(String messageKey)
 	{
-		initializeNotification(messageKey, "error");
+		initNotification(messageKey, "error");
 	}
 
-	private static void initializeNotification(String messageKey, String notificationType)
+	private static void initNotification(String messageKey, String notificationType)
 	{
 		if (notificationStage == null || !notificationStage.isShowing())
 		{
-			initializeNotificationStrings(messageKey);
+			initNotificationStrings(messageKey);
 
-			initializeNotificationType(notificationType);
+			initNotificationType(notificationType);
 
 			Area area = calculatePositionNearTray();
 
-			initializeNotificationStage(area);
+			initNotificationStage(area);
 
-			initializeAnimation();
+			initAnimation();
 
-			notificationStage.show(GuiBuilder.primaryStage);
+			notificationStage.show(GuiBuilder.PrimaryStage);
 		}
 	}
 
-	private static void initializeNotificationStrings(String messageKey)
+	private static void initNotificationStrings(String messageKey)
 	{
 		messageKey = "notification." + messageKey;
-		text = ResourceBundleString.getLocaleString(messageKey, null);
+		text = LanguageController.getLocaleString(messageKey, null);
 	}
 	
-	private static void initializeNotificationType(String notificationType)
+	private static void initNotificationType(String notificationType)
 	{
 		type = notificationType;
 	}
@@ -96,7 +96,7 @@ public class Notification
 		return area;
 	}
 
-	private static void initializeNotificationStage(Area area)
+	private static void initNotificationStage(Area area)
 	{
 		try
 		{
@@ -117,7 +117,7 @@ public class Notification
 		}
 	}
 
-	private static void initializeAnimation()
+	private static void initAnimation()
 	{
 		KeyFrame fading = new KeyFrame(Duration.millis(2000), new KeyValue(notificationStage.opacityProperty(), 0));
 
@@ -166,6 +166,6 @@ public class Notification
 
 	public static void restartAnimation()
 	{
-		initializeAnimation();
+		initAnimation();
 	}
 }

@@ -34,7 +34,7 @@ public class Navigation
 		changes.removePropertyChangeListener(l);
 	}
 
-	public static void goForward()
+	public static void goForward(boolean wait)
 	{
 		if (!Current.equals(Next))
 		{
@@ -43,6 +43,6 @@ public class Navigation
 
 		backstack.add(Current);
 
-		GuiBuilder.changeScene();
+		GuiBuilder.changeScene(wait);
 	}
 }

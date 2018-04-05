@@ -161,7 +161,7 @@ public class CreateCashJournalSceneController
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		directoryChooser.setInitialDirectory(new File(pathInitialDirectory));
 
-		File directory = directoryChooser.showDialog(GuiBuilder.primaryStage);
+		File directory = directoryChooser.showDialog(GuiBuilder.PrimaryStage);
 
 		if (directory != null)
 		{
@@ -229,36 +229,36 @@ public class CreateCashJournalSceneController
 	{
 		File userDataFile = new File(folderPathFieldController.getInputField().getText() + "\\"
 				+ fileNameFieldController.getInputField().getText() + ".ecdb");
-
+		
 		boolean fileExistsAndWasReplaced = UserData.handleUserDataFileExists(fileNameFieldController, userDataFile);
-
-		if (fileExistsAndWasReplaced)
-		{
-			createDatabase(userDataFile);
-
-			saveHistory(userDataFile);
-
-			openMainScene();
-		}
-		else
-		{
-			requestFocus();
-		}
-	}
-
-	private void createDatabase(File userDataFile)
-	{
-		UserData.setCashJournalFile(userDataFile);
-		UserData.setPassword(passwordFieldController.getInputField().getText());
-
+		
 		try
 		{
-			DatabaseAccess.openDatabase(true);
+			if (fileExistsAndWasReplaced)
+			{
+				createDatabase(userDataFile);
+
+				saveHistory(userDataFile);
+
+				openMainScene();
+			}
+			else
+			{
+				requestFocus();
+			}
 		}
 		catch (DatabasePasswordInvalidException e)
 		{
 			new UnexpectedBehaviourException();
 		}
+	}
+
+	private void createDatabase(File userDataFile) throws DatabasePasswordInvalidException
+	{
+		UserData.setCashJournalFile(userDataFile);
+		UserData.setPassword(passwordFieldController.getInputField().getText());
+
+		DatabaseAccess.openDatabase(true);
 	}
 
 	private void saveHistory(File userDataFile)
@@ -269,7 +269,7 @@ public class CreateCashJournalSceneController
 	private void openMainScene()
 	{
 		Navigation.Next = "MainScene";
-		Navigation.goForward();
+		Navigation.goForward(true);
 	}
 
 	// ================================================================================

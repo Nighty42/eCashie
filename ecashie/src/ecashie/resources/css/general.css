@@ -1,14 +1,4 @@
-.button
-{
-	-fx-cursor: hand;
-}
-
-.toggle-button
-{
-	-fx-cursor: hand;
-}
-
-.radio-button
+.button, .toggle-button, .radio-button, .menu-button, .menu-item
 {
 	-fx-cursor: hand;
 }

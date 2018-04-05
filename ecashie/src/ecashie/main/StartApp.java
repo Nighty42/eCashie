@@ -1,7 +1,6 @@
 package ecashie.main;
 
 import java.io.IOException;
-import java.net.BindException;
 import java.security.Security;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,114 +11,63 @@ import org.xml.sax.SAXException;
 
 import ecashie.controller.appdetails.AppDetails;
 import ecashie.controller.exception.LoggingNotAvailableException;
-import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.logging.ApplicationLogger;
 import ecashie.controller.settings.AppSettings;
-import ecashie.controller.utilities.SocketListener;
-import javafx.stage.Stage;
 
-public class StartApp
-{
-	public static void start(Stage primaryStage)
-			throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException, XMLStreamException
-	{
-		if (appIsAlreadyRunning())
-		{
-			System.exit(0);
-		}
-		else
-		{
-			initAppSettings();
+public class StartApp {
+	public static void start() throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException,
+			XMLStreamException, InterruptedException {
+		AppPreloader.notifyPreloader(25, "Initialize Logging and Settings");
 
-			initLogging();
+		initAppSettings();
 
-			readAppDetails();
+		initLogging();
 
-			readAppSettings();
+		AppPreloader.notifyPreloader(65, "Read Application Settings");
 
-			initSecurityProvider();
+		readAppDetails();
 
-			initLanguage();
+		readAppSettings();
 
-			initPrimaryStage(primaryStage);
-		}
+		AppPreloader.notifyPreloader(90, "Initialize Security Provider and Language");
+
+		initSecurityProvider();
+
+		initLanguage();
 	}
 
-	private static boolean appIsAlreadyRunning()
-	{
-		try
-		{
-			new SocketListener();
-
-			Thread threadConnectionListener = new Thread(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					SocketListener.serverSocketListener();
-				}
-			});
-
-			threadConnectionListener.start();
-		}
-		catch (BindException e)
-		{
-			SocketListener.clientSocketListener();
-
-			return true;
-		}
-		catch (IOException e)
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-	private static void initAppSettings()
-	{
-		AppSettings.init();
-	}
-
-	private static void initLogging()
-	{
-		try
-		{
-			ApplicationLogger.setup();
-		}
-		catch (IOException e)
-		{
+	private static void initAppSettings() {
+		try {
+			AppSettings.init();
+		} catch (IOException e) {
 			new LoggingNotAvailableException();
 		}
 	}
 
-	private static void readAppDetails()
-			throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException, XMLStreamException
-	{
+	private static void initLogging() {
+		try {
+			ApplicationLogger.setup();
+		} catch (IOException e) {
+			new LoggingNotAvailableException();
+		}
+	}
+
+	private static void readAppDetails() throws IllegalArgumentException, ParserConfigurationException, SAXException,
+			IOException, XMLStreamException {
 		AppDetails.read();
 	}
 
 	private static void readAppSettings()
-			throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException
-	{
+			throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException {
 		AppSettings.read();
 	}
 
-	private static void initPrimaryStage(Stage primaryStage)
-	{
-		GuiBuilder.primaryStage = primaryStage;
-
-		GuiBuilder.initializePrimaryStage();
-	}
-
-	private static void initSecurityProvider() throws NullPointerException, SecurityException
-	{
+	private static void initSecurityProvider() throws NullPointerException, SecurityException {
 		Security.addProvider(new BouncyCastleProvider());
 	}
 
-	private static void initLanguage() throws IOException
-	{
+	private static void initLanguage() throws IOException {
 		LanguageController.changeLanguage(AppSettings.Language);
 	}
 }

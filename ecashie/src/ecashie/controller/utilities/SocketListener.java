@@ -36,9 +36,9 @@ public class SocketListener
 
 					Platform.runLater(() -> {
 						// Windows: ToFront() just let the icon in the taskbar blink
-						GuiBuilder.primaryStage.setAlwaysOnTop(true);
-						GuiBuilder.primaryStage.requestFocus();
-						GuiBuilder.primaryStage.setAlwaysOnTop(false);
+						GuiBuilder.PrimaryStage.setAlwaysOnTop(true);
+						GuiBuilder.PrimaryStage.requestFocus();
+						GuiBuilder.PrimaryStage.setAlwaysOnTop(false);
 					});
 				}
 			}

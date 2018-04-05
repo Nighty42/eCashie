@@ -2,8 +2,8 @@ package ecashie.controller.gui;
 
 import java.util.Optional;
 
+import ecashie.controller.i18n.LanguageController;
 import ecashie.main.MainApp;
-import ecashie.model.i18n.ResourceBundleString;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -33,9 +33,9 @@ public class AlertMessage
 	private static void initializeMessageStrings(String messageKey, String[] contentArgs)
 	{
 		messageKey = "message." + messageKey;
-		title = ResourceBundleString.getLocaleString(messageKey + ".title", null);
-		header = ResourceBundleString.getLocaleString(messageKey + ".header", null);
-		content = ResourceBundleString.getLocaleString(messageKey + ".content", contentArgs);
+		title = LanguageController.getLocaleString(messageKey + ".title", null);
+		header = LanguageController.getLocaleString(messageKey + ".header", null);
+		content = LanguageController.getLocaleString(messageKey + ".content", contentArgs);
 	}
 
 	private static Alert initializeAlert()

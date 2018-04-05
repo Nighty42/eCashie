@@ -24,6 +24,7 @@ import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.settings.UserData;
 import ecashie.controller.settings.UserSettings;
 import ecashie.controller.utilities.ZipOperations;
+import ecashie.main.AppPreloader;
 
 public class DatabaseAccess
 {
@@ -39,7 +40,7 @@ public class DatabaseAccess
 		try
 		{
 			loadJDBCDriver();
-
+			
 			if (newDatabase)
 			{
 				openNewDatabase();
@@ -50,8 +51,8 @@ public class DatabaseAccess
 			}
 		}
 		catch (ClassNotFoundException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
-				| IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException
-				| SQLException | IllegalArgumentException | ParserConfigurationException | SAXException | IOException e)
+				| IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | SQLException
+				| IllegalArgumentException | ParserConfigurationException | SAXException | IOException e)
 		{
 			new UnexpectedBehaviourException();
 		}
@@ -62,17 +63,27 @@ public class DatabaseAccess
 			BadPaddingException, InvalidAlgorithmParameterException, IOException, SQLException,
 			DatabasePasswordInvalidException, IllegalArgumentException, ParserConfigurationException, SAXException
 	{
+		AppPreloader.notifyPreloader(10, "Read encrypted User Data");
+		
 		byte[] appendedEncryptedPackedBytes = UserData.readExistentUserData();
+
+		AppPreloader.notifyPreloader(20, "Subtract compressed Bytes");
 
 		byte[] encryptedPackedBytes = CryptoBytes.subtract(appendedEncryptedPackedBytes);
 
+		AppPreloader.notifyPreloader(60, "Decrypt Data");
+
 		byte[] packedBytes = CryptoEngine.decrypt(encryptedPackedBytes, UserData.getPassword());
 
+		AppPreloader.notifyPreloader(70, "Decompress Bytes and read User Settings");
+		
 		ZipOperations.unpack(packedBytes);
-
+		
 		UserSettings.read();
-
-		DatabaseAccess.establishDatabaseConnection();
+		
+		AppPreloader.notifyPreloader(90, "Establish Database Connection");
+		
+		DatabaseAccess.establishDatabaseConnection();		
 	}
 
 	private static void openNewDatabase() throws SQLException
@@ -82,7 +93,7 @@ public class DatabaseAccess
 		DatabaseAccess.establishDatabaseConnection();
 
 		DatabaseBuilder.createTables();
-		
+
 		DatabaseAccess.setPassword();
 	}
 
@@ -92,12 +103,12 @@ public class DatabaseAccess
 	}
 
 	public static void establishDatabaseConnection()
-	{		
+	{
 		// Define URL for DatabaseAccess-Connection
 		// Note: For more information about the encryption HSQLDB uses visit
 		// this link: https://bz.apache.org/ooo/show_bug.cgi?id=115454
-		String url = "jdbc:hsqldb:File:" + UserData.getDatabaseFile() + ";shutdown=true;crypt_key=" + CryptoEngine.CryptKey
-				+ ";crypt_type=aes;crypt_lobs=true;reconfig_logging=false";
+		String url = "jdbc:hsqldb:File:" + UserData.getDatabaseFile() + ";shutdown=true;crypt_key="
+				+ CryptoEngine.CryptKey + ";crypt_type=aes;crypt_lobs=true;reconfig_logging=false";
 
 		try
 		{
