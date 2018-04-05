@@ -109,7 +109,7 @@ public class GuiBuilder
 			// Prevents bug in JavaFX:
 			// If the css file is only referenced in fxml the context menu isn't affected by
 			// the defined style
-			scene.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/main.css").toExternalForm());
+			scene.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/MainScene.css").toExternalForm());
 		}
 
 		PrimaryStage.setScene(scene);

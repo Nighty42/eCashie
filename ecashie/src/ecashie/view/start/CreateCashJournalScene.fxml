@@ -278,7 +278,7 @@
 		</GridPane>
 	</children>
 	<stylesheets>
-		<URL value="@/ecashie/resources/css/validation.css" />
-		<URL value="@/ecashie/resources/css/general.css" />
+		<URL value="@/ecashie/resources/css/Validation.css" />
+		<URL value="@/ecashie/resources/css/General.css" />
 	</stylesheets>
 </AnchorPane>

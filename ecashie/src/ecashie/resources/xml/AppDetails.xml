@@ -70,7 +70,7 @@
 				<BugFix
 					value="Now all embedded Scenes should fit the parents width and height" />
 				<BugFix
-					value="Fixed bug which caused the context menu in MainScene to ignore css style defined in main.css" />
+					value="Fixed bug which caused the context menu in MainScene to ignore css style defined in MainScene.css" />
 				<BugFix
 					value="Selection of menu items in MainScene should be now consistent" />
 				<BugFix

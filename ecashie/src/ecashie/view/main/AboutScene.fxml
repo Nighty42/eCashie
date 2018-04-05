@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.main.AboutSceneController">
+<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.main.AboutSceneController">
 	<children>
 		<GridPane layoutX="10.0" layoutY="6.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
 			<columnConstraints>
@@ -99,9 +99,9 @@
 						</Hyperlink>
 					</children>
 				</GridPane>
-				<TabPane id="aboutTabPane" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="3">
+				<TabPane tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="3">
 					<tabs>
-						<Tab id="licenseTab" closable="false" text="%license">
+						<Tab closable="false" text="%license">
 							<content>
 								<AnchorPane>
 									<padding>
@@ -141,7 +141,7 @@
 								</AnchorPane>
 							</content>
 						</Tab>
-						<Tab id="contributorTab" closable="false" text="%contributor">
+						<Tab closable="false" text="%contributor">
 							<content>
 								<AnchorPane>
 									<children>
@@ -161,7 +161,7 @@
 								</AnchorPane>
 							</content>
 						</Tab>
-						<Tab id="graphicDesignTab" closable="false" text="%graphicalDesign">
+						<Tab closable="false" text="%graphicalDesign">
 							<content>
 								<AnchorPane>
 									<children>
@@ -185,7 +185,7 @@
 								</AnchorPane>
 							</content>
 						</Tab>
-						<Tab id="versionNotesTab" closable="false" text="%versionNotes">
+						<Tab id="lastTab" closable="false" text="%versionNotes">
 							<content>
 								<AnchorPane>
 									<children>
@@ -348,8 +348,9 @@
 			</children>
 		</GridPane>
 	</children>
-	<stylesheets>
-		<URL value="@/ecashie/resources/css/about.css" />
-		<URL value="@/ecashie/resources/css/general.css" />
-	</stylesheets>
+   <stylesheets>
+      <URL value="@../../resources/css/TabPane.css" />
+      <URL value="@../../resources/css/AboutScene.css" />
+      <URL value="@../../resources/css/General.css" />
+   </stylesheets>
 </AnchorPane>

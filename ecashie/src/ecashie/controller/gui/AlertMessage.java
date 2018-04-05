@@ -57,6 +57,6 @@ public class AlertMessage
 	private static void initializeAlertStyle(Alert alert)
 	{
 		DialogPane dialogPane = alert.getDialogPane();
-		dialogPane.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/general.css").toExternalForm());
+		dialogPane.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/General.css").toExternalForm());
 	}
 }

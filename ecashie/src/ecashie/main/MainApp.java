@@ -58,13 +58,13 @@ public class MainApp extends Application
 		GuiBuilder.initPrimaryStage(primaryStage);
 
 		// DEBUG: MainScene
-		// Navigation.addBefore("StartScene");
-		//
-		// Navigation.Next = "MainScene";
-		// Navigation.goForward(false);
+		Navigation.addBefore("StartScene");
 
-		Navigation.Next = "StartScene";
+		Navigation.Next = "MainScene";
 		Navigation.goForward(false);
+
+		// Navigation.Next = "StartScene";
+		// Navigation.goForward(false);
 	}
 
 	private static boolean appIsAlreadyRunning()

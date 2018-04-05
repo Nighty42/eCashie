@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.SettingsSceneController">
-   <stylesheets>
-      <URL value="@/ecashie/resources/css/general.css" />
-      <URL value="@/ecashie/resources/css/settings.css" />
-   </stylesheets>
+<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.SettingsSceneController">
    <children>
-      <Label layoutX="119.0" layoutY="94.0" text="Settings - under construction!" textFill="RED" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
-         <font>
-            <Font name="Open Sans Bold" size="24.0" />
-         </font>
-      </Label>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+        <tabs>
+          <Tab text="%general">
+               <content>
+                  <AnchorPane fx:id="generalSettingsScenePane" prefHeight="200.0" prefWidth="200.0" />
+               </content></Tab>
+          <Tab text="%bankaccounts">
+               <content>
+                  <AnchorPane fx:id="bankaccountsSettingsScenePane" prefHeight="200.0" prefWidth="200.0" />
+               </content></Tab>
+            <Tab id="lastTab" text="%categories">
+              <content>
+                <AnchorPane fx:id="categoriesSettingsScenePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
+   <stylesheets>
+      <URL value="@../../resources/css/TabPane.css" />
+      <URL value="@../../resources/css/General.css" />
+      <URL value="@../../resources/css/Settings.css" />
+   </stylesheets>
 </AnchorPane>

@@ -56,7 +56,7 @@ public class GeneralExceptionHandler
 		alertStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
 		
 		DialogPane dialogPane = alert.getDialogPane();
-		dialogPane.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/general.css").toExternalForm());
+		dialogPane.getStylesheets().add(MainApp.class.getResource("/ecashie/resources/css/General.css").toExternalForm());
 		
 		return alert;
 	}

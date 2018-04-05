@@ -591,7 +591,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <stylesheets>
-      <URL value="@/ecashie/resources/css/general.css" />
-      <URL value="@/ecashie/resources/css/validation.css" />
+      <URL value="@/ecashie/resources/css/General.css" />
+      <URL value="@/ecashie/resources/css/Validation.css" />
    </stylesheets>
 </AnchorPane>

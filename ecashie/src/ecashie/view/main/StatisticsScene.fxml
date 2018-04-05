@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.main.StatisticsSceneController">
    <stylesheets>
-      <URL value="@/ecashie/resources/css/general.css" />
-      <URL value="@/ecashie/resources/css/statistics.css" />
+      <URL value="@/ecashie/resources/css/General.css" />
+      <URL value="@/ecashie/resources/css/StatisticsScene.css" />
    </stylesheets>
    <children>
       <Label layoutX="129.0" layoutY="104.0" text="Statistics - under construction!" textFill="RED" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
