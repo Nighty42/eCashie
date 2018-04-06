@@ -1,17 +1,5 @@
 package ecashie.main;
 
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
 import ecashie.controller.database.DatabaseAccess;
 import ecashie.controller.exception.ExitApplicationFailedException;
 import ecashie.controller.exception.GeneralExceptionHandler;
@@ -31,8 +19,6 @@ public class ExitApp
 {
 	public static void exit()
 	{
-		closePrimaryStage();
-
 		closeDatabase();
 
 		writeUserSettings();
@@ -45,12 +31,25 @@ public class ExitApp
 
 		closeServerSocket();
 
-		showAlertMessage();
+		Platform.runLater(new Runnable()
+		{
 
-		closeLogger();
+			@Override
+			public void run()
+			{
+				closeLoadingStage();
 
-		Platform.exit();
-		System.exit(0);
+				closePrimaryStage();
+
+				showAlertMessage();
+
+				closeLogger();
+
+				Platform.exit();
+				System.exit(0);
+			}
+
+		});
 	}
 
 	private static void closePrimaryStage()
@@ -69,11 +68,11 @@ public class ExitApp
 			{
 				DatabaseAccess.closeDatabase(DatabaseAccess.Connection, DatabaseAccess.Statement);
 			}
-			catch (SQLException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.CloseDatabaseFailed = true;
 
-				new ExitApplicationFailedException();
+				new ExitApplicationFailedException(e);
 			}
 		}
 	}
@@ -86,12 +85,11 @@ public class ExitApp
 			{
 				DatabaseAccess.packEncryptAppendWriteDatabase();
 			}
-			catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
-					| BadPaddingException | InvalidAlgorithmParameterException | IOException | NullPointerException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.PackEncryptAppendWriteFailed = true;
 
-				new ExitApplicationFailedException();
+				new ExitApplicationFailedException(e);
 			}
 		}
 	}
@@ -104,11 +102,11 @@ public class ExitApp
 			{
 				UserSettings.write();
 			}
-			catch (ParserConfigurationException | TransformerException | IOException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.WriteUserSettingsFailed = true;
 
-				new ExitApplicationFailedException();
+				new ExitApplicationFailedException(e);
 			}
 		}
 	}
@@ -121,11 +119,11 @@ public class ExitApp
 			{
 				FileOperations.forceDeleteFolder(UserData.getDatabaseFolder());
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.DeleteUserDataFolderFailed = true;
 
-				new ExitApplicationFailedException();
+				new ExitApplicationFailedException(e);
 			}
 		}
 	}
@@ -138,11 +136,11 @@ public class ExitApp
 			{
 				AppSettings.write();
 			}
-			catch (IOException | ParserConfigurationException | TransformerException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.WriteAppSettings = true;
 
-				new ExitApplicationFailedException();
+				new ExitApplicationFailedException(e);
 			}
 		}
 	}
@@ -155,11 +153,11 @@ public class ExitApp
 			{
 				SocketListener.closeServerSocket();
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.CloseServerSocketFailed = true;
 
-				new ExitApplicationFailedException();
+				new Exception();
 			}
 		}
 	}
@@ -172,12 +170,20 @@ public class ExitApp
 			{
 				ApplicationLogger.closeLogger();
 			}
-			catch (SecurityException e)
+			catch (Exception e)
 			{
 				ExitApplicationFailedException.CloseLoggerFailed = true;
 
-				new ExitApplicationFailedException();
+				new ExitApplicationFailedException(e);
 			}
+		}
+	}
+
+	private static void closeLoadingStage()
+	{
+		if (AppLoader.loaderStage != null)
+		{
+			AppLoader.loaderStage.close();
 		}
 	}
 

@@ -1,13 +1,12 @@
 package ecashie.model.database;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import ecashie.controller.database.DatabaseAccess;
 
 public class PayeePayer
 {
-	public static ResultSet getPayeePayerByID(int identifier, String payerTypeToken) throws SQLException
+	public static ResultSet getPayeePayerByID(int identifier, String payerTypeToken) throws Exception
 	{
 		ResultSet resultSet = null;
 		String tableName = "";
@@ -32,7 +31,7 @@ public class PayeePayer
 		return resultSet;
 	}
 
-	public static String getName(ResultSet resultSet) throws SQLException
+	public static String getName(ResultSet resultSet) throws Exception
 	{
 		String name = "";
 

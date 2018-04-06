@@ -1,7 +1,6 @@
 package ecashie.controller.utilities;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 
@@ -45,7 +44,7 @@ public class FileOperations
 		}
 	}
 
-	public static boolean fileIsNotEmpty(File file) throws IOException
+	public static boolean fileIsNotEmpty(File file) throws Exception
 	{
 		byte[] fileBytes = FileUtils.readFileToByteArray(file);
 
@@ -95,7 +94,7 @@ public class FileOperations
 		}
 	}
 
-	public static byte[] readFileToByteArray(File file) throws IOException
+	public static byte[] readFileToByteArray(File file) throws Exception
 	{
 		byte[] fileOutput = null;
 
@@ -107,7 +106,7 @@ public class FileOperations
 		return fileOutput;
 	}
 
-	public static void writeByteArrayToFile(File file, byte[] bytes) throws IOException
+	public static void writeByteArrayToFile(File file, byte[] bytes) throws Exception
 	{
 		if (fileIsFile(file) && fileExists(file) && bytesAreValid(bytes))
 		{
@@ -123,14 +122,14 @@ public class FileOperations
 			{
 				FileUtils.forceDeleteOnExit(folder);
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
-				new UnexpectedBehaviourException();
+				new UnexpectedBehaviourException(e);
 			}
 		}
 	}
 
-	public static void forceDeleteFolder(File folder) throws IOException
+	public static void forceDeleteFolder(File folder) throws Exception
 	{
 		if (folderIsValid(folder))
 		{
@@ -138,7 +137,7 @@ public class FileOperations
 		}
 	}
 
-	public static void forceDeleteFile(File file) throws IOException
+	public static void forceDeleteFile(File file) throws Exception
 	{
 		if (fileIsValid(file))
 		{
@@ -146,7 +145,7 @@ public class FileOperations
 		}
 	}
 
-	public static void createFile(File file) throws IOException
+	public static void createFile(File file) throws Exception
 	{
 		if (!file.exists())
 		{
@@ -154,7 +153,7 @@ public class FileOperations
 		}
 	}
 
-	public static void createFolder(File folder) throws SecurityException
+	public static void createFolder(File folder) throws Exception
 	{
 		if (!folder.exists())
 		{
@@ -162,7 +161,7 @@ public class FileOperations
 		}
 	}
 
-	public static void moveFile(File oldFile, File newFile) throws IOException
+	public static void moveFile(File oldFile, File newFile) throws Exception
 	{
 		forceDeleteFile(newFile);
 		FileUtils.moveFile(oldFile, newFile);

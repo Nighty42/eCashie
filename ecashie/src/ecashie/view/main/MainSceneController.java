@@ -64,6 +64,7 @@ public class MainSceneController
 	{
 		instance = this;
 
+		menuScenePane.setVisible(true);
 		GuiBuilder.embedPaneIntoScene(overviewScenePane, "OverviewScene");
 		GuiBuilder.embedPaneIntoScene(transactionsScenePane, "TransactionsScene");
 		GuiBuilder.embedPaneIntoScene(statisticsScenePane, "StatisticsScene");
@@ -72,14 +73,18 @@ public class MainSceneController
 		GuiBuilder.embedPaneIntoScene(aboutScenePane, "AboutScene");
 		GuiBuilder.embedPaneIntoScene(settingsScenePane, "SettingsScene");
 
-		menuToggleButton.fire();
-		overviewToggleButton.fire();
+		if (showSettingsScene)
+		{
+			settingsToggleButton.fire();
+		}
+		else
+		{
+			overviewToggleButton.fire();
+		}
 
 		sceneGridPane.getColumnConstraints().get(0).setMinWidth(Region.USE_COMPUTED_SIZE);
 		sceneGridPane.getColumnConstraints().get(0).setPrefWidth(Region.USE_COMPUTED_SIZE);
 		sceneGridPane.getColumnConstraints().get(0).setMaxWidth(Region.USE_COMPUTED_SIZE);
-
-		menuScenePane.setVisible(true);
 	}
 
 	// ================================================================================
@@ -196,7 +201,7 @@ public class MainSceneController
 	@FXML
 	private void onActionParticipateMenuItem()
 	{
-		HyperlinkUtils.openHyperlink("https://github.com/Nighty42/eCashie");
+		HyperlinkUtils.openHyperlink("https://github.com/Nighty42/eCashie_java");
 	}
 
 	@FXML

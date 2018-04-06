@@ -1,7 +1,5 @@
 package ecashie.view.main;
 
-import java.io.IOException;
-
 import ecashie.controller.appdetails.AppDetails;
 import ecashie.controller.gui.HyperlinkUtils;
 import ecashie.controller.i18n.LanguageController;
@@ -91,7 +89,7 @@ public class AboutSceneController
 	private GridPane bugFixesGridPane;
 
 	@FXML
-	private void initialize() throws IOException
+	private void initialize() throws Exception
 	{
 		initializeVersionDetails();
 

@@ -3,7 +3,6 @@ package ecashie.controller.utilities;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -24,7 +23,7 @@ public class ZipOperations
 	// Pack Bytes to ZIP-CashJournalFile
 	// ================================================================================
 
-	public static byte[] pack(File inputFile) throws IOException
+	public static byte[] pack(File inputFile) throws Exception
 	{
 		byte[] packedBytes = new byte[1];
 
@@ -36,7 +35,7 @@ public class ZipOperations
 		return packedBytes;
 	}
 
-	private static byte[] packZipFile(Path inputFile) throws IOException
+	private static byte[] packZipFile(Path inputFile) throws Exception
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ZipOutputStream zipOutputStream = new ZipOutputStream(baos);
@@ -49,15 +48,16 @@ public class ZipOperations
 				zipOutputStream.putNextEntry(new ZipEntry(inputFile.relativize(filePath).toString()));
 				Files.copy(filePath, zipOutputStream);
 				zipOutputStream.closeEntry();
+				
 				return FileVisitResult.CONTINUE;
 			}
 
 			@Override
-			public FileVisitResult preVisitDirectory(Path directoryPath, BasicFileAttributes basicFileAttributes)
-					throws IOException
+			public FileVisitResult preVisitDirectory(Path directoryPath, BasicFileAttributes basicFileAttributes) throws IOException
 			{
 				zipOutputStream.putNextEntry(new ZipEntry(inputFile.relativize(directoryPath).toString() + "/"));
 				zipOutputStream.closeEntry();
+				
 				return FileVisitResult.CONTINUE;
 			}
 		});
@@ -69,7 +69,7 @@ public class ZipOperations
 	// Unpack ZIP-CashJournalFile to Bytes
 	// ================================================================================
 
-	public static void unpack(byte[] inputBytes) throws IOException
+	public static void unpack(byte[] inputBytes) throws Exception
 	{
 		if (FileOperations.bytesAreValid(inputBytes))
 		{
@@ -77,7 +77,7 @@ public class ZipOperations
 		}
 	}
 
-	private static void unpackByteArray(byte[] inputBytes) throws IOException
+	private static void unpackByteArray(byte[] inputBytes) throws Exception
 	{
 		ZipInputStream zipInputStream = null;
 
@@ -111,7 +111,7 @@ public class ZipOperations
 		}
 	}
 
-	private static void closeZipInputStream(ZipInputStream zipInputStream) throws IOException
+	private static void closeZipInputStream(ZipInputStream zipInputStream) throws Exception
 	{
 		if (zipInputStream != null)
 		{
@@ -128,9 +128,9 @@ public class ZipOperations
 		{
 			zipEntry = zipInputStream.getNextEntry();
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 
 		return zipEntry;
@@ -154,9 +154,9 @@ public class ZipOperations
 		{
 			newFileFromZipEntry.createNewFile();
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 
@@ -172,9 +172,9 @@ public class ZipOperations
 				fileOutputStream.write(buffer, 0, bytesLength);
 			}
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 
@@ -186,9 +186,9 @@ public class ZipOperations
 		{
 			fileOutputStream = new FileOutputStream(newFileFromZipEntry);
 		}
-		catch (FileNotFoundException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 
 		return fileOutputStream;
@@ -200,9 +200,9 @@ public class ZipOperations
 		{
 			fileOutputStream.close();
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 }

@@ -35,7 +35,7 @@
 				<GridPane>
 					<columnConstraints>
 						<ColumnConstraints hgrow="NEVER" minWidth="140.0" />
-						<ColumnConstraints hgrow="NEVER" minWidth="95.0" />
+						<ColumnConstraints hgrow="NEVER" minWidth="100.0" />
 						<ColumnConstraints hgrow="NEVER" />
 						<ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="400.0" prefWidth="400.0" />
 						<ColumnConstraints hgrow="ALWAYS" />
@@ -89,7 +89,7 @@
 								<Font name="Open Sans Bold" size="14.0" />
 							</font>
 						</Label>
-						<Hyperlink fx:id="lastReleaseHyperlink" onAction="#onActionLastReleaseHyperlink" prefWidth="310.0" text="https://github.com/Nighty42/eCashie/releases" GridPane.columnIndex="1" GridPane.rowIndex="2">
+						<Hyperlink fx:id="lastReleaseHyperlink" onAction="#onActionLastReleaseHyperlink" prefWidth="340.0" text="https://github.com/Nighty42/eCashie_java/releases" GridPane.columnIndex="1" GridPane.rowIndex="2">
 							<font>
 								<Font name="Open Sans" size="14.0" />
 							</font>
@@ -260,9 +260,9 @@
 																	</rowConstraints>
 																</GridPane>
 															</content>
-                                             <GridPane.margin>
-                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                                             </GridPane.margin>
+															<GridPane.margin>
+																<Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+															</GridPane.margin>
 														</ScrollPane>
 														<StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
 															<children>
@@ -294,9 +294,9 @@
 																	</rowConstraints>
 																</GridPane>
 															</content>
-                                             <GridPane.margin>
-                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                                             </GridPane.margin>
+															<GridPane.margin>
+																<Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+															</GridPane.margin>
 														</ScrollPane>
 														<StackPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
 															<children>
@@ -325,9 +325,9 @@
 																	</rowConstraints>
 																</GridPane>
 															</content>
-                                             <GridPane.margin>
-                                                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
-                                             </GridPane.margin>
+															<GridPane.margin>
+																<Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+															</GridPane.margin>
 														</ScrollPane>
 													</children>
 												</GridPane>
@@ -348,9 +348,10 @@
 			</children>
 		</GridPane>
 	</children>
-   <stylesheets>
-      <URL value="@../../resources/css/TabPane.css" />
-      <URL value="@../../resources/css/AboutScene.css" />
-      <URL value="@../../resources/css/General.css" />
-   </stylesheets>
+	<stylesheets>
+		<URL value="@/ecashie/resources/css/TabPane.css" />
+		<URL value="@/ecashie/resources/css/Table.css" />
+		<URL value="@/ecashie/resources/css/AboutScene.css" />
+		<URL value="@/ecashie/resources/css/General.css" />
+	</stylesheets>
 </AnchorPane>

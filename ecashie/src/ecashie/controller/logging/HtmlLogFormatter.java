@@ -121,18 +121,22 @@ public class HtmlLogFormatter extends Formatter
 		stringBuffer.append("</tr>\n");
 
 		stringBuffer.append("</table>\n");
-		
+
 		return stringBuffer.toString();
 	}
 
 	private String extractMessageKey(LogRecord logRecord)
 	{
 		String messageKey = "---";
-		int endIndex = logRecord.getMessage().indexOf("]");
 
-		if (endIndex > -1)
+		if (logRecord.getMessage() != null)
 		{
-			messageKey = logRecord.getMessage().substring(1, endIndex);
+			int endIndex = logRecord.getMessage().indexOf("]");
+
+			if (endIndex > -1)
+			{
+				messageKey = logRecord.getMessage().substring(1, endIndex);
+			}
 		}
 
 		return messageKey;

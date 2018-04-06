@@ -1,7 +1,6 @@
 package ecashie.view.start;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Optional;
 
 import ecashie.controller.database.DatabaseAccess;
@@ -194,7 +193,7 @@ public class CreateCashJournalSceneController
 	}
 
 	@FXML
-	private void onActionCopyPassword() throws IOException
+	private void onActionCopyPassword() throws Exception
 	{
 		passwordLengthFieldController.onActionCopyPassword(passwordFieldController.getInputField().getText());
 	}
@@ -229,9 +228,9 @@ public class CreateCashJournalSceneController
 	{
 		File userDataFile = new File(folderPathFieldController.getInputField().getText() + "\\"
 				+ fileNameFieldController.getInputField().getText() + ".ecdb");
-		
+
 		boolean fileExistsAndWasReplaced = UserData.handleUserDataFileExists(fileNameFieldController, userDataFile);
-		
+
 		try
 		{
 			if (fileExistsAndWasReplaced)
@@ -249,7 +248,7 @@ public class CreateCashJournalSceneController
 		}
 		catch (DatabasePasswordInvalidException e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 

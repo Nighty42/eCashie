@@ -9,7 +9,7 @@ import ecashie.controller.gui.GuiBuilder;
 import ecashie.controller.gui.Navigation;
 import ecashie.controller.settings.AppSettings;
 import ecashie.controller.settings.UserData;
-import ecashie.main.AppPreloader;
+import ecashie.main.AppLoader;
 import ecashie.view.inputfields.FileFolderPathFieldController;
 import ecashie.view.inputfields.InputField;
 import ecashie.view.inputfields.PasswordFieldController;
@@ -217,9 +217,16 @@ public class OpenCashJournalSceneController
 				{
 					openDatabase();
 
-					saveHistory(userDataFile);
+					if (AppLoader.IsFailed)
+					{
+						this.cancel();
+					}
+					else
+					{
+						saveHistory(userDataFile);
 
-					openMainScene();
+						openMainScene();
+					}
 				}
 				catch (DatabasePasswordInvalidException e)
 				{
@@ -238,13 +245,23 @@ public class OpenCashJournalSceneController
 			@Override
 			public void handle(WorkerStateEvent t)
 			{
-				AppPreloader.PreloaderStage.hide();
+				AppLoader.loaderStage.hide();
 				GuiBuilder.PrimaryStage.show();
 			}
 		});
 
-		AppPreloader.notifyPreloader(0, "Initialize Preloader");
-		AppPreloader.PreloaderStage.show();
+		loginTask.setOnCancelled(new EventHandler<WorkerStateEvent>()
+		{
+			@Override
+			public void handle(WorkerStateEvent arg0)
+			{
+				AppLoader.loaderStage.close();
+				GuiBuilder.PrimaryStage.close();
+			}
+		});
+
+		AppLoader.notifyPreloader(0, "Initialize Preloader");
+		AppLoader.loaderStage.show();
 
 		new Thread(loginTask).start();
 	}

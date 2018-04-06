@@ -1,7 +1,6 @@
 package ecashie.model.database;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import ecashie.controller.database.DatabaseAccess;
 import javafx.collections.FXCollections;
@@ -72,7 +71,7 @@ public class TransactionCategory
 		this.amount = amount;
 	}
 
-	public Category getCategory() throws SQLException
+	public Category getCategory() throws Exception
 	{
 		Category category = null;
 

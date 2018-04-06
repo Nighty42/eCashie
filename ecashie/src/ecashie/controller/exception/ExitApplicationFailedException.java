@@ -12,8 +12,8 @@ public class ExitApplicationFailedException extends UnexpectedBehaviourException
 	public static boolean WriteUserSettingsFailed = false;
 	public static boolean WriteAppSettings = false;
 
-	public ExitApplicationFailedException()
+	public ExitApplicationFailedException(Exception e)
 	{
-		super();
+		super(e);
 	}
 }

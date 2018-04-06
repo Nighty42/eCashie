@@ -6,7 +6,6 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.geom.Area;
-import java.io.IOException;
 import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -111,9 +110,9 @@ public class Notification
 			notificationStage.setX(area.getBounds().getWidth() - sceneContentPane.getPrefWidth());
 			notificationStage.setY(area.getBounds().getY() - sceneContentPane.getPrefHeight());
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 

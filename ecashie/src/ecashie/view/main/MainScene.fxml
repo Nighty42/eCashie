@@ -34,7 +34,7 @@
 				<RowConstraints vgrow="ALWAYS" />
 			</rowConstraints>
 			<children>
-				<ToggleButton id="menuToggleButton" fx:id="menuToggleButton" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onActionMenuToggleButton" prefHeight="60.0" prefWidth="150.0" styleClass="menuBarToggleButton">
+				<ToggleButton id="menuToggleButton" fx:id="menuToggleButton" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onActionMenuToggleButton" prefHeight="60.0" prefWidth="150.0" selected="true" styleClass="menuBarToggleButton">
 					<font>
 						<Font name="Open Sans Bold" size="14.0" />
 					</font>
@@ -50,7 +50,7 @@
                      <children>
                         <ImageView id="menuImageView" fitHeight="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../resources/img/menu_grey_32x32.png" />
+                              <Image url="@/ecashie/resources/img/menu_grey_32x32.png" />
                            </image>
                            <GridPane.margin>
                               <Insets left="2.0" />
@@ -80,7 +80,7 @@
                <graphic>
 								<ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/settings_48x48.png" />
+										<Image url="@/ecashie/resources/img/settings_48x48.png" />
 									</image>
 								</ImageView>
                </graphic>
@@ -91,7 +91,7 @@
 							<graphic>
 								<ImageView fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/manual_34x42.png" />
+										<Image url="@/ecashie/resources/img/manual_34x42.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -100,7 +100,7 @@
 							<graphic>
 								<ImageView fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/bugs_32x32.png" />
+										<Image url="@/ecashie/resources/img/bugs_32x32.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -109,7 +109,7 @@
 							<graphic>
 								<ImageView fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/suggestions_32x32.png" />
+										<Image url="@/ecashie/resources/img/suggestions_32x32.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -118,7 +118,7 @@
 							<graphic>
 								<ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/participate_32x32.png" />
+										<Image url="@/ecashie/resources/img/participate_32x32.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -127,7 +127,7 @@
 							<graphic>
 								<ImageView fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/logo_48x48.png" />
+										<Image url="@/ecashie/resources/img/logo_48x48.png" />
 									</image>
 								</ImageView>
 							</graphic>
@@ -145,7 +145,7 @@
 							<children>
 								<ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@../../resources/img/help_48x48.png" />
+										<Image url="@/ecashie/resources/img/help_48x48.png" />
 									</image>
 									<GridPane.margin>
 										<Insets right="10.0" />
@@ -153,7 +153,7 @@
 								</ImageView>
 								<ImageView id="subMenuArrow" fitHeight="10.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
 									<image>
-										<Image url="@../../resources/img/arrow_grey_20x12.png" />
+										<Image url="@/ecashie/resources/img/arrow_grey_20x12.png" />
 									</image>
 									<GridPane.margin>
 										<Insets right="4.0" />
@@ -203,7 +203,7 @@
                                        <children>
                                           <ImageView fitWidth="42.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                                              <image>
-                                                <Image url="@../../resources/img/home_72x72.png" />
+                                                <Image url="@/ecashie/resources/img/home_72x72.png" />
                                              </image>
                                           </ImageView>
                                           <Label styleClass="menuLabel" text="%overview" GridPane.columnIndex="1">
@@ -231,7 +231,7 @@
                                        <children>
                                           <ImageView fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                                              <image>
-                                                <Image url="@../../resources/img/transactions_48x48.png" />
+                                                <Image url="@/ecashie/resources/img/transactions_48x48.png" />
                                              </image>
                                           </ImageView>
                                           <Label styleClass="menuLabel" text="%transactions" GridPane.columnIndex="1">
@@ -259,7 +259,7 @@
                                        <children>
                                           <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                                              <image>
-                                                <Image url="@../../resources/img/statistics_64x64.png" />
+                                                <Image url="@/ecashie/resources/img/statistics_64x64.png" />
                                              </image>
                                           </ImageView>
                                           <Label styleClass="menuLabel" text="%statistics" GridPane.columnIndex="1">
@@ -287,7 +287,7 @@
                                        <children>
                                           <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                                              <image>
-                                                <Image url="@../../resources/img/budgetplan_48x48.png" />
+                                                <Image url="@/ecashie/resources/img/budgetplan_48x48.png" />
                                              </image>
                                           </ImageView>
                                           <Label styleClass="menuLabel" text="%budgetplan" GridPane.columnIndex="1">

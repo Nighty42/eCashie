@@ -1,6 +1,5 @@
 package ecashie.controller.i18n;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.MessageFormat;
 import java.util.Locale;
@@ -36,7 +35,7 @@ public class LanguageController
 		return new Locale(language, country);
 	}
 
-	public static void changeLanguage(SupportedLanguage newLanguage) throws IOException
+	public static void changeLanguage(SupportedLanguage newLanguage) throws Exception
 	{
 		AppSettings.Language = newLanguage;
 
@@ -75,9 +74,9 @@ public class LanguageController
 			messageFormat.applyPattern(localeString);
 			localeString = messageFormat.format(messageArgs);
 		}
-		catch (IllegalArgumentException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 
 		return localeString;

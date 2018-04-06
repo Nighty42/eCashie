@@ -1,13 +1,10 @@
 package ecashie.controller.settings;
 
 import java.io.File;
-import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -15,7 +12,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import ecashie.controller.crypto.CryptoEngine;
 import ecashie.controller.utilities.FileOperations;
@@ -24,7 +20,7 @@ public class UserSettings
 {
 	public static File UserSettingsXML = new File(UserData.getDatabaseFolder() + "\\UserSettings.xml");
 
-	public static void read() throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException
+	public static void read() throws Exception
 	{
 		if (FileOperations.fileExists(UserSettingsXML))
 		{
@@ -34,7 +30,7 @@ public class UserSettings
 		}
 	}
 
-	private static Document prepareReading() throws ParserConfigurationException, SAXException, IOException
+	private static Document prepareReading() throws Exception
 	{
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -51,7 +47,7 @@ public class UserSettings
 		CryptoEngine.CryptKey = cryptKeyElement.getAttribute("value");
 	}
 
-	public static void write() throws ParserConfigurationException, TransformerException, IOException
+	public static void write() throws Exception
 	{
 		if (UserData.getDatabaseFolder().exists())
 		{
@@ -67,7 +63,7 @@ public class UserSettings
 		}
 	}
 
-	private static Document prepareWriting() throws ParserConfigurationException
+	private static Document prepareWriting() throws Exception
 	{
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -91,7 +87,7 @@ public class UserSettings
 		languageElement.setAttribute("value", CryptoEngine.CryptKey);
 	}
 
-	private static void writeXML(Document document) throws TransformerException
+	private static void writeXML(Document document) throws Exception
 	{
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();

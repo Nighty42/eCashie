@@ -26,8 +26,8 @@
       </TabPane>
    </children>
    <stylesheets>
-      <URL value="@../../resources/css/TabPane.css" />
-      <URL value="@../../resources/css/General.css" />
-      <URL value="@../../resources/css/Settings.css" />
+      <URL value="@/ecashie/resources/css/TabPane.css" />
+      <URL value="@/ecashie/resources/css/General.css" />
+      <URL value="@/ecashie/resources/css/SettingsScene.css" />
    </stylesheets>
 </AnchorPane>

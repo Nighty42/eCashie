@@ -1,20 +1,9 @@
 package ecashie.controller.database;
 
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
 
 import ecashie.controller.crypto.CryptoBytes;
 import ecashie.controller.crypto.CryptoEngine;
@@ -24,7 +13,7 @@ import ecashie.controller.exception.UnexpectedBehaviourException;
 import ecashie.controller.settings.UserData;
 import ecashie.controller.settings.UserSettings;
 import ecashie.controller.utilities.ZipOperations;
-import ecashie.main.AppPreloader;
+import ecashie.main.AppLoader;
 
 public class DatabaseAccess
 {
@@ -40,7 +29,7 @@ public class DatabaseAccess
 		try
 		{
 			loadJDBCDriver();
-			
+
 			if (newDatabase)
 			{
 				openNewDatabase();
@@ -50,43 +39,42 @@ public class DatabaseAccess
 				openExistentDatabase();
 			}
 		}
-		catch (ClassNotFoundException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
-				| IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException | SQLException
-				| IllegalArgumentException | ParserConfigurationException | SAXException | IOException e)
+		catch (DatabasePasswordInvalidException e)
 		{
-			new UnexpectedBehaviourException();
+			throw e;
+		}
+		catch (Exception e)
+		{
+			new UnexpectedBehaviourException(e);
 		}
 	}
 
-	private static void openExistentDatabase()
-			throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException,
-			BadPaddingException, InvalidAlgorithmParameterException, IOException, SQLException,
-			DatabasePasswordInvalidException, IllegalArgumentException, ParserConfigurationException, SAXException
+	private static void openExistentDatabase() throws Exception
 	{
-		AppPreloader.notifyPreloader(10, "Read encrypted User Data");
-		
+		AppLoader.notifyPreloader(10, "Read encrypted User Data");
+
 		byte[] appendedEncryptedPackedBytes = UserData.readExistentUserData();
 
-		AppPreloader.notifyPreloader(20, "Subtract compressed Bytes");
+		AppLoader.notifyPreloader(20, "Subtract compressed Bytes");
 
 		byte[] encryptedPackedBytes = CryptoBytes.subtract(appendedEncryptedPackedBytes);
 
-		AppPreloader.notifyPreloader(60, "Decrypt Data");
+		AppLoader.notifyPreloader(60, "Decrypt Data");
 
 		byte[] packedBytes = CryptoEngine.decrypt(encryptedPackedBytes, UserData.getPassword());
 
-		AppPreloader.notifyPreloader(70, "Decompress Bytes and read User Settings");
+		AppLoader.notifyPreloader(70, "Decompress Bytes and read User Settings");
 		
 		ZipOperations.unpack(packedBytes);
-		
+
 		UserSettings.read();
-		
-		AppPreloader.notifyPreloader(90, "Establish Database Connection");
-		
-		DatabaseAccess.establishDatabaseConnection();		
+
+		AppLoader.notifyPreloader(90, "Establish Database Connection");
+
+		DatabaseAccess.establishDatabaseConnection();
 	}
 
-	private static void openNewDatabase() throws SQLException
+	private static void openNewDatabase() throws Exception
 	{
 		CryptoEngine.generateDBCryptKey();
 
@@ -97,7 +85,7 @@ public class DatabaseAccess
 		DatabaseAccess.setPassword();
 	}
 
-	private static void loadJDBCDriver() throws ClassNotFoundException
+	private static void loadJDBCDriver() throws Exception
 	{
 		Class.forName("org.hsqldb.jdbcDriver");
 	}
@@ -125,7 +113,7 @@ public class DatabaseAccess
 	// CLOSE
 	// ================================================================================
 
-	public static void closeDatabase(Connection connection, Statement statement) throws SQLException
+	public static void closeDatabase(Connection connection, Statement statement) throws Exception
 	{
 		try
 		{
@@ -137,7 +125,7 @@ public class DatabaseAccess
 		}
 	}
 
-	private static void closeDatabaseStatement(Statement statement) throws SQLException
+	private static void closeDatabaseStatement(Statement statement) throws Exception
 	{
 		if (statement != null && !statement.isClosed())
 		{
@@ -145,7 +133,7 @@ public class DatabaseAccess
 		}
 	}
 
-	private static void closeDatabaseConnection(Connection connection) throws SQLException
+	private static void closeDatabaseConnection(Connection connection) throws Exception
 	{
 		if (connection != null && !connection.isClosed())
 		{
@@ -153,9 +141,7 @@ public class DatabaseAccess
 		}
 	}
 
-	public static void packEncryptAppendWriteDatabase()
-			throws IOException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
-			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NullPointerException
+	public static void packEncryptAppendWriteDatabase() throws Exception
 	{
 		if (DatabaseAccess.Connection != null)
 		{

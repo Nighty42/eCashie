@@ -1,10 +1,8 @@
 package ecashie.controller.utilities;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.nio.channels.IllegalBlockingModeException;
 
 import ecashie.controller.exception.AppIsAlreadyRunningException;
@@ -17,7 +15,7 @@ public class SocketListener
 	private static ServerSocket serverSocket = null;
 	private static Socket clientSocket = null;
 
-	public SocketListener() throws UnknownHostException, IOException
+	public SocketListener() throws Exception
 	{
 		serverSocket = new ServerSocket(port, 0, InetAddress.getLocalHost());
 	}
@@ -44,9 +42,9 @@ public class SocketListener
 			}
 			catch (IllegalBlockingModeException | SecurityException e)
 			{
-				new AppIsAlreadyRunningException();
+				new AppIsAlreadyRunningException(e);
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				// Just ignore this due to no attempt from other applications to connect with
 				// the server socket.
@@ -60,13 +58,13 @@ public class SocketListener
 		{
 			clientSocket = new Socket(InetAddress.getLocalHost(), port);
 		}
-		catch (SecurityException | NullPointerException | IllegalArgumentException | IOException e)
+		catch (Exception e)
 		{
-			new AppIsAlreadyRunningException();
+			new AppIsAlreadyRunningException(e);
 		}
 	}
 
-	public static void closeServerSocket() throws IOException
+	public static void closeServerSocket() throws Exception
 	{
 		if (serverSocket != null)
 		{

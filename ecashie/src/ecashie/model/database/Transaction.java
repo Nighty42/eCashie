@@ -1,7 +1,6 @@
 package ecashie.model.database;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import ecashie.controller.database.DatabaseAccess;
 import javafx.collections.FXCollections;
@@ -85,7 +84,7 @@ public class Transaction
 		this.payeeID = payeeID;
 	}
 
-	public ObservableList<TransactionCategory> getTransactionCategoryList() throws SQLException
+	public ObservableList<TransactionCategory> getTransactionCategoryList() throws Exception
 	{
 		ObservableList<TransactionCategory> transactionCategoryList = FXCollections.observableArrayList();
 
@@ -109,7 +108,7 @@ public class Transaction
 		return transactionCategoryList;
 	}
 
-	public double getTotalAmount() throws SQLException
+	public double getTotalAmount() throws Exception
 	{
 		double totalAmount = 0;
 

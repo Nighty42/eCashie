@@ -1,7 +1,5 @@
 package ecashie.controller.exception;
 
-import java.io.IOException;
-
 import ecashie.controller.settings.UserData;
 import ecashie.controller.utilities.FileOperations;
 import ecashie.main.ExitApp;
@@ -21,9 +19,9 @@ public class DatabaseBuildException extends Exception
 			FileOperations.forceDeleteFile(UserData.getCashJournalFile());
 			FileOperations.forceDeleteFolder(UserData.getDatabaseFolder());
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 		
 		ExitApp.exit();

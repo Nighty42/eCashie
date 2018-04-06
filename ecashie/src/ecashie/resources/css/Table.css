@@ -1,0 +1,20 @@
+/*================================================================================*/
+/* table-view
+/*================================================================================*/
+
+.table-column
+{
+	-fx-font-size: 14.0px;
+	-fx-font-family: 'Open Sans';
+}
+
+.table-row-cell:selected .hyperlink
+{
+   -fx-text-fill: white;
+}
+
+.column-header .label
+{
+	-fx-alignment: center-left;
+	-fx-font-size: 14.0px;
+}

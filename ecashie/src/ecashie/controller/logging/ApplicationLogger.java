@@ -2,7 +2,6 @@ package ecashie.controller.logging;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
@@ -22,7 +21,7 @@ public class ApplicationLogger
 
 	public static String oldLogFileContent = "";
 
-	public static void setup() throws IOException
+	public static void setup() throws Exception
 	{
 		initLogger();
 
@@ -51,7 +50,7 @@ public class ApplicationLogger
 		}
 	}
 
-	private static void extractOldLogFileContent() throws IOException
+	private static void extractOldLogFileContent() throws Exception
 	{
 		if (logFile.exists())
 		{
@@ -67,7 +66,7 @@ public class ApplicationLogger
 		}
 	}
 
-	private static void addLogStreamHandler() throws SecurityException
+	private static void addLogStreamHandler() throws Exception
 	{
 		Handler[] handlers = logger.getParent().getHandlers();
 		streamHandler = new StreamHandler(logStream, handlers[0].getFormatter());
@@ -75,7 +74,7 @@ public class ApplicationLogger
 		logger.addHandler(streamHandler);
 	}
 
-	private static void addLogFileHandler() throws IOException, SecurityException
+	private static void addLogFileHandler() throws Exception
 	{
 		FileHandler fileHTML = new FileHandler(logFile.getName(), false);
 		Formatter formatterHTML = new HtmlLogFormatter();
@@ -84,7 +83,7 @@ public class ApplicationLogger
 		logger.addHandler(fileHTML);
 	}
 
-	public static void closeLogger() throws SecurityException
+	public static void closeLogger() throws Exception
 	{
 		for (Handler handler : logger.getHandlers())
 		{

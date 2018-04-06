@@ -1,8 +1,6 @@
 package ecashie.view.settings;
 
 import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Currency;
 import java.util.Locale;
 import java.util.Optional;
@@ -179,7 +177,7 @@ public class GeneralSettingsSceneController
 				setButtonStatusLoginData();
 			}
 		});
-		
+
 		enableLiveValidation(true);
 	}
 
@@ -234,9 +232,9 @@ public class GeneralSettingsSceneController
 			saveButton.setDisable(true);
 			fileNameFieldController.getInputField().end();
 		}
-		catch (SQLException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 
@@ -246,7 +244,7 @@ public class GeneralSettingsSceneController
 		passwordFieldController.setEnableLiveValidation(enable);
 	}
 
-	private void saveChanges() throws SQLException
+	private void saveChanges() throws Exception
 	{
 		saveFileName();
 
@@ -264,7 +262,7 @@ public class GeneralSettingsSceneController
 		UserData.setCashJournalFile(userDataFile);
 	}
 
-	private void savePassword() throws SQLException
+	private void savePassword() throws Exception
 	{
 		UserData.setPassword(passwordFieldController.getInputField().getText());
 		DatabaseAccess.setPassword();
@@ -295,7 +293,7 @@ public class GeneralSettingsSceneController
 	}
 
 	@FXML
-	private void onActionCopyPassword() throws IOException
+	private void onActionCopyPassword() throws Exception
 	{
 		passwordLengthFieldController.onActionCopyPassword(passwordFieldController.getInputField().getText());
 	}
@@ -365,35 +363,35 @@ public class GeneralSettingsSceneController
 
 		switch (AppSettings.BaseCurrency.getCurrencySymbolPosition())
 		{
-		case CurrencySymbolPosition.prefix:
-			currencySymbolPositionChoices.selectToggle(currencySymbolAsPrefixRadioButton);
-			break;
-		case CurrencySymbolPosition.suffix:
-			currencySymbolPositionChoices.selectToggle(currencySymbolAsSuffixRadioButton);
-			break;
+			case CurrencySymbolPosition.prefix:
+				currencySymbolPositionChoices.selectToggle(currencySymbolAsPrefixRadioButton);
+				break;
+			case CurrencySymbolPosition.suffix:
+				currencySymbolPositionChoices.selectToggle(currencySymbolAsSuffixRadioButton);
+				break;
 		}
 
 		switch (AppSettings.BaseCurrency.getThousandsSeparator())
 		{
-		case ThousandsSeparator.comma:
-			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsCommaRadioButton);
-			break;
-		case ThousandsSeparator.space:
-			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsSpaceRadioButton);
-			break;
-		case ThousandsSeparator.dot:
-			thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsDotRadioButton);
-			break;
+			case ThousandsSeparator.comma:
+				thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsCommaRadioButton);
+				break;
+			case ThousandsSeparator.space:
+				thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsSpaceRadioButton);
+				break;
+			case ThousandsSeparator.dot:
+				thousandsSeparatorChoices.selectToggle(thousandsSeparatorAsDotRadioButton);
+				break;
 		}
 
 		switch (AppSettings.BaseCurrency.getDecimalMark())
 		{
-		case DecimalMark.comma:
-			decimalMarkChoices.selectToggle(decimalMarkAsCommaRadioButton);
-			break;
-		case DecimalMark.dot:
-			decimalMarkChoices.selectToggle(decimalMarkAsDotRadioButton);
-			break;
+			case DecimalMark.comma:
+				decimalMarkChoices.selectToggle(decimalMarkAsCommaRadioButton);
+				break;
+			case DecimalMark.dot:
+				decimalMarkChoices.selectToggle(decimalMarkAsDotRadioButton);
+				break;
 		}
 
 		numberOfDecimalPlacesFieldController.getInputField()
@@ -414,12 +412,12 @@ public class GeneralSettingsSceneController
 		try
 		{
 			LanguageController.changeLanguage(newValue);
-			
+
 			updateMainScene();
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 

@@ -1,7 +1,5 @@
 package ecashie.main;
 
-import java.io.IOException;
-
 import com.sun.javafx.application.LauncherImpl;
 
 import ecashie.controller.exception.LoggingNotAvailableException;
@@ -14,15 +12,17 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class AppPreloader extends Preloader
+public class AppLoader extends Preloader
 {
 	private static String Task = "Initialize Preloader";
 
-	public static Stage PreloaderStage;
+	public static Stage loaderStage;
+	public static boolean IsFailed = false;
+
 	private Scene preloaderScene;
 
 	@Override
-	public void init() throws Exception
+	public void init()
 	{
 		Platform.runLater(() -> {
 			try
@@ -31,27 +31,27 @@ public class AppPreloader extends Preloader
 
 				preloaderScene = new Scene(root);
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
-				new LoggingNotAvailableException();
+				new LoggingNotAvailableException(e);
 			}
 		});
 	}
 
 	@Override
-	public void start(Stage stage) throws Exception
+	public void start(Stage stage)
 	{
-		PreloaderStage = stage;
+		loaderStage = stage;
 
-		PreloaderStage.getIcons()
+		loaderStage.getIcons()
 				.add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_32x32.png")));
-		PreloaderStage.getIcons()
+		loaderStage.getIcons()
 				.add(new Image(MainApp.class.getResourceAsStream("/ecashie/resources/img/logo_48x48.png")));
 
-		PreloaderStage.setTitle("Loading, please wait...");
-		PreloaderStage.setScene(preloaderScene);
-		PreloaderStage.resizableProperty().setValue(Boolean.FALSE);
-		PreloaderStage.show();
+		loaderStage.setTitle("Loading, please wait...");
+		loaderStage.setScene(preloaderScene);
+		loaderStage.resizableProperty().setValue(Boolean.FALSE);
+		loaderStage.show();
 	}
 
 	@Override
@@ -59,11 +59,11 @@ public class AppPreloader extends Preloader
 	{
 		switch (info.getType())
 		{
-		case BEFORE_START:
-			PreloaderStage.hide();
-			break;
-		default:
-			break;
+			case BEFORE_START:
+				loaderStage.hide();
+				break;
+			default:
+				break;
 		}
 	}
 

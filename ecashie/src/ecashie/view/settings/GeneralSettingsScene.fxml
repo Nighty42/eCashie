@@ -176,7 +176,7 @@
                                  <graphic>
                                     <ImageView fitHeight="18.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../resources/img/min_48x48.png" />
+                                          <Image url="@/ecashie/resources/img/min_48x48.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -188,7 +188,7 @@
                                  <graphic>
                                     <ImageView fitHeight="18.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../resources/img/max_48x48.png" />
+                                          <Image url="@/ecashie/resources/img/max_48x48.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -200,7 +200,7 @@
                                  <graphic>
                                     <ImageView fitHeight="22.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../resources/img/green_tick_32x32.png" />
+                                          <Image url="@/ecashie/resources/img/green_tick_32x32.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -215,7 +215,7 @@
                                  <graphic>
                                     <ImageView fitHeight="22.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../resources/img/copy_32x32.png" />
+                                          <Image url="@/ecashie/resources/img/copy_32x32.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -522,7 +522,7 @@
                                  <graphic>
                                     <ImageView fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../resources/img/min_48x48.png" />
+                                          <Image url="@/ecashie/resources/img/min_48x48.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -537,7 +537,7 @@
                                  <graphic>
                                     <ImageView fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../resources/img/max_48x48.png" />
+                                          <Image url="@/ecashie/resources/img/max_48x48.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -593,5 +593,6 @@
    <stylesheets>
       <URL value="@/ecashie/resources/css/General.css" />
       <URL value="@/ecashie/resources/css/Validation.css" />
+      <URL value="@/ecashie/resources/css/GeneralSettingsScene.css" />
    </stylesheets>
 </AnchorPane>

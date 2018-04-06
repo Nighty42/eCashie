@@ -1,7 +1,6 @@
 package ecashie.controller.settings;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Optional;
 
 import ecashie.controller.exception.UnexpectedBehaviourException;
@@ -46,9 +45,9 @@ public class UserData
 					CashJournalFileTemp = null;
 				}
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
-				new UnexpectedBehaviourException();
+				new UnexpectedBehaviourException(e);
 			}
 		}
 	}
@@ -99,15 +98,15 @@ public class UserData
 		{
 			bytesUserDataFile = FileOperations.readFileToByteArray(CashJournalFile);
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 
 		return bytesUserDataFile;
 	}
 
-	private static void createUserDataFolder() throws SecurityException
+	private static void createUserDataFolder() throws Exception
 	{
 		FileOperations.createFolder(DatabaseFolder);
 
@@ -121,12 +120,12 @@ public class UserData
 		});
 	}
 
-	private static void createCashJournalFile() throws IOException
+	private static void createCashJournalFile() throws Exception
 	{
 		FileOperations.createFile(CashJournalFile);
 	}
 
-	public static void writeBytesToUserFile(File userDataFile2, byte[] encryptedAppendedBytes) throws IOException
+	public static void writeBytesToUserFile(File userDataFile2, byte[] encryptedAppendedBytes) throws Exception
 	{
 		FileOperations.writeByteArrayToFile(CashJournalFile, encryptedAppendedBytes);
 	}
@@ -182,9 +181,9 @@ public class UserData
 		{
 			FileOperations.forceDeleteFile(userDataFile);
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 }

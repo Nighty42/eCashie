@@ -1,14 +1,11 @@
 package ecashie.controller.settings;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Currency;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -16,7 +13,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import ecashie.controller.i18n.CurrencyController;
 import ecashie.controller.i18n.LanguageController;
@@ -31,7 +27,7 @@ public class AppSettings
 	public static SupportedLanguage Language = null;
 	public static SupportedCurrency BaseCurrency = null;
 
-	public static void init() throws IOException
+	public static void init() throws Exception
 	{
 		Language = SupportedLanguage.en_GB;
 		BaseCurrency = new SupportedCurrency(Currency.getInstance(AppSettings.Language.getLocale()));
@@ -39,7 +35,7 @@ public class AppSettings
 		LanguageController.changeLanguage(Language);
 	}
 
-	public static void read() throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException
+	public static void read() throws Exception
 	{
 		if (FileOperations.fileExists(AppSettingsXML))
 		{
@@ -55,7 +51,7 @@ public class AppSettings
 		validateLanguage();
 	}
 
-	private static Document prepareReading() throws ParserConfigurationException, SAXException, IOException
+	private static Document prepareReading() throws Exception
 	{
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
@@ -103,7 +99,7 @@ public class AppSettings
 		}
 	}
 
-	public static void write() throws ParserConfigurationException, TransformerException, IOException
+	public static void write() throws Exception
 	{
 		FileOperations.createFile(AppSettingsXML);
 
@@ -120,7 +116,7 @@ public class AppSettings
 		writeXML(document);
 	}
 
-	private static Document prepareWriting() throws ParserConfigurationException
+	private static Document prepareWriting() throws Exception
 	{
 		DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -165,7 +161,7 @@ public class AppSettings
 		currencyElement.setAttribute("numberOfDecimalPlaces", BaseCurrency.getNumberOfDecimalPlacesAsString());
 	}
 
-	private static void writeXML(Document document) throws TransformerException
+	private static void writeXML(Document document) throws Exception
 	{
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();

@@ -1,13 +1,7 @@
 package ecashie.main;
 
-import java.io.IOException;
 import java.net.BindException;
 import java.util.ResourceBundle;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.stream.XMLStreamException;
-
-import org.xml.sax.SAXException;
 
 import com.sun.javafx.application.LauncherImpl;
 
@@ -33,7 +27,7 @@ public class MainApp extends Application
 		}
 		else
 		{
-			LauncherImpl.launchApplication(MainApp.class, AppPreloader.class, args);
+			LauncherImpl.launchApplication(MainApp.class, AppLoader.class, args);
 			// LauncherImpl.launchApplication(MainApp.class, args);
 		}
 	}
@@ -45,26 +39,28 @@ public class MainApp extends Application
 		{
 			StartApp.start();
 		}
-		catch (IllegalArgumentException | ParserConfigurationException | SAXException | IOException | XMLStreamException
-				| InterruptedException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 
 	@Override
 	public void start(Stage primaryStage)
 	{
-		GuiBuilder.initPrimaryStage(primaryStage);
+		if (!AppLoader.IsFailed)
+		{
+			GuiBuilder.initPrimaryStage(primaryStage);
 
-		// DEBUG: MainScene
-		Navigation.addBefore("StartScene");
+			// DEBUG: MainScene
+			// Navigation.addBefore("StartScene");
+			//
+			// Navigation.Next = "MainScene";
+			// Navigation.goForward(false);
 
-		Navigation.Next = "MainScene";
-		Navigation.goForward(false);
-
-		// Navigation.Next = "StartScene";
-		// Navigation.goForward(false);
+			Navigation.Next = "StartScene";
+			Navigation.goForward(false);
+		}
 	}
 
 	private static boolean appIsAlreadyRunning()
@@ -90,7 +86,7 @@ public class MainApp extends Application
 
 			return true;
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
 			return true;
 		}

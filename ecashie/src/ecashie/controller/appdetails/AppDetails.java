@@ -1,16 +1,13 @@
 package ecashie.controller.appdetails;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import ecashie.model.appdetails.AppVersion;
 import ecashie.model.appdetails.Contributor;
@@ -28,7 +25,7 @@ public class AppDetails
 	public static String VersionNumber = "";
 	public static String ReleaseDate = "";
 
-	public static void read() throws IllegalArgumentException, ParserConfigurationException, SAXException, IOException
+	public static void read() throws Exception
 	{
 		Document document = prepareDocument();
 		
@@ -45,7 +42,7 @@ public class AppDetails
 		readImageSources(document);
 	}
 
-	private static Document prepareDocument() throws ParserConfigurationException, SAXException, IOException
+	private static Document prepareDocument() throws Exception
 	{
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();

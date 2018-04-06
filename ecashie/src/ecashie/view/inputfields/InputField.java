@@ -3,11 +3,11 @@ package ecashie.view.inputfields;
 import java.util.Optional;
 
 import ecashie.controller.gui.GuiBuilder;
+import ecashie.controller.gui.Navigation;
 import ecashie.controller.i18n.LanguageController;
 import ecashie.controller.validation.ComparationObject;
 import ecashie.controller.validation.Solutions;
 import ecashie.controller.validation.Validation;
-import ecashie.view.root.RootLayout;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -286,18 +286,18 @@ public class InputField
 
 		switch (getSimpleNameControlClass())
 		{
-		case "TextField":
-			TextField textField = getControlAsTextField();
-			text = textField.getText();
-			break;
-		case "PasswordField":
-			PasswordField passwordField = getControlAsPasswordField();
-			text = passwordField.getText();
-			break;
-		case "Spinner":
-			TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
-			text = textFieldOfSpinner.getText();
-			break;
+			case "TextField":
+				TextField textField = getControlAsTextField();
+				text = textField.getText();
+				break;
+			case "PasswordField":
+				PasswordField passwordField = getControlAsPasswordField();
+				text = passwordField.getText();
+				break;
+			case "Spinner":
+				TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
+				text = textFieldOfSpinner.getText();
+				break;
 		}
 
 		return text;
@@ -307,18 +307,18 @@ public class InputField
 	{
 		switch (getSimpleNameControlClass())
 		{
-		case "TextField":
-			TextField textField = getControlAsTextField();
-			textField.setText(text);
-			break;
-		case "PasswordField":
-			PasswordField passwordField = getControlAsPasswordField();
-			passwordField.setText(text);
-			break;
-		case "Spinner":
-			TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
-			textFieldOfSpinner.setText(text);
-			break;
+			case "TextField":
+				TextField textField = getControlAsTextField();
+				textField.setText(text);
+				break;
+			case "PasswordField":
+				PasswordField passwordField = getControlAsPasswordField();
+				passwordField.setText(text);
+				break;
+			case "Spinner":
+				TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
+				textFieldOfSpinner.setText(text);
+				break;
 		}
 	}
 
@@ -327,18 +327,18 @@ public class InputField
 		Platform.runLater(() -> {
 			switch (getSimpleNameControlClass())
 			{
-			case "TextField":
-				TextField textField = getControlAsTextField();
-				textField.requestFocus();
-				break;
-			case "PasswordField":
-				PasswordField passwordField = getControlAsPasswordField();
-				passwordField.requestFocus();
-				break;
-			case "Spinner":
-				TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
-				textFieldOfSpinner.requestFocus();
-				break;
+				case "TextField":
+					TextField textField = getControlAsTextField();
+					textField.requestFocus();
+					break;
+				case "PasswordField":
+					PasswordField passwordField = getControlAsPasswordField();
+					passwordField.requestFocus();
+					break;
+				case "Spinner":
+					TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
+					textFieldOfSpinner.requestFocus();
+					break;
 			}
 		});
 	}
@@ -348,21 +348,21 @@ public class InputField
 		Platform.runLater(() -> {
 			switch (getSimpleNameControlClass())
 			{
-			case "TextField":
-				TextField textField = getControlAsTextField();
-				textField.requestFocus();
-				textField.end();
-				break;
-			case "PasswordField":
-				PasswordField passwordField = getControlAsPasswordField();
-				passwordField.requestFocus();
-				passwordField.end();
-				break;
-			case "Spinner":
-				TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
-				textFieldOfSpinner.requestFocus();
-				textFieldOfSpinner.end();
-				break;
+				case "TextField":
+					TextField textField = getControlAsTextField();
+					textField.requestFocus();
+					textField.end();
+					break;
+				case "PasswordField":
+					PasswordField passwordField = getControlAsPasswordField();
+					passwordField.requestFocus();
+					passwordField.end();
+					break;
+				case "Spinner":
+					TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
+					textFieldOfSpinner.requestFocus();
+					textFieldOfSpinner.end();
+					break;
 			}
 		});
 	}
@@ -372,21 +372,21 @@ public class InputField
 		Platform.runLater(() -> {
 			switch (getSimpleNameControlClass())
 			{
-			case "TextField":
-				TextField textField = getControlAsTextField();
-				textField.requestFocus();
-				textField.selectAll();
-				break;
-			case "PasswordField":
-				PasswordField passwordField = getControlAsPasswordField();
-				passwordField.requestFocus();
-				passwordField.selectAll();
-				break;
-			case "Spinner":
-				TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
-				textFieldOfSpinner.requestFocus();
-				textFieldOfSpinner.selectAll();
-				break;
+				case "TextField":
+					TextField textField = getControlAsTextField();
+					textField.requestFocus();
+					textField.selectAll();
+					break;
+				case "PasswordField":
+					PasswordField passwordField = getControlAsPasswordField();
+					passwordField.requestFocus();
+					passwordField.selectAll();
+					break;
+				case "Spinner":
+					TextField textFieldOfSpinner = getControlAsTextFieldOfSpinner();
+					textFieldOfSpinner.requestFocus();
+					textFieldOfSpinner.selectAll();
+					break;
 			}
 		});
 	}
@@ -431,7 +431,7 @@ public class InputField
 			statusLabel.setText(errorText);
 		}
 
-		if (GuiBuilder.currentRootScene == RootLayout.nonFullScreen)
+		if (Navigation.Current.equals("StartScene"))
 		{
 			GuiBuilder.PrimaryStage.sizeToScene();
 		}

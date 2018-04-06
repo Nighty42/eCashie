@@ -1,6 +1,5 @@
 package ecashie.controller.crypto;
 
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +36,7 @@ public class CryptoUtils
 		return Arrays.asList(secureBytes);
 	}
 
-	public static List<byte[]> generateAESKey(int length) throws NoSuchAlgorithmException
+	public static List<byte[]> generateAESKey(int length) throws Exception
 	{
 		byte[] secretKeyBytes = new byte[length];
 
@@ -50,7 +49,7 @@ public class CryptoUtils
 		return Arrays.asList(secretKeyBytes);
 	}
 	
-	public static List<byte[]> generateSerpentKey(int length) throws NoSuchAlgorithmException
+	public static List<byte[]> generateSerpentKey(int length) throws Exception
 	{
 		byte[] secretKeyBytes = new byte[length];
 

@@ -1,7 +1,6 @@
 package ecashie.controller.validation;
 
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,10 +46,9 @@ public class Validation
 			method.setAccessible(true);
 			method.invoke(null);
 		}
-		catch (NoSuchMethodException | IllegalArgumentException | SecurityException | IllegalAccessException
-				| InvocationTargetException e)
+		catch (Exception e)
 		{
-			new UnexpectedBehaviourException();
+			new UnexpectedBehaviourException(e);
 		}
 	}
 

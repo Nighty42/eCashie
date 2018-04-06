@@ -69,6 +69,11 @@ public class GeneralExceptionHandler
 		}
 	}
 
+	public static void logException(Exception exception)
+	{
+		ApplicationLogger.logger.log(Level.SEVERE, exception.getMessage(), exception);
+	}
+	
 	public static void logException(Exception exception, String messageKey)
 	{
 		ApplicationLogger.logger.log(Level.SEVERE, "[" + messageKey + "]", exception);

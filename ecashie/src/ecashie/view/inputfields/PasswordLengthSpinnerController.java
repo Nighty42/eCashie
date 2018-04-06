@@ -1,6 +1,5 @@
 package ecashie.view.inputfields;
 
-import java.io.IOException;
 import java.security.SecureRandom;
 
 import ecashie.controller.gui.Notification;
@@ -203,7 +202,7 @@ public class PasswordLengthSpinnerController
 		return new String(randomPassword);
 	}
 
-	public void onActionCopyPassword(String password) throws IOException
+	public void onActionCopyPassword(String password) throws Exception
 	{
 		GeneralOperations.copyToClipboard(password);
 

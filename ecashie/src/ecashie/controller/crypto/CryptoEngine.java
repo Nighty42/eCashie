@@ -1,20 +1,13 @@
 package ecashie.controller.crypto;
 
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -48,20 +41,18 @@ public class CryptoEngine
 
 	// Verification Key: 128 Bit
 	public static byte[] VK = new byte[16];
-	
+
 	public static final String AES = "AES";
 	public static final String Serpent = "Serpent";
 	public static final String Threefish = "Threefish";
-	
+
 	public static String CipherMode = AES;
-	
+
 	// ================================================================================
 	// ENCRYPTION
 	// ================================================================================
 
-	public static byte[] encrypt(byte[] decryptedBytes, String password)
-			throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException,
-			BadPaddingException, InvalidAlgorithmParameterException, NullPointerException
+	public static byte[] encrypt(byte[] decryptedBytes, String password) throws Exception
 	{
 		DecryptedBytes = decryptedBytes;
 
@@ -85,7 +76,7 @@ public class CryptoEngine
 
 		// Release Password for Garbage Collector
 		UserData.destroyPassword();
-		
+
 		return EncryptedBytes;
 	}
 
@@ -103,25 +94,24 @@ public class CryptoEngine
 		Salt = result.get(0);
 	}
 
-	private static void generateDEK() throws NoSuchAlgorithmException
+	private static void generateDEK() throws Exception
 	{
 		List<byte[]> result = CryptoUtils.generateSerpentKey(16);
 
 		DEK = result.get(0);
 	}
 
-	private static void generateKEK_VK() throws NullPointerException
+	private static void generateKEK_VK()
 	{
-		List<byte[]> result = CryptoUtils
-				.generatePBKDF2Key(UserData.getPassword().getBytes(StandardCharsets.UTF_8), Salt, 32);
+		List<byte[]> result = CryptoUtils.generatePBKDF2Key(UserData.getPassword().getBytes(StandardCharsets.UTF_8),
+				Salt, 32);
 
 		KEK = result.get(0);
 		VK = result.get(1);
 	}
 
 	// Encrypt data with DEK
-	private static void encryptData() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
-			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
+	private static void encryptData() throws Exception
 	{
 		List<byte[]> result = useCipher(Cipher.ENCRYPT_MODE, DEK, null, DecryptedBytes);
 
@@ -129,11 +119,10 @@ public class CryptoEngine
 	}
 
 	// Encrypt DEK with KEK and IV
-	private static void encryptDEK() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
-			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
+	private static void encryptDEK() throws Exception
 	{
 		List<byte[]> result = useCipher(Cipher.ENCRYPT_MODE, KEK, IV, DEK);
-		
+
 		DEK_Enc = result.get(0);
 	}
 
@@ -141,14 +130,12 @@ public class CryptoEngine
 	// DECRYPTION
 	// ================================================================================
 
-	public static byte[] decrypt(byte[] encryptedBytes, String password)
-			throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException,
-			BadPaddingException, InvalidAlgorithmParameterException, DatabasePasswordInvalidException
+	public static byte[] decrypt(byte[] encryptedBytes, String password) throws Exception
 	{
 		if (FileOperations.bytesAreValid(encryptedBytes))
 		{
 			EncryptedBytes = encryptedBytes;
-			
+
 			if (validPwd())
 			{
 				decryptDEK();
@@ -166,8 +153,8 @@ public class CryptoEngine
 
 	private static boolean validPwd()
 	{
-		List<byte[]> result = CryptoUtils
-				.generatePBKDF2Key(UserData.getPassword().getBytes(StandardCharsets.UTF_8), Salt, 32);
+		List<byte[]> result = CryptoUtils.generatePBKDF2Key(UserData.getPassword().getBytes(StandardCharsets.UTF_8),
+				Salt, 32);
 
 		byte[] vk_pwd = result.get(1);
 
@@ -184,8 +171,7 @@ public class CryptoEngine
 	}
 
 	// Decrypt DEK with KEK and IV
-	private static void decryptDEK() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
-			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
+	private static void decryptDEK() throws Exception
 	{
 		List<byte[]> result = useCipher(Cipher.DECRYPT_MODE, KEK, IV, DEK_Enc);
 
@@ -193,8 +179,7 @@ public class CryptoEngine
 	}
 
 	// Decrypt data with DEK
-	private static void decryptData() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException,
-			IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException
+	private static void decryptData() throws Exception
 	{
 		List<byte[]> result = useCipher(Cipher.DECRYPT_MODE, DEK, null, EncryptedBytes);
 
@@ -205,7 +190,7 @@ public class CryptoEngine
 	// Database-related En-/Decryption
 	// ================================================================================
 
-	public static void generateDBCryptKey() throws SQLException
+	public static void generateDBCryptKey() throws Exception
 	{
 		Connection connection = null;
 		Statement statement = null;
@@ -235,14 +220,12 @@ public class CryptoEngine
 			}
 		}
 	}
-	
+
 	// ================================================================================
 	// Algorithms for En-/Decryption
 	// ================================================================================
-	
-	public static List<byte[]> useCipher(int encryptMode, byte[] key, byte[] iv, byte[] inputBytes)
-			throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException,
-			BadPaddingException, InvalidAlgorithmParameterException
+
+	public static List<byte[]> useCipher(int encryptMode, byte[] key, byte[] iv, byte[] inputBytes) throws Exception
 	{
 		SecretKey secretKey = new SecretKeySpec(key, 0, key.length, CipherMode);
 		Cipher cipher = Cipher.getInstance(CipherMode);
