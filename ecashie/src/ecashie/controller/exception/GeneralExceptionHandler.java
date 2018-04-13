@@ -1,7 +1,8 @@
 package ecashie.controller.exception;
 
 import java.util.Optional;
-import java.util.logging.Level;
+
+import org.apache.commons.lang.StringUtils;
 
 import ecashie.controller.gui.HyperlinkUtils;
 import ecashie.controller.logging.ApplicationLogger;
@@ -32,21 +33,25 @@ public class GeneralExceptionHandler
 	private static Alert createExceptionAlert(String messageHeader, String messageContent,
 			String hyperlink)
 	{
+		String logMessage = ApplicationLogger.getMessages().get(0);
+		int rows = StringUtils.countMatches(logMessage, "\tat ") + 2;
+		
 		Alert alert = new Alert(AlertType.ERROR, messageContent, ButtonType.NO, ButtonType.YES);
-		alert.setTitle("Error Dialog");
+		alert.setTitle("eCashie - Error");
 		alert.setHeaderText(messageHeader);
 		alert.setResizable(false);
 
 		Label label = new Label("Exception Stacktrace:");
-		TextArea textArea = new TextArea(ApplicationLogger.getLogAsString());
+		TextArea textArea = new TextArea(logMessage);
 		textArea.setEditable(false);
 		textArea.setWrapText(true);
+		textArea.setPrefRowCount(rows);
 
 		GridPane.setVgrow(textArea, Priority.ALWAYS);
 		GridPane.setHgrow(textArea, Priority.ALWAYS);
 
 		GridPane expandableContentGrid = new GridPane();
-		expandableContentGrid.setMinWidth(600);
+		expandableContentGrid.setMinWidth(650);
 		expandableContentGrid.add(label, 0, 0);
 		expandableContentGrid.add(textArea, 0, 1);
 
@@ -69,13 +74,8 @@ public class GeneralExceptionHandler
 		}
 	}
 
-	public static void logException(Exception exception)
+	public static void logException(Exception e)
 	{
-		ApplicationLogger.logger.log(Level.SEVERE, exception.getMessage(), exception);
-	}
-	
-	public static void logException(Exception exception, String messageKey)
-	{
-		ApplicationLogger.logger.log(Level.SEVERE, "[" + messageKey + "]", exception);
+		ApplicationLogger.logException(e);
 	}
 }

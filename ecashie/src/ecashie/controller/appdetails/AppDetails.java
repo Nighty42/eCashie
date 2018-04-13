@@ -1,5 +1,6 @@
 package ecashie.controller.appdetails;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -19,7 +20,7 @@ import javafx.collections.ObservableList;
 
 public class AppDetails
 {
-	private static InputStream AppDetailsXML = AppDetails.class.getResourceAsStream("/ecashie/resources/xml/AppDetails.xml");
+	private static InputStream AppDetailsXML = null;
 
 	public static String DevelopmentBegin = "2017";
 	public static String VersionNumber = "";
@@ -44,6 +45,8 @@ public class AppDetails
 
 	private static Document prepareDocument() throws Exception
 	{
+		AppDetailsXML = new FileInputStream("src/AppDetails.xml");
+		
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 

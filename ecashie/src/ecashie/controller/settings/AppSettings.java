@@ -22,7 +22,7 @@ import ecashie.model.i18n.SupportedLanguage;
 
 public class AppSettings
 {
-	public static File AppSettingsXML = new File(System.getProperty("user.dir") + "\\AppSettings.xml");
+	public static File AppSettingsXML = new File("src/AppSettings.xml");
 	public static String RecentUsedDatabase = "";
 	public static SupportedLanguage Language = null;
 	public static SupportedCurrency BaseCurrency = null;

@@ -43,8 +43,6 @@ public class ExitApp
 
 				showAlertMessage();
 
-				closeLogger();
-
 				Platform.exit();
 				System.exit(0);
 			}
@@ -162,23 +160,6 @@ public class ExitApp
 		}
 	}
 
-	private static void closeLogger()
-	{
-		if (!ExitApplicationFailedException.CloseLoggerFailed)
-		{
-			try
-			{
-				ApplicationLogger.closeLogger();
-			}
-			catch (Exception e)
-			{
-				ExitApplicationFailedException.CloseLoggerFailed = true;
-
-				new ExitApplicationFailedException(e);
-			}
-		}
-	}
-
 	private static void closeLoadingStage()
 	{
 		if (AppLoader.loaderStage != null)
@@ -189,11 +170,13 @@ public class ExitApp
 
 	private static void showAlertMessage()
 	{
-		if (!ApplicationLogger.getLogAsString().isEmpty())
+		if (!ApplicationLogger.getMessages().isEmpty())
 		{
 			ResourceBundleString resourceBundleString = null;
 
-			if (ApplicationLogger.getLogAsString().contains("ResourceBundleException"))
+			String logMessage = ApplicationLogger.getMessages().get(0);
+			
+			if (logMessage.contains("ResourceBundleException"))
 			{
 				resourceBundleString = new ResourceBundleString("---", ResourceBundleException.messageHeader,
 						ResourceBundleException.messageContent);

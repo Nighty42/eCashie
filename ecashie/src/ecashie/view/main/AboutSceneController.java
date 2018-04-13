@@ -519,6 +519,12 @@ public class AboutSceneController
 	}
 
 	@FXML
+	private void onActionUpdateButton()
+	{
+		GeneralOperations.updateApp();
+	}
+
+	@FXML
 	private void onActionLastReleaseHyperlink()
 	{
 		String lastReleaseHyperlinkText = lastReleaseHyperlink.getText();

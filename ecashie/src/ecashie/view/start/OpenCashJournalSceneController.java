@@ -217,14 +217,14 @@ public class OpenCashJournalSceneController
 				{
 					openDatabase();
 
+					saveHistory(userDataFile);
+					
 					if (AppLoader.IsFailed)
 					{
 						this.cancel();
 					}
 					else
 					{
-						saveHistory(userDataFile);
-
 						openMainScene();
 					}
 				}

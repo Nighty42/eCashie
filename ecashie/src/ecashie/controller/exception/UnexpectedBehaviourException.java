@@ -16,9 +16,7 @@ public class UnexpectedBehaviourException extends Exception
 			GeneralExceptionHandler.logException(e);
 		}
 
-		String messageKey = "exception.foundBug";
-
-		GeneralExceptionHandler.logException(this, messageKey);
+		GeneralExceptionHandler.logException(this);
 
 		ExitApp.exit();
 	}

@@ -11,9 +11,7 @@ public class ResourceBundleException extends Exception
 
 	public ResourceBundleException()
 	{
-		String messageKey = "---";
-
-		GeneralExceptionHandler.logException(this, messageKey);
+		GeneralExceptionHandler.logException(this);
 
 		ExitApp.exit();
 	}

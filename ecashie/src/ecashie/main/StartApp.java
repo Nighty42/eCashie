@@ -7,20 +7,15 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import ecashie.controller.appdetails.AppDetails;
 import ecashie.controller.exception.LoggingNotAvailableException;
 import ecashie.controller.i18n.LanguageController;
-import ecashie.controller.logging.ApplicationLogger;
 import ecashie.controller.settings.AppSettings;
 
 public class StartApp
 {
 	public static void start() throws Exception
-	{
-		AppLoader.notifyPreloader(25, "Initialize Logging and Settings");
+	{	
+		AppLoader.notifyPreloader(25, "Initialize Settings");
 
 		initAppSettings();
-		
-		initLogging();
-
-		AppLoader.notifyPreloader(65, "Read Application Settings");
 		
 		readAppDetails();
 
@@ -44,19 +39,7 @@ public class StartApp
 			new LoggingNotAvailableException(e);
 		}
 	}
-
-	private static void initLogging()
-	{
-		try
-		{
-			ApplicationLogger.setup();
-		}
-		catch (Exception e)
-		{
-			new LoggingNotAvailableException(e);
-		}
-	}
-
+	
 	private static void readAppDetails() throws Exception
 	{
 		AppDetails.read();

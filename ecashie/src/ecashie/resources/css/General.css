@@ -31,7 +31,7 @@
 
 .borderedPaneTitle
 {
-	-fx-background-color: -fx-background;
+	-fx-background-color: white;
 }
 
 #passwordIsVisible

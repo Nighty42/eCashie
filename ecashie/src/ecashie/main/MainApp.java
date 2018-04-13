@@ -28,7 +28,6 @@ public class MainApp extends Application
 		else
 		{
 			LauncherImpl.launchApplication(MainApp.class, AppLoader.class, args);
-			// LauncherImpl.launchApplication(MainApp.class, args);
 		}
 	}
 
@@ -52,7 +51,7 @@ public class MainApp extends Application
 		{
 			GuiBuilder.initPrimaryStage(primaryStage);
 
-			// DEBUG: MainScene
+			// DEBUG: Show MainScene
 			// Navigation.addBefore("StartScene");
 			//
 			// Navigation.Next = "MainScene";

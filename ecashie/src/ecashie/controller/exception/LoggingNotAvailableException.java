@@ -15,8 +15,6 @@ public class LoggingNotAvailableException extends Exception
 			GeneralExceptionHandler.logException(e);
 		}
 
-		String messageKey = "exception.loggingNotAvailable";
-
-		GeneralExceptionHandler.logException(this, messageKey);
+		GeneralExceptionHandler.logException(this);
 	}
 }

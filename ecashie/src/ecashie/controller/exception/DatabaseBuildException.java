@@ -10,9 +10,7 @@ public class DatabaseBuildException extends Exception
 
 	public DatabaseBuildException(Exception exception)
 	{
-		String messageKey = "exception.foundBug";
-
-		GeneralExceptionHandler.logException(exception, messageKey);
+		GeneralExceptionHandler.logException(exception);
 
 		try
 		{

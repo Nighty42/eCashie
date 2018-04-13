@@ -109,12 +109,6 @@
 					value="Implemented app settings file to save chosen language and recent used cash journal (for now)" />
 				<NewFunction
 					value="Implemented encrypted user settings file to save generated crypt key (for now)" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
 			</NewFunctions>
 			<ImportantChanges>
 				<ImportantChange value="Improved validation of input fields" />
@@ -130,13 +124,6 @@
 					value="Recent used cash journals can now be remembered and suggested" />
 				<ImportantChange value="The language of the application is now saveable" />
 				<ImportantChange value="Various code optimizations and improvements" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
 			</ImportantChanges>
 			<BugFixes>
 				<BugFix
@@ -147,7 +134,28 @@
 				<BugFix
 					value="Fixed issue with height of gridpane which holds the version notes detail" />
 				<BugFix value="Fixed issue with sorting in table for image sources" />
-				<BugFix value="" />
+			</BugFixes>
+		</AppVersion>
+		<AppVersion VersionNumber="0.6.000" VersionReleaseDate="13.04.2018">
+			<NewFunctions>
+				<NewFunction value="Implemented concept for updating eCashie" />
+				<NewFunction value="Implemented support for multiple currencies" />
+				<NewFunction value="" />
+				<NewFunction value="" />
+				<NewFunction value="" />
+				<NewFunction value="" />
+			</NewFunctions>
+			<ImportantChanges>
+				<ImportantChange value="Optimized project structure and source code" />
+				<ImportantChange value="Redesigned Menu, Settings and Main Scene" />
+				<ImportantChange value="Improved logging of exceptions" />
+				<ImportantChange value="Improved exception handling" />
+				<ImportantChange value="Added Loader Scenes for expensive operations" />
+				<ImportantChange value="" />
+				<ImportantChange value="" />
+			</ImportantChanges>
+			<BugFixes>
+				<BugFix value="Fixed bug with saving history" />
 				<BugFix value="" />
 				<BugFix value="" />
 				<BugFix value="" />
@@ -180,41 +188,29 @@
 				source=""></ImageLicense>
 			<ImageLicense identifier="10" text="Creative Commons Attribution"
 				source=""></ImageLicense>
+			<ImageLicense identifier="11" text="Attribution-Non-Commercial 3.0 Netherlands"
+				source=""></ImageLicense>
 		</ImageLicenses>
-		<ImageAuthors>
-			<ImageDesigner identifier="0" designer="Recep Kütük"
-				homepage="https://www.iconfinder.com/recepkutuk"></ImageDesigner>
-			<ImageDesigner identifier="1" designer="FatCow Web Hosting"
-				homepage="https://www.fatcow.com/"></ImageDesigner>
-			<ImageDesigner identifier="2" designer="Ampeross"
-				homepage="http://ampeross.deviantart.com/"></ImageDesigner>
-			<ImageDesigner identifier="3" designer="iconpack"
-				homepage="https://www.iconfinder.com/iconpack"></ImageDesigner>
-			<ImageDesigner identifier="4" designer="Freeiconsweb"
-				homepage="http://www.freeiconsweb.com/"></ImageDesigner>
-			<ImageDesigner identifier="5" designer="Cornmanthe3rd"
-				homepage="http://cornmanthe3rd.deviantart.com/"></ImageDesigner>
-			<ImageDesigner identifier="6" designer="Anastasia Kalashnyk"
-				homepage="https://www.iconfinder.com/KOLOdesign"></ImageDesigner>
-			<ImageDesigner identifier="7" designer="Snip Master"
-				homepage="http://www.snipicons.com/"></ImageDesigner>
-			<ImageDesigner identifier="8" designer="John Slater"
-				homepage="https://www.iconfinder.com/slaterjohn"></ImageDesigner>
-			<ImageDesigner identifier="9" designer="GitHub"
-				homepage="https://github.com/logos"></ImageDesigner>
-			<ImageDesigner identifier="10" designer="Popcic"
-				homepage="https://www.iconfinder.com/popcic"></ImageDesigner>
-			<ImageDesigner identifier="11" designer="Custom Icon Design"
-				homepage="http://www.customicondesign.com/"></ImageDesigner>
+		<ImageDesigners>
+			<ImageDesigner identifier="0" designer="Recep Kütük" homepage="https://www.iconfinder.com/recepkutuk"></ImageDesigner>
+			<ImageDesigner identifier="1" designer="FatCow Web Hosting" homepage="https://www.fatcow.com/"></ImageDesigner>
+			<ImageDesigner identifier="2" designer="Ampeross" homepage="http://ampeross.deviantart.com/"></ImageDesigner>
+			<ImageDesigner identifier="3" designer="iconpack" homepage="https://www.iconfinder.com/iconpack"></ImageDesigner>
+			<ImageDesigner identifier="4" designer="Freeiconsweb" homepage="http://www.freeiconsweb.com/"></ImageDesigner>
+			<ImageDesigner identifier="5" designer="Cornmanthe3rd" homepage="http://cornmanthe3rd.deviantart.com/"></ImageDesigner>
+			<ImageDesigner identifier="6" designer="Anastasia Kalashnyk" homepage="https://www.iconfinder.com/KOLOdesign"></ImageDesigner>
+			<ImageDesigner identifier="7" designer="Snip Master" homepage="http://www.snipicons.com/"></ImageDesigner>
+			<ImageDesigner identifier="8" designer="John Slater" homepage="https://www.iconfinder.com/slaterjohn"></ImageDesigner>
+			<ImageDesigner identifier="9" designer="GitHub" homepage="https://github.com/logos"></ImageDesigner>
+			<ImageDesigner identifier="10" designer="Popcic" homepage="https://www.iconfinder.com/popcic"></ImageDesigner>
+			<ImageDesigner identifier="11" designer="Custom Icon Design" homepage="http://www.customicondesign.com/"></ImageDesigner>
 			<ImageDesigner identifier="12" designer="PC" homepage="http://pc.de/"></ImageDesigner>
-			<ImageDesigner identifier="13" designer="Paomedia"
-				homepage="http://www.paomedia.com/"></ImageDesigner>
-			<ImageDesigner identifier="14" designer="Ionicon"
-				homepage="http://ionicons.com/"></ImageDesigner>
-			<ImageDesigner identifier="15" designer="David Hopkins"
-				homepage="http://findicons.com/pack/1688/web_blog"></ImageDesigner>
+			<ImageDesigner identifier="13" designer="Paomedia" homepage="http://www.paomedia.com/"></ImageDesigner>
+			<ImageDesigner identifier="14" designer="Ionicon" homepage="http://ionicons.com/"></ImageDesigner>
+			<ImageDesigner identifier="15" designer="David Hopkins" homepage="http://findicons.com/pack/1688/web_blog"></ImageDesigner>
 			<ImageDesigner identifier="16" designer="Benjamin Stawarz" homepage="http://butterflytronics.eu/index.php/en/home/"></ImageDesigner>
-		</ImageAuthors>
+			<ImageDesigner identifier="17" designer="Tango" homepage="http://tango.freedesktop.org/"></ImageDesigner>
+		</ImageDesigners>
 		<ImageSources>
 			<ImageSource identifier="budgetplan_48x48.png"
 				designerID="0" licenseID="0"
@@ -322,6 +318,10 @@
 			<ImageSource identifier="copy_32x32.png"
 				designerID="16" licenseID="4"
 				source="https://www.iconfinder.com/icons/905646/past_refresh_restore_update_icon"
+				comment="" />
+			<ImageSource identifier="update_32x32.png"
+				designerID="17" licenseID="11"
+				source="https://www.iconfinder.com/icons/118827/software_system_update_icon"
 				comment="" />
 		</ImageSources>
 	</Images>
