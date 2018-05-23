@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="ecashie.controller.logging" status="WARN">
+	<Properties>
+    	<property name="filePattern">${date:yyyy-MM-dd}</property>
+    	<property name="logDir">logs</property>
+    </Properties>
+    <Appenders>
+    	<CustomRollingFileAppender name="DailyRolling" append="true" fileName="${logDir}/ecashie_${filePattern}.log" filePattern="${logDir}/ecashie_%d{yyyy-MM-dd}.log">
+    	    <Policies>
+        		<TimeBasedTriggeringPolicy interval="1"/>
+      		</Policies>
+            <PatternLayout pattern="%d [%r] %p - %c %n%m
+            %n------------------------------------------------------------------------------------------------------------------------------------------------------%n"/>
+            <DefaultRolloverStrategy max="7"/>
+        </CustomRollingFileAppender>
+    </Appenders>
+	<Loggers>
+        <Root level="all">
+            <AppenderRef ref="DailyRolling"/>
+        </Root>
+    </Loggers>
+</Configuration>

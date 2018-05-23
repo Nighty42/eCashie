@@ -3,9 +3,9 @@
 	-fx-cursor: hand;
 }
 
-.combo-box
+.list-cell, .combo-box
 {
-	-fx-font: 14.0px "Open Sans";
+	-fx-font: 14px "Open Sans";
 	-fx-cursor: hand;
 }
 

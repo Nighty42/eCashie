@@ -1,0 +1,17 @@
+.tree-cell
+{
+	-fx-padding: 0.75em 0.25em 0.75em 0.25em;
+	-fx-cursor: hand;
+	-fx-font-size: 16px;
+}
+
+.tree-cell .tree-disclosure-node .arrow
+{
+    -fx-shape: "M 0 -4 L 4 0 L 0 4 z";
+    -fx-padding: 0.44em 0.34em 0.44em 0.34em;
+}
+
+.tree-cell .tree-disclosure-node
+{
+	-fx-padding: 0.35em 1.0em 0.35em 1.0em;
+}

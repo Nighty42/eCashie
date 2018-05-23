@@ -62,19 +62,19 @@ public class GuiBuilder
 
 		switch (Navigation.Current)
 		{
-			case "MainScene":
-				if (sceneName.contains("Settings"))
-				{
-					scenePath = "/ecashie/view/settings/" + sceneName + ".fxml";
-				}
-				else
-				{
-					scenePath = "/ecashie/view/main/" + sceneName + ".fxml";
-				}
-				break;
-			case "StartScene":
-				scenePath = "/ecashie/view/start/" + sceneName + ".fxml";
-				break;
+		case "MainScene":
+			if (sceneName.contains("Settings"))
+			{
+				scenePath = "/ecashie/view/settings/" + sceneName + ".fxml";
+			}
+			else
+			{
+				scenePath = "/ecashie/view/main/" + sceneName + ".fxml";
+			}
+			break;
+		case "StartScene":
+			scenePath = "/ecashie/view/start/" + sceneName + ".fxml";
+			break;
 		}
 
 		return scenePath;
@@ -108,6 +108,11 @@ public class GuiBuilder
 		try
 		{
 			AnchorPane scenePane = createSceneContentPane(initFxmlLoader(sceneName));
+
+			AnchorPane.setTopAnchor(scenePane, 0.0);
+			AnchorPane.setRightAnchor(scenePane, 0.0);
+			AnchorPane.setLeftAnchor(scenePane, 0.0);
+			AnchorPane.setBottomAnchor(scenePane, 0.0);
 
 			anchorPane.getChildren().clear();
 			anchorPane.getChildren().add(scenePane);

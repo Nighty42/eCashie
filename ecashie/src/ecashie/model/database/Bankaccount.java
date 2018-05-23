@@ -1,5 +1,7 @@
 package ecashie.model.database;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,29 +13,17 @@ public class Bankaccount
 	{
 		return bankaccountList;
 	}
-
-	private int identifier;
-
-	public int getIdentifier()
-	{
-		return identifier;
-	}
-
-	public void setIdentifier(int identifier)
-	{
-		this.identifier = identifier;
-	}
 	
-	private String icon;
+	private BankaccountType bankaccountType;
 
-	public String getIcon()
+	public BankaccountType getBankaccountType()
 	{
-		return icon;
+		return bankaccountType;
 	}
 
-	public void setIcon(String icon)
+	public void setBankaccountType(BankaccountType bankaccountType)
 	{
-		this.icon = icon;
+		this.bankaccountType = bankaccountType;
 	}
 
 	private String name;
@@ -48,22 +38,36 @@ public class Bankaccount
 		this.name = name;
 	}
 	
-	private String description;
+	private String icon;
 
-	public String getDescription()
+	public String getIcon()
 	{
-		return description;
+		return icon;
 	}
 
-	public void setDescription(String description)
+	public void setIcon(String icon)
 	{
-		this.description = description;
+		this.icon = icon;
 	}
 
-	public Bankaccount(int identifier, String name, String description)
+	public Bankaccount(BankaccountType bankaccountType, String name)
 	{
-		this.identifier = identifier;
+		this.bankaccountType = bankaccountType;
 		this.name = name;
-		this.description = description;
+		
+		bankaccountList.add(this);
+	}
+
+	public static ObjectProperty<Bankaccount> get(String bankaccountName)
+	{
+		for (Bankaccount bankaccount : bankaccountList)
+		{
+			if (bankaccount.getName().equals(bankaccountName))
+			{
+				return new SimpleObjectProperty<Bankaccount>(bankaccount);
+			}
+		}
+
+		return null;
 	}
 }

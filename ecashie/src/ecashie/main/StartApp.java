@@ -14,7 +14,7 @@ public class StartApp
 	public static void start() throws Exception
 	{	
 		AppLoader.notifyPreloader(25, "Initialize Settings");
-
+		
 		initAppSettings();
 		
 		readAppDetails();

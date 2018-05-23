@@ -1,0 +1,32 @@
+.titled-pane > .title
+{
+	-fx-pref-height: 36px;
+}
+
+.titled-pane > .title:hover
+{
+	-fx-color: -fx-base;
+}
+
+.titled-pane > .title > .text
+{
+	-fx-font: 14px "Open Sans";
+}
+
+.titled-pane > .title > .arrow-button .arrow
+{
+	-fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+	
+	-fx-background-insets: -2.0, -2.0, -2.0 -2.0;
+}
+
+#activeTitledPane > .title > .arrow-button .arrow
+{
+	-fx-background-color: #a5a5a5;
+}
+
+#inactiveTitledPane > .title > .arrow-button .arrow
+{
+	-fx-background-color: #a5a5a5;
+}

@@ -46,14 +46,6 @@
 	-fx-text-fill: #3f4c4e;
 }
 
-.menuBarToggleButton > .arrow-button .arrow
-{
-	-fx-padding: 0.0 0.0 0.0 0.0;
-	-fx-background-color: transparent;
-	-fx-focus-color: transparent;
-	-fx-background-insets: 0.0 0.0 0.0 0.0, 0.0;
-}
-
 /*================================================================================*/
 /* MenuButton
 /*================================================================================*/
@@ -170,4 +162,40 @@
 .toggle-button:selected .menuLabel
 {	
 	-fx-text-fill: #3f4c4e;
+}
+
+/*================================================================================*/
+/* Back- or Forward-Button
+/*================================================================================*/
+
+.navigationButton
+{
+	-fx-pref-height: 60.0px;
+	
+	-fx-background-color: #3f4c4e;
+	-fx-background-insets: 0.0 0.0 0.0 0.0;
+	-fx-background-radius: 0.0 0.0 0.0 0.0;
+	
+	-fx-border-color: white;
+	-fx-border-width: 1.0 0.0 1.0 1.0;
+}
+
+#backArrowActive
+{
+	-fx-image: url("/ecashie/resources/img/back_arrow_white_24x40.png");
+}
+
+#backArrowInactive
+{
+	-fx-image: url("/ecashie/resources/img/back_arrow_grey_24x40.png");
+}
+
+#forwardArrowActive
+{
+	-fx-image: url("/ecashie/resources/img/forward_arrow_white_24x40.png");
+}
+
+#forwardArrowInactive
+{
+	-fx-image: url("/ecashie/resources/img/forward_arrow_grey_24x40.png");
 }

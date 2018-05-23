@@ -170,7 +170,7 @@ public class ExitApp
 
 	private static void showAlertMessage()
 	{
-		if (!ApplicationLogger.getMessages().isEmpty())
+		if (!ApplicationLogger.getMessages().isEmpty() && !ApplicationLogger.getMessages().get(0).contains("log close size"))
 		{
 			ResourceBundleString resourceBundleString = null;
 
@@ -183,7 +183,7 @@ public class ExitApp
 			}
 			else
 			{
-				resourceBundleString = LanguageController.getLocaleMessage("exception.foundBug", null);
+				resourceBundleString = LanguageController.getLocaleMessage("exception.foundBug");
 			}
 
 			GeneralExceptionHandler.generateAlert(resourceBundleString.getMessageHeader(),

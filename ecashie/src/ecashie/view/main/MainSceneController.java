@@ -113,6 +113,18 @@ public class MainSceneController
 	}
 
 	@FXML
+	private void onActionBackButton()
+	{
+
+	}
+
+	@FXML
+	private void onActionForwardButton()
+	{
+
+	}
+
+	@FXML
 	private void onActionOverviewToggleButton()
 	{
 		selectionChangedScene("overview");
@@ -127,32 +139,32 @@ public class MainSceneController
 
 		switch (sceneName)
 		{
-			case "overview":
-				overviewToggleButton.setSelected(true);
-				overviewScenePane.setVisible(true);
-				break;
-			case "transactions":
-				transactionsToggleButton.setSelected(true);
-				transactionsScenePane.setVisible(true);
-				break;
-			case "statistics":
-				statisticsToggleButton.setSelected(true);
-				statisticsScenePane.setVisible(true);
-				break;
-			case "budgetplan":
-				budgetplanToggleButton.setSelected(true);
-				budgetplanScenePane.setVisible(true);
-				break;
-			case "settings":
-				settingsToggleButton.setSelected(true);
-				settingsScenePane.setVisible(true);
-				break;
-			case "manual":
-				manualScenePane.setVisible(true);
-				break;
-			case "about":
-				aboutScenePane.setVisible(true);
-				break;
+		case "overview":
+			overviewToggleButton.setSelected(true);
+			overviewScenePane.setVisible(true);
+			break;
+		case "transactions":
+			transactionsToggleButton.setSelected(true);
+			transactionsScenePane.setVisible(true);
+			break;
+		case "statistics":
+			statisticsToggleButton.setSelected(true);
+			statisticsScenePane.setVisible(true);
+			break;
+		case "budgetplan":
+			budgetplanToggleButton.setSelected(true);
+			budgetplanScenePane.setVisible(true);
+			break;
+		case "settings":
+			settingsToggleButton.setSelected(true);
+			settingsScenePane.setVisible(true);
+			break;
+		case "manual":
+			manualScenePane.setVisible(true);
+			break;
+		case "about":
+			aboutScenePane.setVisible(true);
+			break;
 		}
 	}
 

@@ -5,21 +5,21 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.SettingsSceneController">
+<AnchorPane prefHeight="708.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.SettingsSceneController">
    <children>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+      <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
         <tabs>
           <Tab text="%general">
                <content>
-                  <AnchorPane fx:id="generalSettingsScenePane" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="generalSettingsScenePane" />
                </content></Tab>
           <Tab text="%bankaccounts">
                <content>
-                  <AnchorPane fx:id="bankaccountsSettingsScenePane" prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane fx:id="bankaccountsSettingsScenePane" />
                </content></Tab>
             <Tab id="lastTab" text="%categories">
               <content>
-                <AnchorPane fx:id="categoriesSettingsScenePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane fx:id="categoriesSettingsScenePane" />
               </content>
             </Tab>
         </tabs>

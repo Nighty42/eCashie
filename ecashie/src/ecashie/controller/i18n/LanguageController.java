@@ -82,7 +82,7 @@ public class LanguageController
 		return localeString;
 	}
 
-	public static ResourceBundleString getLocaleMessage(String messageKey, String[] messageArgs)
+	public static ResourceBundleString getLocaleMessage(String messageKey)
 	{
 		String messageHeader = getLocaleString(messageKey + ".header", null);
 		String messageContent = getLocaleString(messageKey + ".content", null);

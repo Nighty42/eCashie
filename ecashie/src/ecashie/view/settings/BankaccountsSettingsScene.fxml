@@ -1,20 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="708.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.BankaccountsSettingsSceneController">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.BankaccountsSettingsSceneController">
    <children>
-      <Label layoutX="139.0" layoutY="114.0" text="Bankaccounts - under construction!" textFill="RED">
-         <font>
-            <Font name="Open Sans Bold" size="24.0" />
-         </font>
-      </Label>
+      <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="30.0" />
+          <ColumnConstraints prefWidth="60.0" />
+          <ColumnConstraints />
+            <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="10.0" />
+            <ColumnConstraints />
+            <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="10.0" />
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="NEVER" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="10.0" vgrow="NEVER" />
+          <RowConstraints />
+            <RowConstraints vgrow="NEVER" />
+          <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <ButtonBar>
+               <buttons>
+                  <Button mnemonicParsing="false" onAction="#onActionExpandAllButton" prefHeight="34.0" prefWidth="120.0" text="%expandAll" ButtonBar.buttonData="LEFT">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="%exitProgram" />
+                     </tooltip>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onActionCollapseAllButton" prefHeight="34.0" prefWidth="120.0" text="%collapseAll" ButtonBar.buttonData="RIGHT">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="%loginConfirmation" />
+                     </tooltip>
+                  </Button>
+               </buttons>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ButtonBar>
+            <VBox GridPane.rowIndex="2" GridPane.rowSpan="4">
+               <children>
+                  <TitledPane fx:id="accountTypeATitledPane" animated="false" expanded="false" maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
+                     <content>
+                        <ListView fx:id="accountTypeAListView" prefWidth="200.0" />
+                     </content>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TitledPane>
+                  <TitledPane fx:id="accountTypeBTitledPane" animated="false" expanded="false" maxWidth="1.7976931348623157E308">
+                     <content>
+                        <ListView fx:id="accountTypeBListView" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="accountTypeCTitledPane" animated="false" expanded="false" maxWidth="1.7976931348623157E308">
+                     <content>
+                        <ListView fx:id="accountTypeCListView" prefWidth="200.0" />
+                     </content></TitledPane>
+                  <TitledPane fx:id="accountTypeDTitledPane" animated="false" expanded="false" maxWidth="1.7976931348623157E308">
+                     <content>
+                        <ListView fx:id="accountTypeDListView" prefWidth="200.0" />
+                     </content></TitledPane>
+                  <TitledPane fx:id="accountTypeETitledPane" animated="false" expanded="false" maxWidth="1.7976931348623157E308">
+                     <content>
+                        <ListView fx:id="accountTypeEListView" prefWidth="200.0" />
+                     </content></TitledPane>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </VBox>
+            <Label text="Type:" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="accountTypeComboBox" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="220.0" GridPane.columnIndex="3" />
+            <ImageView fx:id="accountIconImageView" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" />
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" text="..." GridPane.columnIndex="7">
+               <font>
+                  <Font name="Open Sans" size="14.0" />
+               </font></Button>
+            <GridPane id="successGridPane" fx:id="accountNameGridPane" GridPane.columnIndex="2" GridPane.columnSpan="6" GridPane.rowIndex="2">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints vgrow="NEVER" />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <Label text="Name:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="accountNameTextField" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Open Sans" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label id="statusLabel" fx:id="accountNameStatusLabel" textFill="RED" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets top="2.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="6.0" top="10.0" />
+               </padding>
+            </Separator>
+            <ButtonBar GridPane.columnIndex="2" GridPane.columnSpan="7" GridPane.rowIndex="4">
+               <buttons>
+                  <Button fx:id="resetButton" disable="true" mnemonicParsing="false" onAction="#onActionResetButton" prefHeight="34.0" prefWidth="120.0" text="%reset" ButtonBar.buttonData="LEFT">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="%exitProgram" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="saveButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#onActionSaveButton" prefHeight="34.0" prefWidth="120.0" text="%save" ButtonBar.buttonData="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="%loginConfirmation" />
+                     </tooltip>
+                  </Button>
+               </buttons>
+            </ButtonBar>
+            <Separator orientation="VERTICAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="6">
+               <GridPane.margin>
+                  <Insets right="-4.0" />
+               </GridPane.margin>
+            </Separator>
+         </children>
+      </GridPane>
    </children>
    <stylesheets>
-      <URL value="@/ecashie/resources/css/BankaccountsSettingsScene.css" />
-      <URL value="@/ecashie/resources/css/General.css" />
+      <URL value="@../../resources/css/Validation.css" />
+      <URL value="@../../resources/css/BankaccountsSettingsScene.css" />
+      <URL value="@../../resources/css/General.css" />
+      <URL value="@../../resources/css/TitledPane.css" />
    </stylesheets>
 </AnchorPane>
