@@ -53,7 +53,7 @@ public class OpenCashJournalSceneController
 	private FileFolderPathFieldController filePathFieldController;
 	private PasswordFieldController passwordFieldController;
 
-	private static OpenCashJournalSceneController instance = null;
+	private static OpenCashJournalSceneController instance;
 
 	public static OpenCashJournalSceneController getInstance()
 	{
@@ -64,7 +64,7 @@ public class OpenCashJournalSceneController
 	private void initialize()
 	{
 		instance = this;
-
+		
 		initFolderPathChange();
 
 		initPasswordChange();
@@ -76,22 +76,18 @@ public class OpenCashJournalSceneController
 
 	private void initFolderPathChange()
 	{
-		InputField inputField = new InputField(filePathTextField, true, Optional.of(3), Optional.of(200),
-				Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+		InputField inputField = new InputField(filePathTextField, true, Optional.of(3), Optional.of(200), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
 
 		inputField.setIsFile(".ecdb");
 
-		filePathFieldController = new FileFolderPathFieldController(inputField, filePathGridPane, filePathTextField,
-				filePathStatusLabel);
+		filePathFieldController = new FileFolderPathFieldController(inputField, filePathGridPane, filePathTextField, filePathStatusLabel);
 	}
 
 	private void initPasswordChange()
 	{
-		InputField inputField = new InputField(passwordPasswordField, false, Optional.of(8), Optional.of(200),
-				Optional.of("PASSWORD"), Optional.empty(), Optional.empty(), Optional.empty());
+		InputField inputField = new InputField(passwordPasswordField, false, Optional.of(8), Optional.of(200), Optional.of("PASSWORD"), Optional.empty(), Optional.empty(), Optional.empty());
 
-		passwordFieldController = new PasswordFieldController(inputField, passwordGridPane, passwordPasswordField,
-				passwordTextField, passwordVisibilityImageView, passwordStatusLabel);
+		passwordFieldController = new PasswordFieldController(inputField, passwordGridPane, passwordPasswordField, passwordTextField, passwordVisibilityImageView, passwordStatusLabel);
 	}
 
 	private void initRecentUsedDatabase()
@@ -218,7 +214,7 @@ public class OpenCashJournalSceneController
 					openDatabase();
 
 					saveHistory(userDataFile);
-					
+
 					if (AppLoader.IsFailed)
 					{
 						this.cancel();

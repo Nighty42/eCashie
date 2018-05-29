@@ -1,6 +1,11 @@
 .titled-pane > .title
 {
 	-fx-pref-height: 36px;
+	
+	-fx-background-insets: 0, 1, 2;
+  	-fx-background-radius: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+  	
+  	-fx-padding: 8 10 8 10;
 }
 
 .titled-pane > .title:hover
@@ -10,7 +15,13 @@
 
 .titled-pane > .title > .text
 {
-	-fx-font: 14px "Open Sans";
+	-fx-font-family: 'Open Sans';
+	-fx-font-size: 14px;
+}
+
+.titled-pane > .title > .arrow-button
+{
+    -fx-padding: 5.0px 10.0px 5.0px 4.0px;
 }
 
 .titled-pane > .title > .arrow-button .arrow

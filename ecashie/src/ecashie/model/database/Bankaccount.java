@@ -14,19 +14,30 @@ public class Bankaccount
 		return bankaccountList;
 	}
 	
-	private BankaccountType bankaccountType;
+	private int id;
+	private BankaccountType typeID;
+	private String name;
+	private String iconID;
+	
+	public int getId()
+	{
+		return id;
+	}
+
+	public void setId(int id)
+	{
+		this.id = id;
+	}
 
 	public BankaccountType getBankaccountType()
 	{
-		return bankaccountType;
+		return typeID;
 	}
 
 	public void setBankaccountType(BankaccountType bankaccountType)
 	{
-		this.bankaccountType = bankaccountType;
+		this.typeID = bankaccountType;
 	}
-
-	private String name;
 
 	public String getName()
 	{
@@ -37,22 +48,24 @@ public class Bankaccount
 	{
 		this.name = name;
 	}
-	
-	private String icon;
 
 	public String getIcon()
 	{
-		return icon;
+		return iconID;
 	}
 
 	public void setIcon(String icon)
 	{
-		this.icon = icon;
+		this.iconID = icon;
 	}
 
+	public Bankaccount()
+	{
+	}
+	
 	public Bankaccount(BankaccountType bankaccountType, String name)
 	{
-		this.bankaccountType = bankaccountType;
+		this.typeID = bankaccountType;
 		this.name = name;
 		
 		bankaccountList.add(this);

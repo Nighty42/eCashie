@@ -62,7 +62,12 @@ public class CreateCashJournalSceneController
 	private PasswordFieldController passwordFieldController;
 	private PasswordLengthSpinnerController passwordLengthFieldController;
 
-	private static CreateCashJournalSceneController instance = null;
+	private static CreateCashJournalSceneController instance;
+
+	static
+	{
+		instance = new CreateCashJournalSceneController();
+	}
 
 	public static CreateCashJournalSceneController getInstance()
 	{
@@ -72,8 +77,6 @@ public class CreateCashJournalSceneController
 	@FXML
 	private void initialize()
 	{
-		instance = this;
-
 		initFileNameChange();
 
 		initFolderPathChange();
@@ -87,35 +90,28 @@ public class CreateCashJournalSceneController
 
 	private void initFileNameChange()
 	{
-		InputField inputField = new InputField(fileNameTextField, true, Optional.of(1), Optional.of(50),
-				Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+		InputField inputField = new InputField(fileNameTextField, true, Optional.of(1), Optional.of(50), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
 
-		fileNameFieldController = new TextFieldController(inputField, fileNameGridPane, fileNameTextField,
-				fileNameStatusLabel);
+		fileNameFieldController = new TextFieldController(inputField, fileNameGridPane, fileNameTextField, fileNameStatusLabel);
 	}
 
 	private void initFolderPathChange()
 	{
-		InputField inputField = new InputField(folderPathTextField, true, Optional.of(3), Optional.of(200),
-				Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
+		InputField inputField = new InputField(folderPathTextField, true, Optional.of(3), Optional.of(200), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty());
 
-		folderPathFieldController = new FileFolderPathFieldController(inputField, folderPathGridPane,
-				folderPathTextField, folderPathStatusLabel);
+		folderPathFieldController = new FileFolderPathFieldController(inputField, folderPathGridPane, folderPathTextField, folderPathStatusLabel);
 	}
 
 	private void initPasswordField()
 	{
-		InputField inputField = new InputField(passwordPasswordField, false, Optional.of(8), Optional.of(200),
-				Optional.of("PASSWORD"), Optional.empty(), Optional.empty(), Optional.empty());
+		InputField inputField = new InputField(passwordPasswordField, false, Optional.of(8), Optional.of(200), Optional.of("PASSWORD"), Optional.empty(), Optional.empty(), Optional.empty());
 
-		passwordFieldController = new PasswordFieldController(inputField, passwordGridPane, passwordPasswordField,
-				passwordTextField, passwordVisibilityImageView, passwordStatusLabel);
+		passwordFieldController = new PasswordFieldController(inputField, passwordGridPane, passwordPasswordField, passwordTextField, passwordVisibilityImageView, passwordStatusLabel);
 	}
 
 	private void initPasswordLengthField()
 	{
-		InputField inputField = new InputField(passwordLengthSpinner, false, Optional.empty(), Optional.empty(),
-				Optional.of("ONLY_NUMBERS"), Optional.of(8), Optional.of(200), Optional.empty());
+		InputField inputField = new InputField(passwordLengthSpinner, false, Optional.empty(), Optional.empty(), Optional.of("ONLY_NUMBERS"), Optional.of(8), Optional.of(200), Optional.empty());
 
 		passwordLengthFieldController = new PasswordLengthSpinnerController(inputField, passwordLengthSpinner);
 	}
@@ -206,8 +202,7 @@ public class CreateCashJournalSceneController
 		validateFolderPath();
 		validatePassword();
 
-		if (fileNameFieldController.getInputField().isValid() && folderPathFieldController.getInputField().isValid()
-				&& passwordFieldController.getInputField().isValid())
+		if (fileNameFieldController.getInputField().isValid() && folderPathFieldController.getInputField().isValid() && passwordFieldController.getInputField().isValid())
 		{
 			doLogin();
 		}
@@ -226,8 +221,7 @@ public class CreateCashJournalSceneController
 
 	private void doLogin()
 	{
-		File userDataFile = new File(folderPathFieldController.getInputField().getText() + "\\"
-				+ fileNameFieldController.getInputField().getText() + ".ecdb");
+		File userDataFile = new File(folderPathFieldController.getInputField().getText() + "\\" + fileNameFieldController.getInputField().getText() + ".ecdb");
 
 		boolean fileExistsAndWasReplaced = UserData.handleUserDataFileExists(fileNameFieldController, userDataFile);
 

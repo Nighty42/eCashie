@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEnteredAnchorPane" onMouseExited="#onMouseExitedAnchorPane" prefHeight="55.0" prefWidth="300.0" styleClass="pane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.notification.NotificationSceneController">
+<AnchorPane fx:id="anchorPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#onMouseEnteredAnchorPane" onMouseExited="#onMouseExitedAnchorPane" prefHeight="55.0" prefWidth="300.0" styleClass="pane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ecashie.view.notification.NotificationSceneController">
    <children>
       <GridPane AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>

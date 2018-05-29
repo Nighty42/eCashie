@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.settings.BankaccountsSettingsSceneController">
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ecashie.view.settings.BankaccountsSettingsSceneController">
    <children>
       <GridPane AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -42,23 +43,36 @@
             <RowConstraints vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <ButtonBar>
+            <ButtonBar buttonMinWidth="32.0" buttonOrder="">
                <buttons>
-                  <Button mnemonicParsing="false" onAction="#onActionExpandAllButton" prefHeight="34.0" prefWidth="120.0" text="%expandAll" ButtonBar.buttonData="LEFT">
+                  <Button mnemonicParsing="false" onAction="#onActionExpandAllButton" prefHeight="34.0" prefWidth="34.0" ButtonBar.buttonData="LEFT">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <tooltip>
-                        <Tooltip text="%exitProgram" />
+                        <Tooltip text="%expandAll" />
                      </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/double_arrow_down_32x32.png" />
+                           </image></ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onActionCollapseAllButton" prefHeight="34.0" prefWidth="120.0" text="%collapseAll" ButtonBar.buttonData="RIGHT">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onActionCollapseAllButton" prefHeight="34.0" prefWidth="34.0" ButtonBar.buttonData="RIGHT">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <tooltip>
-                        <Tooltip text="%loginConfirmation" />
+                        <Tooltip text="%collapseAll" />
                      </tooltip>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resources/img/double_arrow_up_32x32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </buttons>
                <GridPane.margin>

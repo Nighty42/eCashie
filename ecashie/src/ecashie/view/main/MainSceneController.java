@@ -46,7 +46,12 @@ public class MainSceneController
 
 	public static boolean showSettingsScene = false;
 
-	private static MainSceneController instance = null;
+	private static MainSceneController instance;
+
+	static
+	{
+		instance = new MainSceneController();
+	}
 
 	public static MainSceneController getInstance()
 	{
@@ -62,8 +67,6 @@ public class MainSceneController
 	@FXML
 	private void initialize()
 	{
-		instance = this;
-
 		menuScenePane.setVisible(true);
 		GuiBuilder.embedPaneIntoScene(overviewScenePane, "OverviewScene");
 		GuiBuilder.embedPaneIntoScene(transactionsScenePane, "TransactionsScene");
@@ -139,32 +142,32 @@ public class MainSceneController
 
 		switch (sceneName)
 		{
-		case "overview":
-			overviewToggleButton.setSelected(true);
-			overviewScenePane.setVisible(true);
-			break;
-		case "transactions":
-			transactionsToggleButton.setSelected(true);
-			transactionsScenePane.setVisible(true);
-			break;
-		case "statistics":
-			statisticsToggleButton.setSelected(true);
-			statisticsScenePane.setVisible(true);
-			break;
-		case "budgetplan":
-			budgetplanToggleButton.setSelected(true);
-			budgetplanScenePane.setVisible(true);
-			break;
-		case "settings":
-			settingsToggleButton.setSelected(true);
-			settingsScenePane.setVisible(true);
-			break;
-		case "manual":
-			manualScenePane.setVisible(true);
-			break;
-		case "about":
-			aboutScenePane.setVisible(true);
-			break;
+			case "overview":
+				overviewToggleButton.setSelected(true);
+				overviewScenePane.setVisible(true);
+				break;
+			case "transactions":
+				transactionsToggleButton.setSelected(true);
+				transactionsScenePane.setVisible(true);
+				break;
+			case "statistics":
+				statisticsToggleButton.setSelected(true);
+				statisticsScenePane.setVisible(true);
+				break;
+			case "budgetplan":
+				budgetplanToggleButton.setSelected(true);
+				budgetplanScenePane.setVisible(true);
+				break;
+			case "settings":
+				settingsToggleButton.setSelected(true);
+				settingsScenePane.setVisible(true);
+				break;
+			case "manual":
+				manualScenePane.setVisible(true);
+				break;
+			case "about":
+				aboutScenePane.setVisible(true);
+				break;
 		}
 	}
 

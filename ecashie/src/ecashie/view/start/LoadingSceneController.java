@@ -13,7 +13,7 @@ public class LoadingSceneController
 	@FXML
 	private Label currentTaskLabel;
 
-	private static LoadingSceneController instance = null;
+	private static LoadingSceneController instance;
 
 	public static LoadingSceneController getInstance()
 	{
