@@ -192,24 +192,25 @@
 				source=""></ImageLicense>
 		</ImageLicenses>
 		<ImageDesigners>
-			<ImageDesigner identifier="0" designer="Recep Kütük" homepage="https://www.iconfinder.com/recepkutuk"></ImageDesigner>
-			<ImageDesigner identifier="1" designer="FatCow Web Hosting" homepage="https://www.fatcow.com/"></ImageDesigner>
-			<ImageDesigner identifier="2" designer="Ampeross" homepage="http://ampeross.deviantart.com/"></ImageDesigner>
-			<ImageDesigner identifier="3" designer="iconpack" homepage="https://www.iconfinder.com/iconpack"></ImageDesigner>
-			<ImageDesigner identifier="4" designer="Freeiconsweb" homepage="http://www.freeiconsweb.com/"></ImageDesigner>
-			<ImageDesigner identifier="5" designer="Cornmanthe3rd" homepage="http://cornmanthe3rd.deviantart.com/"></ImageDesigner>
-			<ImageDesigner identifier="6" designer="Anastasia Kalashnyk" homepage="https://www.iconfinder.com/KOLOdesign"></ImageDesigner>
-			<ImageDesigner identifier="7" designer="Snip Master" homepage="http://www.snipicons.com/"></ImageDesigner>
-			<ImageDesigner identifier="8" designer="John Slater" homepage="https://www.iconfinder.com/slaterjohn"></ImageDesigner>
-			<ImageDesigner identifier="9" designer="GitHub" homepage="https://github.com/logos"></ImageDesigner>
-			<ImageDesigner identifier="10" designer="Popcic" homepage="https://www.iconfinder.com/popcic"></ImageDesigner>
-			<ImageDesigner identifier="11" designer="Custom Icon Design" homepage="http://www.customicondesign.com/"></ImageDesigner>
-			<ImageDesigner identifier="12" designer="PC" homepage="http://pc.de/"></ImageDesigner>
-			<ImageDesigner identifier="13" designer="Paomedia" homepage="http://www.paomedia.com/"></ImageDesigner>
-			<ImageDesigner identifier="14" designer="Ionicon" homepage="http://ionicons.com/"></ImageDesigner>
-			<ImageDesigner identifier="15" designer="David Hopkins" homepage="http://findicons.com/pack/1688/web_blog"></ImageDesigner>
-			<ImageDesigner identifier="16" designer="Benjamin Stawarz" homepage="http://butterflytronics.eu/index.php/en/home/"></ImageDesigner>
-			<ImageDesigner identifier="17" designer="Tango" homepage="http://tango.freedesktop.org/"></ImageDesigner>
+			<ImageDesigner identifier="0" designer="Recep Kütük" homepage="https://www.iconfinder.com/recepkutuk"/>
+			<ImageDesigner identifier="1" designer="FatCow Web Hosting" homepage="https://www.fatcow.com/"/>
+			<ImageDesigner identifier="2" designer="Ampeross" homepage="http://ampeross.deviantart.com/"/>
+			<ImageDesigner identifier="3" designer="iconpack" homepage="https://www.iconfinder.com/iconpack"/>
+			<ImageDesigner identifier="4" designer="Freeiconsweb" homepage="http://www.freeiconsweb.com/"/>
+			<ImageDesigner identifier="5" designer="Cornmanthe3rd" homepage="http://cornmanthe3rd.deviantart.com/"/>
+			<ImageDesigner identifier="6" designer="Anastasia Kalashnyk" homepage="https://www.iconfinder.com/KOLOdesign"/>
+			<ImageDesigner identifier="7" designer="Snip Master" homepage="http://www.snipicons.com/"/>
+			<ImageDesigner identifier="8" designer="John Slater" homepage="https://www.iconfinder.com/slaterjohn"/>
+			<ImageDesigner identifier="9" designer="GitHub" homepage="https://github.com/logos"/>
+			<ImageDesigner identifier="10" designer="Popcic" homepage="https://www.iconfinder.com/popcic"/>
+			<ImageDesigner identifier="11" designer="Custom Icon Design" homepage="http://www.customicondesign.com/"/>
+			<ImageDesigner identifier="12" designer="PC" homepage="http://pc.de/"/>
+			<ImageDesigner identifier="13" designer="Paomedia" homepage="http://www.paomedia.com/"/>
+			<ImageDesigner identifier="14" designer="Ionicon" homepage="http://ionicons.com/"/>
+			<ImageDesigner identifier="15" designer="David Hopkins" homepage="http://findicons.com/pack/1688/web_blog"/>
+			<ImageDesigner identifier="16" designer="Benjamin Stawarz" homepage="http://butterflytronics.eu/index.php/en/home/"/>
+			<ImageDesigner identifier="17" designer="Tango" homepage="http://tango.freedesktop.org/"/>
+			<ImageDesigner identifier="18" designer="Denis Mikhutin" homepage="https://www.iconfinder.com/DLugo"/>
 		</ImageDesigners>
 		<ImageSources>
 			<ImageSource identifier="budgetplan_48x48.png"
@@ -323,6 +324,14 @@
 				designerID="17" licenseID="11"
 				source="https://www.iconfinder.com/icons/118827/software_system_update_icon"
 				comment="" />
+			<ImageSource identifier="double_arrow_up_32x32.png" 
+				designerID="18" licenseID="4"
+				source="https://www.iconfinder.com/icons/1031525/arrow_arrows_double_arrow_doublechevrondown_down_icon"
+				comment=""/>
+			<ImageSource identifier="double_arrow_down_32x32.png" 
+				designerID="18" licenseID="4"
+				source="https://www.iconfinder.com/icons/1031525/arrow_arrows_double_arrow_doublechevrondown_down_icon"
+				comment=""/>
 		</ImageSources>
 	</Images>
 </AppDetails>
