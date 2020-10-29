@@ -14,7 +14,7 @@ User-friendly Cash Journal for private persons.
 <li>CSV- and QIF-Support</li>
 <li>Rule-based identification of categories</li>
 </ul>
-...and many more Features!
+...and many more features!
 <p><br>
 <hr>
 <b>For Developers</b>
