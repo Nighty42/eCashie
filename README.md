@@ -36,7 +36,7 @@ User-friendly Cash Journal for private persons.
 <p>
 <b>Development Tools:</b>
 <ul>
-<li><a href="http://www.eclipse.org/neon/">Eclipse Neon</a></li>
+<li><a href="https://www.eclipse.org/downloads/">Eclipse</a></li>
 <li><a href="http://friedrich-folkmann.de/papdesigner/Hauptseite.html">PAP Designer</a></li>
 <li><a href="https://www.mysql.de/products/workbench/">MySQL Workbench</a></li>
 </ul>
