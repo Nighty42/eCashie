@@ -22,7 +22,7 @@ User-friendly Cash Journal for private persons.
 <p>
 <b>Developed with:</b>
 <ul>
-<li>Java 9</li>
+<li>Java 11</li>
 <li>JavaFX</li>
 </ul>
 <p>
@@ -30,7 +30,6 @@ User-friendly Cash Journal for private persons.
 <ul>
 <li><a href="https://www.bouncycastle.org/java.html">BouncyCastle Java API</a></li>
 <li><a href="http://hsqldb.org/">HSQLDB</a></li>
-<li><a href="http://fxexperience.com/controlsfx/">ControlsFX</a></li>
 <li><a href="http://commons.apache.org/proper/commons-io/">Apache CommonsIO</a></li>
 </ul>
 <p>
