@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ecashie/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/bcprov-jdk15on-166.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/win/javafx.base.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/win/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/win/javafx.fxml.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/win/javafx.graphics.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/win/javafx.media.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/win/javafx.swing.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/unix/javafx.base.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/unix/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/unix/javafx.fxml.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/unix/javafx.graphics.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/unix/javafx.media.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/unix/javafx.swing.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx/javafx.base.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx/javafx.fxml.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx/javafx.graphics.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx/javafx.media.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx/javafx.swing.jar"/>
+	<classpathentry kind="lib" path="lib/javafx/osx"/>
+	<classpathentry kind="lib" path="lib/javafx/unix"/>
+	<classpathentry kind="lib" path="lib/javafx/win"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/sqltool.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

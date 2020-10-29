@@ -41,7 +41,7 @@ public class LanguageUtils
 			Locale.setDefault(AppSettings.language.getLocale());
 
 			InputStream inputStream = MainApp.class.getResourceAsStream(
-					"/ecashie/resources/languages/" + AppSettings.language.getLocale().toString() + ".properties");
+					"/ecashie/resources/i18n/" + AppSettings.language.getLocale().toString() + ".properties");
 
 			MainAppController.ResourceBundle = new PropertyResourceBundle(inputStream);
 		}

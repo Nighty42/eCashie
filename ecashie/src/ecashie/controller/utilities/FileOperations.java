@@ -9,18 +9,6 @@ import ecashie.controller.errorhandling.UnexpectedBehaviourException;
 
 public class FileOperations
 {
-	public static boolean fileIsFile(File file)
-	{
-		if (file.isFile())
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
 	public static boolean fileExists(File file)
 	{
 		if (file != null && file.exists())
@@ -99,7 +87,7 @@ public class FileOperations
 	{
 		byte[] fileOutput = null;
 
-		if (fileIsFile(file) && fileExists(file) && fileIsNotEmpty(file))
+		if (file.isFile() && fileExists(file) && fileIsNotEmpty(file))
 		{
 			fileOutput = FileUtils.readFileToByteArray(file);
 		}
@@ -109,7 +97,7 @@ public class FileOperations
 
 	public static void writeByteArrayToFile(File file, byte[] bytes) throws IOException
 	{
-		if (fileIsFile(file) && fileExists(file) && bytesAreValid(bytes))
+		if (file.isFile() && fileExists(file) && bytesAreValid(bytes))
 		{
 			FileUtils.writeByteArrayToFile(file, bytes);
 		}
