@@ -2,7 +2,7 @@
 User-friendly Cash Journal for private persons.
 <p>
 <hr>
-<b>For Application User</b>
+<b>For ecashie User</b>
 <hr>
 <p>
 <b>Functionality:</b>

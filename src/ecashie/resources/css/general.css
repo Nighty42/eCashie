@@ -1,0 +1,67 @@
+.button
+{
+	-fx-cursor: hand;
+}
+
+.toggle-button
+{
+	-fx-cursor: hand;
+}
+
+.radio-button
+{
+	-fx-cursor: hand;
+}
+
+.combo-box
+{
+	-fx-font: 14.0px "Open Sans";
+	-fx-cursor: hand;
+}
+
+.spinner > .text-input
+{
+	-fx-font: 14.0px "Open Sans";
+	-fx-alignment: center;
+}
+
+.scroll-pane > .viewport
+{
+   -fx-background-color: transparent;
+}
+
+.scroll-pane
+{
+   -fx-background-color: transparent;
+   
+   /* Fixes a bug with scrollpane, which caused adding a padding of
+    * 1px to the scrollpane if being selected or opening context menu. */
+   -fx-padding: 0.0;
+}
+
+.borderedPaneTitle
+{
+	-fx-background-color: -fx-background;
+}
+
+#passwordIsVisible
+{
+	-fx-image: url("/ecashie/resources/images/hidden_24x24.png");
+}
+
+#passwordIsHidden
+{
+	-fx-image: url("/ecashie/resources/images/visible_24x24.png");
+}
+
+.notification-bar > .pane
+{
+    -fx-background-color: red, yellow, blue;
+    -fx-padding: 5.0 5.0 5.0 5.0;
+    -fx-background-insets: 0.0, 1.0, 2.0;
+}
+
+.notification-bar > .pane > .graphic
+{
+	-fx-image: url("/ecashie/resources/images/logo_32x32.png");
+}
