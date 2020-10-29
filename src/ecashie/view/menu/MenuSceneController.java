@@ -3,7 +3,6 @@ package ecashie.view.menu;
 import ecashie.controller.utilities.HyperlinkUtils;
 import ecashie.view.main.MainSceneController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleButton;
 
@@ -21,13 +20,13 @@ public class MenuSceneController
 	@FXML
 	private TitledPane helpTitledPane;
 	@FXML
-	private Button manualButton;
+	private ToggleButton manualToggleButton;
 	@FXML
-	private Button reportBugButton;
+	private ToggleButton reportBugToggleButton;
 	@FXML
-	private Button suggestFeatureButton;
+	private ToggleButton suggestFeatureToggleButton;
 	@FXML
-	private Button participateButton;
+	private ToggleButton participateToggleButton;
 	@FXML
 	private ToggleButton aboutToggleButton;
 
@@ -61,13 +60,10 @@ public class MenuSceneController
 	private void onActionOverviewToggleButton()
 	{
 		clearTitledPaneSelection();
-		
 		clearToggleButtonSelection();
-
-		overviewToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		overviewToggleButton.setSelected(true);
 		MainSceneController.getInstance().getOverviewScenePane().setVisible(true);
 	}
 
@@ -75,13 +71,10 @@ public class MenuSceneController
 	private void onActionTransactionsToggleButton()
 	{
 		clearTitledPaneSelection();
-		
 		clearToggleButtonSelection();
-
-		transactionsToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		transactionsToggleButton.setSelected(true);
 		MainSceneController.getInstance().getTransactionsScenePane().setVisible(true);
 	}
 
@@ -89,13 +82,10 @@ public class MenuSceneController
 	private void onActionStatisticsToggleButton()
 	{
 		clearTitledPaneSelection();
-		
 		clearToggleButtonSelection();
-
-		statisticsToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		statisticsToggleButton.setSelected(true);
 		MainSceneController.getInstance().getStatisticsScenePane().setVisible(true);
 	}
 
@@ -103,49 +93,48 @@ public class MenuSceneController
 	private void onActionBudgetplanToggleButton()
 	{
 		clearTitledPaneSelection();
-		
 		clearToggleButtonSelection();
-
-		budgetplanToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		budgetplanToggleButton.setSelected(true);
 		MainSceneController.getInstance().getBudgetplanScenePane().setVisible(true);
 	}
 
 	@FXML
 	private void onActionManualButton()
 	{
-		// TODO: Create Manual
+		HyperlinkUtils.openHyperlink("https://github.com/mariusraht1/eCashie/wiki");
+		manualToggleButton.setSelected(false);
 	}
 
 	@FXML
 	private void onActionReportBugButton()
 	{
-		HyperlinkUtils.openHyperlink("https://sourceforge.net/p/ecashie/tickets/new/");
+		HyperlinkUtils.openHyperlink("https://github.com/mariusraht1/eCashie/issues/new");
+		reportBugToggleButton.setSelected(false);
 	}
 
 	@FXML
 	private void onActionSuggestFeatureButton()
 	{
-		HyperlinkUtils.openHyperlink("https://sourceforge.net/p/ecashie/feature-requests/new/");
+		HyperlinkUtils.openHyperlink("https://github.com/mariusraht1/eCashie/issues/new");
+		suggestFeatureToggleButton.setSelected(false);
 	}
 
 	@FXML
 	private void onActionParticipateButton()
 	{
 		HyperlinkUtils.openHyperlink("https://github.com/Nighty42/eCashie");
+		participateToggleButton.setSelected(false);
 	}
 
 	@FXML
 	private void onActionAboutToggleButton()
 	{
 		clearToggleButtonSelection();
-
-		aboutToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		aboutToggleButton.setSelected(true);
 		MainSceneController.getInstance().getAboutScenePane().setVisible(true);
 	}
 
@@ -153,11 +142,9 @@ public class MenuSceneController
 	private void onActionGeneralSettingsToggleButton()
 	{
 		clearToggleButtonSelection();
-
-		generalSettingsToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		generalSettingsToggleButton.setSelected(true);
 		MainSceneController.getInstance().getGeneralSettingsScenePane().setVisible(true);
 	}
 
@@ -165,11 +152,9 @@ public class MenuSceneController
 	private void onActionBankaccountsSettingsToggleButton()
 	{
 		clearToggleButtonSelection();
-
-		bankaccountsSettingsToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		bankaccountsSettingsToggleButton.setSelected(true);
 		MainSceneController.getInstance().getBankaccountsSettingsScenePane().setVisible(true);
 	}
 
@@ -177,11 +162,9 @@ public class MenuSceneController
 	private void onActionCategoriesSettingsToggleButton()
 	{
 		clearToggleButtonSelection();
-
-		categoriesSettingsToggleButton.setSelected(true);
-
 		clearContentPaneVisibility();
 
+		categoriesSettingsToggleButton.setSelected(true);
 		MainSceneController.getInstance().getCategoriesSettingsScenePane().setVisible(true);
 	}
 
@@ -189,12 +172,14 @@ public class MenuSceneController
 	private void onMouseClickedHelpTitledPane()
 	{
 		settingsTitledPane.setExpanded(false);
+		clearToggleButtonSelection();
 	}
 	
 	@FXML
 	private void onMouseClickedSettingsTitledPane()
 	{
 		helpTitledPane.setExpanded(false);
+		clearToggleButtonSelection();
 	}
 
 	private void clearTitledPaneSelection()
@@ -210,6 +195,10 @@ public class MenuSceneController
 		statisticsToggleButton.setSelected(false);
 		budgetplanToggleButton.setSelected(false);
 
+		manualToggleButton.setSelected(false);
+		reportBugToggleButton.setSelected(false);
+		suggestFeatureToggleButton.setSelected(false);
+		participateToggleButton.setSelected(false);
 		aboutToggleButton.setSelected(false);
 
 		generalSettingsToggleButton.setSelected(false);

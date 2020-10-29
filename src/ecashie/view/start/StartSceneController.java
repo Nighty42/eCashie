@@ -73,7 +73,7 @@ public class StartSceneController
 	@FXML
 	private void onActionExitButton()
 	{
-		MainAppController.exitecashie();
+		MainAppController.exitApplication();
 	}
 
 	@FXML

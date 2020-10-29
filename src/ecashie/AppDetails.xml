@@ -2,16 +2,19 @@
 <!DOCTYPE xml>
 <AppDetails>
 	<Contributors>
-		<Contributor name="Nighty" roles="Developer, Designer &amp; Translator"></Contributor>
+		<Contributor name="Nighty"
+			roles="Developer, Designer &amp; Translator"></Contributor>
 	</Contributors>
 	<VersionNotes>
-		<AppVersion VersionNumber="0.1.005" VersionReleaseDate="10.02.2017">
+		<AppVersion VersionNumber="0.1.005"
+			VersionReleaseDate="10.02.2017">
 			<NewFunctions>
 				<NewFunction value="Project created" />
 				<NewFunction value="En-/Decryption implemented" />
 				<NewFunction value="LoginScene created" />
 				<NewFunction value="Compression via ZIP implemented" />
-				<NewFunction value="Prepared ecashie for different languages" />
+				<NewFunction
+					value="Prepared ecashie for different languages" />
 			</NewFunctions>
 			<ImportantChanges>
 				<ImportantChange value="-/-" />
@@ -20,7 +23,8 @@
 				<BugFix value="-/-" />
 			</BugFixes>
 		</AppVersion>
-		<AppVersion VersionNumber="0.2.010" VersionReleaseDate="28.02.2017">
+		<AppVersion VersionNumber="0.2.010"
+			VersionReleaseDate="28.02.2017">
 			<NewFunctions>
 				<NewFunction
 					value="General structure of Menu and ecashie created and designed" />
@@ -30,41 +34,51 @@
 				<NewFunction value="Contribution for Icons/Images added" />
 			</NewFunctions>
 			<ImportantChanges>
-				<ImportantChange value="Various Code Optimizations and Clean-Ups" />
+				<ImportantChange
+					value="Various Code Optimizations and Clean-Ups" />
 			</ImportantChanges>
 			<BugFixes>
 				<BugFix value="-/-" />
 			</BugFixes>
 		</AppVersion>
-		<AppVersion VersionNumber="0.3.012" VersionReleaseDate="21.03.2017">
+		<AppVersion VersionNumber="0.3.012"
+			VersionReleaseDate="21.03.2017">
 			<NewFunctions>
 				<NewFunction
 					value="Implemented general handling and design for validation of input fields" />
-				<NewFunction value="Implemented validation for input fields in LoginScene" />
-				<NewFunction value="General implementation of exception handling" />
+				<NewFunction
+					value="Implemented validation for input fields in LoginScene" />
+				<NewFunction
+					value="General implementation of exception handling" />
 				<NewFunction
 					value="Implemented logging of exceptions, errors, warnings and information" />
 				<NewFunction
 					value="Implemented installation of tooltip to image views after validation" />
-				<NewFunction value="Implemented general handling with hyperlinks" />
+				<NewFunction
+					value="Implemented general handling with hyperlinks" />
 				<NewFunction
 					value="Added general handling of showing error messages to the user after validation of an input field to point out what the user has to do to get rid of the error" />
 			</NewFunctions>
 			<ImportantChanges>
 				<ImportantChange value="Changed versioning" />
-				<ImportantChange value="Changed design of menubar to be more flexible" />
+				<ImportantChange
+					value="Changed design of menubar to be more flexible" />
 				<ImportantChange
 					value="Scenes that will be embedded in MainScene are now loaded only once at the first calling of MainSceneController to save resources" />
-				<ImportantChange value="Changed the settings icon to be more remarkable" />
+				<ImportantChange
+					value="Changed the settings icon to be more remarkable" />
 				<ImportantChange value="Updated language files" />
 				<ImportantChange value="Updated image sources" />
-				<ImportantChange value="Various code optimizations and clean-ups" />
+				<ImportantChange
+					value="Various code optimizations and clean-ups" />
 			</ImportantChanges>
 			<BugFixes>
-				<BugFix value="Removed blue glowing of some tabs when they were focused" />
+				<BugFix
+					value="Removed blue glowing of some tabs when they were focused" />
 				<BugFix
 					value="After 3 times opening a context menu from the menubar the cursor changed from 'hand' to 'default' again" />
-				<BugFix value="Fixed some issues with the presentation of the log file" />
+				<BugFix
+					value="Fixed some issues with the presentation of the log file" />
 				<BugFix
 					value="Fixed a bug which caused the validation to fail because of a missing comparation object" />
 				<BugFix
@@ -77,27 +91,34 @@
 					value="Removed debug code which caused an error with the generation of the crypt key for the database" />
 			</BugFixes>
 		</AppVersion>
-		<AppVersion VersionNumber="0.4.001" VersionReleaseDate="27.03.2017">
+		<AppVersion VersionNumber="0.4.001"
+			VersionReleaseDate="27.03.2017">
 			<NewFunctions>
 				<NewFunction value="Integrated database objects" />
 				<NewFunction
 					value="Implemented some interface methods for database objects" />
-				<NewFunction value="Implemented build of database structure" />
+				<NewFunction
+					value="Implemented build of database structure" />
 			</NewFunctions>
 			<ImportantChanges>
-				<ImportantChange value="Optimized showing alert message to user" />
-				<ImportantChange value="Optimized exception handling" />
+				<ImportantChange
+					value="Optimized showing alert message to user" />
+				<ImportantChange
+					value="Optimized exception handling" />
 				<ImportantChange value="Optimized logging handling" />
-				<ImportantChange value="Optimized data model for database structure" />
+				<ImportantChange
+					value="Optimized data model for database structure" />
 				<ImportantChange
 					value="Optimized source code for better comprehensibility" />
 				<ImportantChange value="Updated language files" />
 			</ImportantChanges>
 			<BugFixes>
-				<BugFix value="Fixed bug which caused the logging to be disabled" />
+				<BugFix
+					value="Fixed bug which caused the logging to be disabled" />
 			</BugFixes>
 		</AppVersion>
-		<AppVersion VersionNumber="0.5.009" VersionReleaseDate="28.04.2017">
+		<AppVersion VersionNumber="0.5.009"
+			VersionReleaseDate="28.04.2017">
 			<NewFunctions>
 				<NewFunction
 					value="Implemented detection and handling of app instance is already running" />
@@ -109,83 +130,92 @@
 					value="Implemented app settings file to save chosen language and recent used cash journal (for now)" />
 				<NewFunction
 					value="Implemented encrypted user settings file to save generated crypt key (for now)" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
-				<NewFunction value="" />
 			</NewFunctions>
 			<ImportantChanges>
-				<ImportantChange value="Improved validation of input fields" />
-				<ImportantChange value="Alert messages have now an icon" />
+				<ImportantChange
+					value="Improved validation of input fields" />
+				<ImportantChange
+					value="Alert messages have now an icon" />
 				<ImportantChange value="Updated language files" />
 				<ImportantChange value="Improved exception handling" />
-				<ImportantChange value="Removed redundant information from log" />
-				<ImportantChange value="Improved validation of input fields" />
+				<ImportantChange
+					value="Removed redundant information from log" />
+				<ImportantChange
+					value="Improved validation of input fields" />
 				<ImportantChange
 					value="Now it's possible to scroll through patch notes or the license text if the window is smaller than the text field" />
-				<ImportantChange value="Wrong password now results in a message" />
+				<ImportantChange
+					value="Wrong password now results in a message" />
 				<ImportantChange
 					value="Recent used cash journals can now be remembered and suggested" />
-				<ImportantChange value="The language of the ecashie is now saveable" />
-				<ImportantChange value="Various code optimizations and improvements" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
-				<ImportantChange value="" />
+				<ImportantChange
+					value="The language of the ecashie is now saveable" />
+				<ImportantChange
+					value="Various code optimizations and improvements" />
 			</ImportantChanges>
 			<BugFixes>
 				<BugFix
 					value="Fixed issue with event for toggle button not fired properly after selection" />
-				<BugFix value="Fixed issue with the opening of an existent cash journal" />
+				<BugFix
+					value="Fixed issue with the opening of an existent cash journal" />
 				<BugFix
 					value="Fixed issue with changing row height of header of table for version notes" />
 				<BugFix
 					value="Fixed issue with height of gridpane which holds the version notes detail" />
-				<BugFix value="Fixed issue with sorting in table for image sources" />
-				<BugFix value="" />
-				<BugFix value="" />
-				<BugFix value="" />
-				<BugFix value="" />
+				<BugFix
+					value="Fixed issue with sorting in table for image sources" />
+			</BugFixes>
+		</AppVersion>
+		<AppVersion VersionNumber="0.6.001 A"
+			VersionReleaseDate="29.10.2020">
+			<NewFunctions>
+				<NewFunction
+					value="Integrated library files into project and changed namespace" />
+			</NewFunctions>
+			<ImportantChanges>
+				<ImportantChange
+					value="Improved exiting of application" />
+			</ImportantChanges>
+			<BugFixes>
+				<BugFix value="Fixed issue with link buttons being selected" />
 			</BugFixes>
 		</AppVersion>
 	</VersionNotes>
 	<Images>
 		<ImageLicenses>
-			<ImageLicense identifier="0" text="Free for commercial use"
-				source=""></ImageLicense>
+			<ImageLicense identifier="0"
+				text="Free for commercial use" source=""></ImageLicense>
 			<ImageLicense identifier="1"
-				text="Creative Commons (Attribution 3.0 United States)" source="https://creativecommons.org/licenses/by/3.0/us/"></ImageLicense>
+				text="Creative Commons (Attribution 3.0 United States)"
+				source="https://creativecommons.org/licenses/by/3.0/us/"></ImageLicense>
 			<ImageLicense identifier="2"
 				text="Free for commercial use (Include link to authors website)"
 				source=""></ImageLicense>
-			<ImageLicense identifier="3" text="Free for non commercial use"
-				source=""></ImageLicense>
+			<ImageLicense identifier="3"
+				text="Free for non commercial use" source=""></ImageLicense>
 			<ImageLicense identifier="4"
-				text="Creative Commons (Attribution 3.0 Unported)" source="https://creativecommons.org/licenses/by/3.0/"></ImageLicense>
+				text="Creative Commons (Attribution 3.0 Unported)"
+				source="https://creativecommons.org/licenses/by/3.0/"></ImageLicense>
 			<ImageLicense identifier="5"
 				text="Creative Commons (Attribution-Noncommercial 3.0 Unported)"
 				source="https://creativecommons.org/licenses/by-nc/3.0/"></ImageLicense>
 			<ImageLicense identifier="6"
-				text="Creative Commons (Attribution 2.5 Generic)" source="https://creativecommons.org/licenses/by/2.5/"></ImageLicense>
-			<ImageLicense identifier="7" text="GitHub Logos and Usage"
-				source="https://github.com/logos"></ImageLicense>
+				text="Creative Commons (Attribution 2.5 Generic)"
+				source="https://creativecommons.org/licenses/by/2.5/"></ImageLicense>
+			<ImageLicense identifier="7"
+				text="GitHub Logos and Usage" source="https://github.com/logos"></ImageLicense>
 			<ImageLicense identifier="8" text="MIT License"
 				source="https://opensource.org/licenses/MIT"></ImageLicense>
 			<ImageLicense identifier="9" text="Public Domain"
 				source=""></ImageLicense>
-			<ImageLicense identifier="10" text="Creative Commons Attribution"
-				source=""></ImageLicense>
+			<ImageLicense identifier="10"
+				text="Creative Commons Attribution" source=""></ImageLicense>
 		</ImageLicenses>
 		<ImageAuthors>
 			<ImageDesigner identifier="0" designer="Recep Kütük"
 				homepage="https://www.iconfinder.com/recepkutuk"></ImageDesigner>
-			<ImageDesigner identifier="1" designer="FatCow Web Hosting"
-				homepage="https://www.fatcow.com/"></ImageDesigner>
+			<ImageDesigner identifier="1"
+				designer="FatCow Web Hosting" homepage="https://www.fatcow.com/"></ImageDesigner>
 			<ImageDesigner identifier="2" designer="Ampeross"
 				homepage="http://ampeross.deviantart.com/"></ImageDesigner>
 			<ImageDesigner identifier="3" designer="iconpack"
@@ -194,7 +224,8 @@
 				homepage="http://www.freeiconsweb.com/"></ImageDesigner>
 			<ImageDesigner identifier="5" designer="Cornmanthe3rd"
 				homepage="http://cornmanthe3rd.deviantart.com/"></ImageDesigner>
-			<ImageDesigner identifier="6" designer="Anastasia Kalashnyk"
+			<ImageDesigner identifier="6"
+				designer="Anastasia Kalashnyk"
 				homepage="https://www.iconfinder.com/KOLOdesign"></ImageDesigner>
 			<ImageDesigner identifier="7" designer="Snip Master"
 				homepage="http://www.snipicons.com/"></ImageDesigner>
@@ -204,16 +235,20 @@
 				homepage="https://github.com/logos"></ImageDesigner>
 			<ImageDesigner identifier="10" designer="Popcic"
 				homepage="https://www.iconfinder.com/popcic"></ImageDesigner>
-			<ImageDesigner identifier="11" designer="Custom Icon Design"
+			<ImageDesigner identifier="11"
+				designer="Custom Icon Design"
 				homepage="http://www.customicondesign.com/"></ImageDesigner>
-			<ImageDesigner identifier="12" designer="PC" homepage="http://pc.de/"></ImageDesigner>
+			<ImageDesigner identifier="12" designer="PC"
+				homepage="http://pc.de/"></ImageDesigner>
 			<ImageDesigner identifier="13" designer="Paomedia"
 				homepage="http://www.paomedia.com/"></ImageDesigner>
 			<ImageDesigner identifier="14" designer="Ionicon"
 				homepage="http://ionicons.com/"></ImageDesigner>
 			<ImageDesigner identifier="15" designer="David Hopkins"
 				homepage="http://findicons.com/pack/1688/web_blog"></ImageDesigner>
-			<ImageDesigner identifier="16" designer="Benjamin Stawarz" homepage="http://butterflytronics.eu/index.php/en/home/"></ImageDesigner>
+			<ImageDesigner identifier="16"
+				designer="Benjamin Stawarz"
+				homepage="http://butterflytronics.eu/index.php/en/home/"></ImageDesigner>
 		</ImageAuthors>
 		<ImageSources>
 			<ImageSource identifier="budgetplan_48x48.png"
@@ -221,13 +256,14 @@
 				source="https://www.iconfinder.com/icons/728916/appointment_calendar_date_event_plan_schedule_timetable_icon"
 				comment="" />
 			<ImageSource identifier="bugs_32x32.png" designerID="1"
-				licenseID="1" source="https://www.iconfinder.com/icons/35756/bug_error_icon"
+				licenseID="1"
+				source="https://www.iconfinder.com/icons/35756/bug_error_icon"
 				comment="" />
 			<ImageSource identifier="exit_42x40.png" designerID="2"
-				licenseID="0" source="https://www.iconfinder.com/icons/100592/off_icon"
-				comment="" />
-			<ImageSource identifier="failure_28x29.png" designerID="3"
 				licenseID="0"
+				source="https://www.iconfinder.com/icons/100592/off_icon" comment="" />
+			<ImageSource identifier="failure_28x29.png"
+				designerID="3" licenseID="0"
 				source="https://www.iconfinder.com/icons/1398917/circle_close_cross_delete_incorrect_invalid_x_icon"
 				comment="Changed red color into a darker red one." />
 			<ImageSource identifier="help_48x48.png" designerID="4"
@@ -235,14 +271,16 @@
 				source="https://www.iconfinder.com/icons/22150/help_question_mark_icon"
 				comment="" />
 			<ImageSource identifier="home_72x72.png" designerID="5"
-				licenseID="3" source="https://www.iconfinder.com/icons/172054/home_icon"
+				licenseID="3"
+				source="https://www.iconfinder.com/icons/172054/home_icon"
 				comment="" />
 			<ImageSource identifier="logo_32x32.png" designerID="6"
 				licenseID="4"
 				source="https://www.iconfinder.com/icons/1889200/bag_bank_coins_finance_money_saving_icon"
 				comment="" />
 			<ImageSource identifier="manual_34x42.png" designerID="7"
-				licenseID="5" source="https://www.iconfinder.com/icons/173163/book_icon"
+				licenseID="5"
+				source="https://www.iconfinder.com/icons/173163/book_icon"
 				comment="" />
 			<ImageSource identifier="menu_black_32x32.png"
 				designerID="8" licenseID="6"
@@ -251,16 +289,16 @@
 			<ImageSource identifier="participate_32x32.png"
 				designerID="9" licenseID="7" source="https://github.com/logos"
 				comment="" />
-			<ImageSource identifier="settings_48x48.png" designerID="10"
-				licenseID="0"
+			<ImageSource identifier="settings_48x48.png"
+				designerID="10" licenseID="0"
 				source="https://www.iconfinder.com/icons/274899/adjustments_change_configuration_control_option_options_preferences_settings_technology_tools_icon"
 				comment="" />
 			<ImageSource identifier="statistics_64x64.png"
 				designerID="11" licenseID="3"
 				source="http://www.iconarchive.com/show/flatastic-9-icons-by-custom-icon-design/Pie-chart-icon.html"
 				comment="" />
-			<ImageSource identifier="success_28x29.png" designerID="3"
-				licenseID="0"
+			<ImageSource identifier="success_28x29.png"
+				designerID="3" licenseID="0"
 				source="https://www.iconfinder.com/icons/1398912/check_circle_correct_mark_success_tick_yes_icon"
 				comment="" />
 			<ImageSource identifier="suggestions_32x32.png"
@@ -268,7 +306,8 @@
 				source="https://www.iconfinder.com/icons/59615/star_icon" comment="" />
 			<ImageSource identifier="transactions_48x48.png"
 				designerID="13" licenseID="4"
-				source="https://www.iconfinder.com/icons/299107/money_icon" comment="Changed green color into a darker green." />
+				source="https://www.iconfinder.com/icons/299107/money_icon"
+				comment="Changed green color into a darker green." />
 			<ImageSource identifier="arrow_grey_20x12.png"
 				designerID="14" licenseID="8"
 				source="https://www.iconfinder.com/icons/211614/arrow_b_down_icon"
@@ -278,10 +317,12 @@
 				source="https://www.iconfinder.com/icons/36059/folder_open_yellow_icon"
 				comment="Reduced bottom shadow." />
 			<ImageSource identifier="hidden_24x24.png" designerID="7"
-				licenseID="5" source="https://www.iconfinder.com/icons/173006/close_eye_icon"
+				licenseID="5"
+				source="https://www.iconfinder.com/icons/173006/close_eye_icon"
 				comment="" />
-			<ImageSource identifier="visible_24x24.png" designerID="7"
-				licenseID="5" source="https://www.iconfinder.com/icons/173007/eye_open_icon"
+			<ImageSource identifier="visible_24x24.png"
+				designerID="7" licenseID="5"
+				source="https://www.iconfinder.com/icons/173007/eye_open_icon"
 				comment="" />
 			<ImageSource identifier="report_add_24x24.png"
 				designerID="1" licenseID="1"
@@ -295,8 +336,8 @@
 				licenseID="9"
 				source="http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/sign-info-icon.html"
 				comment="" />
-			<ImageSource identifier="warning_32x32.png" designerID="13"
-				licenseID="9"
+			<ImageSource identifier="warning_32x32.png"
+				designerID="13" licenseID="9"
 				source="http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/sign-warning-icon.html"
 				comment="" />
 			<ImageSource identifier="error_32x32.png" designerID="13"
@@ -319,8 +360,8 @@
 				designerID="3" licenseID="0"
 				source="https://www.iconfinder.com/icons/1398911/check_correct_mark_success_tick_valid_yes_icon"
 				comment="" />
-			<ImageSource identifier="copy_32x32.png"
-				designerID="16" licenseID="4"
+			<ImageSource identifier="copy_32x32.png" designerID="16"
+				licenseID="4"
 				source="https://www.iconfinder.com/icons/905646/past_refresh_restore_update_icon"
 				comment="" />
 		</ImageSources>

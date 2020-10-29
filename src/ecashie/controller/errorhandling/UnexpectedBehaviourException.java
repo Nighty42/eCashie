@@ -12,6 +12,6 @@ public class UnexpectedBehaviourException extends Exception
 		
 		GeneralExceptionHandler.logException(this, messageKey);
 		
-		MainAppController.exitecashie();
+		MainAppController.exitApplication();
 	}
 }

@@ -2,7 +2,6 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.menu.MenuSceneController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecashie.view.menu.MenuSceneController">
 	<stylesheets>
 		<URL value="@/ecashie/resources/css/general.css" />
 		<URL value="@/ecashie/resources/css/menu.css" />
@@ -161,7 +160,7 @@
 										<RowConstraints vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
-										<Button fx:id="manualButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionManualButton" prefHeight="50.0" GridPane.halignment="LEFT">
+										<ToggleButton id="subMenuToggleButton" fx:id="manualToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionManualButton" prefHeight="50.0">
 											<graphic>
 												<GridPane>
 													<columnConstraints>
@@ -185,8 +184,8 @@
 													</children>
 												</GridPane>
 											</graphic>
-										</Button>
-										<Button fx:id="reportBugButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionReportBugButton" prefHeight="50.0" GridPane.rowIndex="1">
+										</ToggleButton>
+										<ToggleButton id="subMenuToggleButton" fx:id="reportBugToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionReportBugButton" prefHeight="50.0" GridPane.rowIndex="1">
 											<graphic>
 												<GridPane>
 													<columnConstraints>
@@ -210,8 +209,8 @@
 													</children>
 												</GridPane>
 											</graphic>
-										</Button>
-										<Button fx:id="suggestFeatureButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionSuggestFeatureButton" prefHeight="50.0" GridPane.rowIndex="2">
+										</ToggleButton>
+										<ToggleButton id="subMenuToggleButton" fx:id="suggestFeatureToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionSuggestFeatureButton" prefHeight="50.0" GridPane.rowIndex="2">
 											<graphic>
 												<GridPane>
 													<columnConstraints>
@@ -235,8 +234,8 @@
 													</children>
 												</GridPane>
 											</graphic>
-										</Button>
-										<Button fx:id="participateButton" alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionParticipateButton" prefHeight="50.0" GridPane.rowIndex="3">
+										</ToggleButton>
+										<ToggleButton id="subMenuToggleButton" fx:id="participateToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionParticipateButton" prefHeight="50.0" GridPane.rowIndex="3">
 											<graphic>
 												<GridPane>
 													<columnConstraints>
@@ -260,7 +259,7 @@
 													</children>
 												</GridPane>
 											</graphic>
-										</Button>
+										</ToggleButton>
 										<ToggleButton id="subMenuToggleButton" fx:id="aboutToggleButton" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onActionAboutToggleButton" prefHeight="50.0" GridPane.rowIndex="4">
 											<graphic>
 												<GridPane>
@@ -272,7 +271,7 @@
 														<RowConstraints vgrow="SOMETIMES" />
 													</rowConstraints>
 													<children>
-														<ImageView fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+														<ImageView fitWidth="32.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
 															<image>
 																<Image url="@../../resources/images/logo_48x48.png" />
 															</image>
@@ -335,7 +334,7 @@
 						<Blend />
 					</effect>
 					<content>
-						<AnchorPane prefHeight="200.0" prefWidth="200.0">
+						<AnchorPane>
 							<children>
 								<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 									<columnConstraints>

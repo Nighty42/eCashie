@@ -26,6 +26,6 @@ public class DatabaseBuildException extends Exception
 			new UnexpectedBehaviourException();
 		}
 		
-		MainAppController.exitecashie();
+		MainAppController.exitApplication();
 	}
 }

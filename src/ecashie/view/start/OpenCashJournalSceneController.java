@@ -92,6 +92,9 @@ public class OpenCashJournalSceneController
 	private void initializeRecentUsedDatabase()
 	{
 		filePathFieldController.getInputField().setText(AppSettings.recentUsedDatabase);
+		if (!AppSettings.recentUsedDatabase.isEmpty()) {
+			saveHistoryCheckBox.setSelected(true);
+		}
 	}
 
 	// ================================================================================

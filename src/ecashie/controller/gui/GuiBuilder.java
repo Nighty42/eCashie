@@ -29,7 +29,7 @@ public class GuiBuilder
 		primaryStage.getIcons().add(new Image(MainApp.class.getResourceAsStream("resources/images/logo_48x48.png")));
 
 		primaryStage.setOnCloseRequest((WindowEvent we) -> {
-			MainAppController.exitecashie();
+			MainAppController.exitApplication();
 		});
 	}
 

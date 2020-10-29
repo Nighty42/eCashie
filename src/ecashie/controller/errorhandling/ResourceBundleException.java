@@ -15,6 +15,6 @@ public class ResourceBundleException extends Exception
 
 		GeneralExceptionHandler.logException(this, messageKey);
 
-		MainAppController.exitecashie();
+		MainAppController.exitApplication();
 	}
 }

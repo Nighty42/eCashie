@@ -50,12 +50,11 @@ public class MainAppController
 
 			initializeSecurityProvider();
 
-			initializeecashieLanguage();
+			initializeApplicationLanguage();
 
 			initializePrimaryStage(primaryStage);
 		}
-		catch (NullPointerException | SecurityException | IOException | IllegalArgumentException
-				| ParserConfigurationException | SAXException e)
+		catch (Exception e)
 		{
 			new UnexpectedBehaviourException();
 		}
@@ -64,7 +63,6 @@ public class MainAppController
 	private static void initializePrimaryStage(Stage primaryStage)
 	{
 		GuiBuilder.primaryStage = primaryStage;
-
 		GuiBuilder.initializePrimaryStage();
 	}
 
@@ -85,7 +83,7 @@ public class MainAppController
 		Security.addProvider(new BouncyCastleProvider());
 	}
 
-	private static void initializeecashieLanguage() throws IOException
+	private static void initializeApplicationLanguage() throws IOException
 	{				
 		LanguageUtils.changeLanguage(AppSettings.language);
 	}
@@ -102,8 +100,10 @@ public class MainAppController
 		AppSettings.read();
 	}
 
-	public static void exitecashie()
+	public static void exitApplication()
 	{
+		GuiBuilder.primaryStage.close();
+		
 		closeDatabase();
 
 		writeUserSettings();
@@ -260,7 +260,7 @@ public class MainAppController
 			}
 
 			GeneralExceptionHandler.generateAlert(resourceBundleString.getMessageHeader(),
-					resourceBundleString.getMessageContent(), "https://sourceforge.net/p/ecashie/tickets/new/");
+					resourceBundleString.getMessageContent(), "https://github.com/mariusraht1/eCashie/issues/new");
 		}
 	}
 }
