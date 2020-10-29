@@ -1,5 +1,5 @@
 # eCashie [ALPHA]
-User-friendly Cash Journal for private Persons.
+User-friendly Cash Journal for private persons.
 <p>
 <hr>
 <b>For Application User</b>
